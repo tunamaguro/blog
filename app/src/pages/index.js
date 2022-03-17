@@ -1,24 +1,50 @@
-import * as React from "react"
+import React from "react"
+import { graphql, Link } from "gatsby"
+import PageBase from "../components/PageBase"
 
-const BlogIndex = () => {
+const BlogIndex = ({ data }) => {
+  const posts = data.allMarkdownRemark.nodes
   return (
-    <div className="flex flex-col min-h-screen max-w-3xl  mx-auto">
-      <header className="px-4 sm:px-6 py-6 bg-lime-300">Super Header</header>
-      
-      <section className="flex-grow prose lg:prose-xl max-w-none">
-        <h1>This is h1</h1>
-        <h2>This is h2</h2>
-        <h3>This is h3</h3>
-        <ul>
-          <li>item 1</li>
-          <li>item 2</li>
-        </ul>
-      </section>
-      <footer className="p-4 border-t-4 border-t-gray-200 text-center bg-yellow-200">
-        @2022 tunamaguro
-      </footer>
-    </div>
+    <PageBase>
+      <ol className="p-4">
+        {posts.map(post => (
+          <Link key={post.fields.slug} to={post.fields.slug} itemProp="url">
+            <li className="p-4 bg-gray-800 rounded-2xl">
+              <article itemScope>
+                <header>
+                  <h2 className="text-3xl">
+                    <span itemProp="headline">{post.frontmatter.title}</span>
+                  </h2>
+                  <small className="text-sm text-gray-500">
+                    {post.frontmatter.date} 公開
+                  </small>
+                </header>
+                <p itemProp="description">{post.excerpt}</p>
+              </article>
+            </li>
+          </Link>
+        ))}
+      </ol>
+    </PageBase>
   )
 }
 
 export default BlogIndex
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "YYYY/MM/DD")
+          title
+          description
+        }
+        excerpt
+      }
+    }
+  }
+`
