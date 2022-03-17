@@ -6,7 +6,7 @@ const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
   return (
     <PageBase>
-      <ol className="p-4">
+      <ol>
         {posts.map(post => (
           <Link key={post.fields.slug} to={post.fields.slug} itemProp="url">
             <li className="p-4 bg-gray-800 rounded-2xl">
