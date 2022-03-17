@@ -4,7 +4,7 @@ date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
 ---
 
-ハローワールド!!!
+# ハローワールド!!!
 
 I'm sure I'll write a lot more interesting things in the future.
 
@@ -138,6 +138,11 @@ This is a paragraph.
 ```markdown
 - `code goes` here in this line
 - **bold** goes here
+```
+
+```javascript
+let a = 1
+console.log(a ** a)
 ```
 
 1. Buy flour and salt
