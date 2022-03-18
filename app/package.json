@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "tunamaguro-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "tunamaguro's blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "tunamguro",
   "dependencies": {
     "gatsby": "^4.9.2",
     "gatsby-plugin-feed": "^4.9.0",
@@ -39,14 +36,7 @@
     "tailwindcss": "^3.0.23"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
   "license": "0BSD",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
