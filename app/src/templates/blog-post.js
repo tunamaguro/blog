@@ -14,7 +14,7 @@ const BlogPostTemplate = ({ data }) => {
         description={post?.frontmatter?.title || post.excerpt}
       />
       <section
-        className="prose lg:prose-lg"
+        className="prose lg:prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
     </PageBase>
