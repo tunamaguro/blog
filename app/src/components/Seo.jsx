@@ -30,7 +30,7 @@ const Seo = ({ description, title = "" }) => {
         { name: "og:type", content: "website" },
         { name: "og:description", content: metaDescription },
         { name: "og:image", content: ogpImage },
-        { name: "twitter:card", content: "summery" },
+        { name: "twitter:card", content: "summary" },
         {
           name: "twitter:creator",
           content: site.siteMetadata?.social?.twitter || "",
