@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 
 import ogpImage from "../images/icon.png"
 
-const Seo = ({ descripton, title }) => {
+const Seo = ({ description, title = "" }) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -18,7 +18,7 @@ const Seo = ({ descripton, title }) => {
       }
     }
   `)
-  const metaDescription = descripton || site.siteMetadata?.descripton
+  const metaDescription = description || site.siteMetadata.description
   const defaultTitle = title || site.siteMetadata?.title
   return (
     <Helmet
