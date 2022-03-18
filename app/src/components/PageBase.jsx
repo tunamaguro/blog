@@ -1,10 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 const PageBase = ({ children }) => (
   <div className="flex flex-col min-h-screen max-w-3xl  mx-auto">
     <header className="px-4 sm:px-6 py-4 border-b-2 border-b-gray-400">
-      <Link to="/">
+      <Link to="/" className="flex">
+        <StaticImage src="../images/icon.png" alt="icon" class="w-10 mr-2" />
         <span className="text-2xl font-bold italic">tunamaguro/blog</span>
       </Link>
     </header>
