@@ -11,7 +11,7 @@ const BlogIndex = ({ data }) => {
       <ol>
         {posts.map(post => (
           <Link key={post.fields.slug} to={post.fields.slug} itemProp="url">
-            <li className="p-4 border-2 border-gray-300 rounded-2xl hover:bg-slate-100 hover:shadow-md">
+            <li className="p-4 border-2 border-gray-300 rounded-2xl hover:bg-slate-100 hover:shadow-md mb-4">
               <article itemScope>
                 <header>
                   <h2 className="text-3xl">
