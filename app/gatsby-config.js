@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `tunamaguro Blog`,
     description: `tunamaguroのブログです`,
-    siteUrl: `http://localhost:8000`,
+    siteUrl: `https://tunamaguro.dev/`,
     social: {
       twitter: "tsu7magu6",
     },
@@ -125,6 +125,8 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    // google analytics
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -134,5 +136,8 @@ module.exports = {
         },
       },
     },
+
+    // site map
+    `gatsby-plugin-sitemap`,
   ],
 }
