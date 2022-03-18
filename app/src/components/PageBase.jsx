@@ -12,7 +12,17 @@ const PageBase = ({ children }) => (
     </header>
     <main className="flex-grow p-4">{children}</main>
     <footer className="p-4 border-t-2 border-t-gray-400 text-center text-gray-400">
-      © 2022 tunamaguro
+      <div class="mb-2">© 2022 tunamaguro</div>
+      <div>
+        Build with{"   "}
+        <a href="https://www.gatsbyjs.com/">
+          <StaticImage
+            src="../images/gatsby-icon.png"
+            alt="Gatsby"
+            class="w-6"
+          />
+        </a>
+      </div>
     </footer>
   </div>
 )
