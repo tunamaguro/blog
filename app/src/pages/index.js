@@ -1,11 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import PageBase from "../components/PageBase"
+import Seo from "../components/Seo"
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
   return (
     <PageBase>
+      <Seo />
       <ol>
         {posts.map(post => (
           <Link key={post.fields.slug} to={post.fields.slug} itemProp="url">
