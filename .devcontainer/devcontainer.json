@@ -16,11 +16,20 @@
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
 	"workspaceFolder": "/workspace",
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"settings": {
+		"files.associations": {
+			"*.css": "tailwindcss"
+		},
+		"editor.quickSuggestions": {
+			"strings": true
+		}
+	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"esbenp.prettier-vscode",
-		"GraphQL.vscode-graphql"
+		"GraphQL.vscode-graphql",
+		"bradlc.vscode-tailwindcss",
+		"Syler.sass-indented"
 	]
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
