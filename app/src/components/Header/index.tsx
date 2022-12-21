@@ -13,9 +13,9 @@ export const Header: React.FC = ({}) => {
   `);
 
   return (
-    <header className="navbar bg-base-100">
+    <header className="navbar bg-base-300">
       <div className="flex-1">
-        <Link to="#" className="flex text-2xl md:text-3xl">
+        <Link to="#" className="flex text-2xl">
           <span className="btn btn-ghost normal-case no-animation text-2xl md:text-3xl">
             {data.site.siteMetadata.title}
           </span>
