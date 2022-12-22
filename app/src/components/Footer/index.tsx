@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
       <div className="grid grid-flow-col items-baseline">
         Build with
         <a href="https://www.gatsbyjs.com/" target="_blank">
-          Gatsbyjs
+          Gatsby.js
           <StaticImage
             alt="GatsbyIcon"
             src="../../images/icon.png"
