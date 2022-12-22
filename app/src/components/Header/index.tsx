@@ -3,7 +3,7 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 
 export const Header: React.FC = ({}) => {
   const data = useStaticQuery(graphql`
-    query MyQuery {
+    query TitleQuery {
       site {
         siteMetadata {
           title
@@ -16,7 +16,7 @@ export const Header: React.FC = ({}) => {
     <header className="navbar bg-base-300">
       <div className="flex-1">
         <Link to="#" className="flex text-2xl">
-          <span className="btn btn-ghost normal-case no-animation text-2xl md:text-3xl">
+          <span className="font-bold text-2xl md:text-3xl mx-4">
             {data.site.siteMetadata.title}
           </span>
         </Link>
