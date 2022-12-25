@@ -4,13 +4,17 @@ import { Header } from "../components/Header";
 import Seo from "../components/Seo";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
+import { PostList } from "../components/PostList";
 
 const LayoutCheck: React.FC<PageProps> = ({}) => {
   return (
     <>
-      <Header />
-      <Hero />
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <Hero />
+        <PostList />
+        <Footer />
+      </div>
     </>
   );
 };
