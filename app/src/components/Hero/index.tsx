@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col gap-2  justify-center">
-          <div className="text-2xl font-bold">
+          <div className="text-2xl font-bold text-primary-content">
             {data.site.siteMetadata.author}
           </div>
           <div>コードを書かないと死にます</div>
