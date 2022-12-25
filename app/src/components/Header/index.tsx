@@ -15,7 +15,7 @@ export const Header: React.FC = ({}) => {
   return (
     <header className="navbar bg-base-300">
       <div className="flex-1">
-        <Link to="#" className="flex text-2xl">
+        <Link to="/" className="flex text-2xl">
           <span className="font-bold text-2xl md:text-3xl mx-4">
             {data.site.siteMetadata.title}
           </span>
@@ -24,13 +24,13 @@ export const Header: React.FC = ({}) => {
       <nav className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="#">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="#">Blog</Link>
+            <Link to="/articles">Blog</Link>
           </li>
           <li>
-            <Link to="#">About</Link>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </nav>

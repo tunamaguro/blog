@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 
 import { PostCard } from "./PostCard";
 
@@ -14,6 +14,7 @@ export const PostList: React.FC = () => {
             date(formatString: "yyyy-MM-DD")
             emoji
             tags
+            slug
           }
         }
       }
@@ -34,10 +35,12 @@ export const PostList: React.FC = () => {
               emoji: string | undefined;
               date: string;
               tags: string[];
+              slug: string;
             };
           }) => (
             <PostCard
               title={node.frontmatter.title}
+              slug={node.frontmatter.slug}
               emoji={node.frontmatter.emoji}
               date={node.frontmatter.date}
               tags={node.frontmatter.tags}

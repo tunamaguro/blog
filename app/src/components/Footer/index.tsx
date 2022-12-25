@@ -15,13 +15,13 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer footer-center p-10 bg-neutral text-neutral-content rounded">
       <div className="grid grid-flow-col gap-4">
-        <Link to="#" className="link link-hover">
+        <Link to="/" className="link link-hover">
           Home
         </Link>
-        <Link to="#" className="link link-hover">
+        <Link to="/articles" className="link link-hover">
           Blog
         </Link>
-        <Link to="#" className="link link-hover">
+        <Link to="/about" className="link link-hover">
           About
         </Link>
       </div>
