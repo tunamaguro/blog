@@ -6,7 +6,7 @@ import { PostCard } from "./PostCard";
 export const PostList: React.FC = () => {
   const data = useStaticQuery(graphql`
     query PostsQuery {
-      allMdx {
+      allMdx(sort: { frontmatter: { date: DESC } }) {
         nodes {
           id
           frontmatter {

@@ -32,6 +32,7 @@ const config: GatsbyConfig = {
               maxWidth: 630,
             },
           },
+          `gatsby-remark-prismjs-title`,
 
           {
             resolve: "gatsby-remark-prismjs",
@@ -41,7 +42,6 @@ const config: GatsbyConfig = {
               noInlineHighlight: false,
             },
           },
-          `gatsby-remark-prismjs-title`,
 
           {
             resolve: `gatsby-remark-katex`,
