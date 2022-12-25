@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
         <Link to="/articles" className="link link-hover">
           Blog
         </Link>
-        <Link to="/about" className="link link-hover">
+        <Link to="/articles/about" className="link link-hover">
           About
         </Link>
       </div>

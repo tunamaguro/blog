@@ -39,10 +39,10 @@ export const Hero: React.FC = () => {
           </div>
           <div>コードを書かないと死にます</div>
           <div className="flex flex-row gap-4 text-3xl">
-            <a href="#">
+            <a href="https://twitter.com/tsu7magu6">
               <FontAwesomeIcon icon={faTwitterSquare} />
             </a>
-            <a href="#">
+            <a href="https://github.com/tunamaguro">
               <FontAwesomeIcon icon={faSquareGithub} />
             </a>
           </div>

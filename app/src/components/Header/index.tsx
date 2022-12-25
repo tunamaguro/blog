@@ -30,7 +30,7 @@ export const Header: React.FC = ({}) => {
             <Link to="/articles">Blog</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/articles/about">About</Link>
           </li>
         </ul>
       </nav>

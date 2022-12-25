@@ -1,6 +1,5 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import { Header } from "../components/Header";
 import Seo from "../components/Seo";
 import { Layout } from "../components/Layout";
 import { Hero } from "../components/Hero";
