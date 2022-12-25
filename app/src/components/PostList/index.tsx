@@ -22,7 +22,7 @@ export const PostList: React.FC = () => {
 
   const nodes = data.allMdx.nodes;
   return (
-    <div className="container mx-auto flex-grow">
+    <div className="container mx-auto">
       <h1 className="text-3xl font-bold border-b-4 border-base-content py-4">
         Blog
       </h1>
