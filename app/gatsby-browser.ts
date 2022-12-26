@@ -7,3 +7,7 @@ import "./src/styles/prism.css";
 
 // katex
 import "katex/dist/katex.min.css";
+
+// fonts
+import "@fontsource/inter";
+import "@fontsource/noto-sans-jp";
