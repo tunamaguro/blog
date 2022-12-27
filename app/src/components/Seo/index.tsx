@@ -36,7 +36,7 @@ const Seo: FC<SeoProps> = ({ title, desription, pathname, image }) => {
   return (
     <>
       <title>{seo.title}</title>
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary" />
       <meta property="og:title" content={seo.title} />
       <meta property="og:url" content={seo.url} />
       <meta property="og:description" content={seo.description} />
