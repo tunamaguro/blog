@@ -29,13 +29,19 @@ export const query = graphql`
         date(formatString: "yyyy-MM-DD")
         emoji
         tags
+        slug
       }
+      excerpt(pruneLength: 50)
     }
   }
 `;
 
 export const Head: HeadFC = ({ data }) => (
-  <Seo title={data.mdx.frontmatter.title} />
+  <Seo
+    title={data.mdx.frontmatter.title}
+    desription={data.mdx.excerpt}
+    pathname={`/articles/${data.mdx.frontmatter.slug}`}
+  />
 );
 
 export default BlogPost;
