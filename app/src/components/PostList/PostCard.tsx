@@ -21,7 +21,7 @@ export const PostCard: React.FC<PostCardProps> = ({
     <Link to={`/articles/${slug}`}>
       <div className="flex py-4 gap-4">
         <div className="bg-base-300 p-4 rounded-xl w-24">
-          <Twemoji emoii={emoji || "😺"} />
+          <Twemoji emoji={emoji || "😺"} />
         </div>
         <div className="flex flex-col gap-2">
           <div className="text-primary-content font-bold text-2xl">{title}</div>

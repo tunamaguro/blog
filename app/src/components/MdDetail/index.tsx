@@ -20,7 +20,7 @@ export const MdDetail: React.FC<MdDetailProps> = ({
     <div className="container max-w-5xl mx-auto py-4">
       <div className="flex flex-col items-center gap-2 pb-8">
         <span className="w-24">
-          <Twemoji emoii={emoji || "ℹ️"} />
+          <Twemoji emoji={emoji || "ℹ️"} />
         </span>
         <h1 className="text-4xl font-bold text-primary-content">{title}</h1>
         <p className="">createdAt : {createdAt}</p>
