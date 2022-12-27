@@ -30,7 +30,7 @@ const Seo: FC<SeoProps> = ({ title, desription, pathname, image }) => {
     description: desription || metaData.description,
     url: `${metaData.siteUrl}${pathname || ""}`,
     sitename: metaData.title,
-    image: image || iconImage,
+    image: `${metaData.siteUrl}${image || iconImage}`,
   };
 
   return (
