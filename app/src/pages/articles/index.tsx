@@ -12,6 +12,8 @@ const BlogPost: React.FC<PageProps> = () => {
   );
 };
 
-export const Head: HeadFC = () => <Seo title="Blog Posts" />;
+export const Head: HeadFC = () => (
+  <Seo title="Blog Posts" pathname="/articles" desription="投稿一覧" />
+);
 
 export default BlogPost;
