@@ -13,12 +13,10 @@ export const Header: React.FC = ({}) => {
   `);
 
   return (
-    <header className="navbar bg-base-300">
-      <div className="flex-1">
-        <Link to="/" className="flex text-2xl">
-          <span className="font-bold text-2xl md:text-3xl mx-4">
-            {data.site.siteMetadata.title}
-          </span>
+    <header className="navbar bg-base-300 flex-col md:flex-row">
+      <div>
+        <Link to="/" className="font-bold text-3xl md:text-3xl mx-4">
+          {data.site.siteMetadata.title}
         </Link>
       </div>
       <nav className="flex-none">
