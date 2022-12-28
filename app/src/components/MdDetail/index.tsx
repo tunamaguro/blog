@@ -19,10 +19,12 @@ export const MdDetail: React.FC<MdDetailProps> = ({
   return (
     <div className="container max-w-5xl mx-auto py-4">
       <div className="flex flex-col items-center gap-2 pb-8">
-        <span className="w-24">
+        <span className="w-20 md:w-24">
           <Twemoji emoji={emoji || "ℹ️"} />
         </span>
-        <h1 className="text-4xl font-bold text-primary-content">{title}</h1>
+        <h1 className="text-2xl md:text-4xl font-bold text-primary-content">
+          {title}
+        </h1>
         <p className="">createdAt : {createdAt}</p>
         <div className="grid grid-flow-col gap-4">
           {tags.map((tag) => (

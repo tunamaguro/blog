@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
   `);
   return (
     <div className="container mx-auto">
-      <h1 className="text-3xl font-bold border-b-4 border-base-content py-4">
+      <h1 className="text-2xl md:text-3xl font-bold border-b-4 border-base-content py-4">
         {data.site.siteMetadata.author}のブログへようこそ👋
       </h1>
       <div className="flex py-4 gap-8">
