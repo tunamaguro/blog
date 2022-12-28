@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
         </Link>
       </div>
       <div>
-        Copyright © 2022 - All right reserved by {data.site.siteMetadata.author}
+        Copyright © 2022 {data.site.siteMetadata.author}
       </div>
       <div className="grid grid-flow-col items-baseline">
         Build with
