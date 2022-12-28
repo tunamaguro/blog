@@ -24,7 +24,9 @@ export const PostCard: React.FC<PostCardProps> = ({
           <Twemoji emoji={emoji || "😺"} />
         </div>
         <div className="flex flex-col gap-2">
-          <div className="text-primary-content font-bold text-2xl">{title}</div>
+          <div className="text-primary-content font-bold text-xl md:text-2xl">
+            {title}
+          </div>
           <div>{date}</div>
           <div className="flex gap-2 justify-start">
             {tags.map((tag) => (
