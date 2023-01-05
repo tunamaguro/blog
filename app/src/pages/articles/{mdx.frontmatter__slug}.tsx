@@ -6,7 +6,7 @@ import { MdDetail } from "../../components/MdDetail";
 
 const BlogPost: React.FC<PageProps<Queries.ArticleQueryQuery>> = (props) => {
   const { pageContext, data, children } = props;
-  console.log(props);
+  // console.log(props);
   return (
     <Layout>
       <MdDetail
