@@ -10,6 +10,17 @@ Typescript の練習として type-challenges をやった備忘録です。
 
 [type-challenges のリポジトリ](https://github.com/type-challenges/type-challenges)
 
+## 内容の訂正
+
+前回の投稿では
+
+```typescript
+type A = [...[1, 2, 3]];
+```
+
+のようにスプレッド演算子を使って型を展開することを _Spread_ と紹介していましたが、正しくは*variadic-tuple-types*でした。  
+誤った情報を掲載してしまい申し訳ありませんでした。
+
 ## Hello World
 
 Hello, World!
@@ -339,7 +350,7 @@ type Concat<T extends any[], U extends any[]> = [...T, ...U];
 
 与えられた型を Array.concat のように結合する問題です。実は Typescript でもスプレッド演算子を使う事ができます。
 
-[Spread](https://www.typescriptlang.org/docs/handbook/variable-declarations.html#spread)
+[variadic-tuple-types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#variadic-tuple-types)
 
 これを知っていればもう解答は想像できるでしょう。
 
@@ -349,24 +360,10 @@ Implement the JavaScript Array.includes function in the type system. A type take
 
 [問題](https://github.com/type-challenges/type-challenges/blob/main/questions/00898-easy-includes/README.md)
 
-### 解答例
+解けませんでした。。。 正直一番この中で難しい問題だと思います。
+下の文は色々検証してみた記録です。
 
-```typescript
-type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y
-  ? 1
-  : 2
-  ? true
-  : false;
-
-type Includes<T extends readonly any[], U> = T extends [infer R, ...infer S]
-  ? Equal<R, U> extends true
-    ? true
-    : Includes<S, U>
-  : false;
-```
-
-<div>
-{/* 配列型 T の中に U
+配列型 T の中に U
 が含まれているか判定する問題。単純に考えると以下のようになると思います。
 
 ```typescript
@@ -388,13 +385,29 @@ type unionnumber = Check<1, 1 | 2>; // "Yes" | "No"
 type unionnumber = Check<1 | 2, 1>; // "Yes"
 ```
 
-ここから以下の様なことがわかります。
+ユニオン型については予想通りですがそれいがは少し意外ですね。ここから以下の様なことがわかります。
 
 - boolean の実態は true | false
-- object の修飾子は extends に影響しない \*/}
-  </div>
-  正直一番この中で難しく感じました。
-  本当はうまいこと説明したかったのですが、今の知識だとできないのでまたどこかで詳しい記事を書きます。
+- object の修飾子 readonly は extends に影響しない
+
+つまり、型が同じかどうか厳密に判定できる下のような型 Equals があればいけそうです。
+
+```typescript
+type Equals<T, U> =...なんかすごい処理 => true | false;
+
+type A=Equals<{ a: "A" }, { readonly a: "A" }> //false
+type B=Equals<true, boolean> // false
+type C=Equals<1, 1 | 2> //false
+
+type Includes<T extends readonly any[], U> = T extends [infer R, ...infer S]
+  ? Equals<R, U> extends true
+    ? true
+    : Includes<S, U>
+  : false;
+```
+
+やっていることは、先頭を取り出して Equals===true なら true を返しそうでなければ残りを再度 Includes に入れているだけです。  
+ただ、こうなるような Equals が思いつきませんでした。また時間があるときに詳しく調べて解説記事を書きます。
 
 ## Push
 
@@ -443,7 +456,7 @@ type MyParameters<T extends (...args: any[]) => any> = T extends (
 関数の引数の型をタプルで取得する問題です。javascript の残余引数を知っていればすぐ思いついたのではないでしょうか。
 
 1. [残余引数(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/rest_parameters)
-1. [Spread](https://www.typescriptlang.org/docs/handbook/variable-declarations.html#spread)
+1. [variadic-tuple-types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#variadic-tuple-types)
 1. [Inferring Within Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types)
 
 ## 終わりに
