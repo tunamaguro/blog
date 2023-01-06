@@ -10,6 +10,17 @@ Typescript の練習として type-challenges をやった備忘録です。
 
 [type-challenges のリポジトリ](https://github.com/type-challenges/type-challenges)
 
+## 内容の訂正
+
+前回の投稿では
+
+```typescript
+type A = [...[1, 2, 3]];
+```
+
+のようにスプレッド演算子を使って型を展開することを _Spread_ と紹介していましたが、正しくは*variadic-tuple-types*でした。  
+誤った情報を掲載してしまい申し訳ありませんでした。
+
 ## Hello World
 
 Hello, World!
@@ -339,7 +350,7 @@ type Concat<T extends any[], U extends any[]> = [...T, ...U];
 
 与えられた型を Array.concat のように結合する問題です。実は Typescript でもスプレッド演算子を使う事ができます。
 
-[Spread](https://www.typescriptlang.org/docs/handbook/variable-declarations.html#spread)
+[variadic-tuple-types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#variadic-tuple-types)
 
 これを知っていればもう解答は想像できるでしょう。
 
@@ -445,7 +456,7 @@ type MyParameters<T extends (...args: any[]) => any> = T extends (
 関数の引数の型をタプルで取得する問題です。javascript の残余引数を知っていればすぐ思いついたのではないでしょうか。
 
 1. [残余引数(MDN)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/rest_parameters)
-1. [Spread](https://www.typescriptlang.org/docs/handbook/variable-declarations.html#spread)
+1. [variadic-tuple-types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#variadic-tuple-types)
 1. [Inferring Within Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types)
 
 ## 終わりに
