@@ -3,7 +3,7 @@ title: "type-challenges をやってみる(medium編その2)"
 date: "2023-01-08"
 slug: "try-type-challenges-3"
 emoji: "📏"
-tags: ["tech", "Typescript"]
+tags: ["tech", "TypeScript"]
 ---
 
 Typescript の練習として type-challenges をやった備忘録です。
@@ -254,7 +254,15 @@ Implement RemoveIndexSignature\<T> , exclude the index signature from object typ
 ### 解答例
 
 ```typescript
-
+type RemoveIndexSignature<T> = {
+  [P in keyof T as string extends P
+    ? never
+    : number extends P
+    ? never
+    : symbol extends P
+    ? never
+    : P]: T[P];
+};
 ```
 
 どう考えても keyof を使う問題ですが、Index Signatures に keyof を使ったときの動作がわからなかったのでとりあえず調べてみます。
@@ -385,7 +393,19 @@ The structure should be: [plus or minus, number, unit] If it is not captured, th
 ### 解答例
 
 ```typescript
+type ParseSign<A extends string> = A extends `${"+" | "-"}${string}`
+  ? A extends `${infer L}${string}`
+    ? L
+    : never
+  : "";
 
+type ParsePercentage<A extends string> = A extends `${string}%` ? "%" : "";
+
+type PercentageParser<
+  A extends string,
+  S extends string = ParseSign<A>,
+  P extends string = ParsePercentage<A>
+> = A extends `${S}${infer N}${P}` ? [S, N, P] : never;
 ```
 
 この問題は３つの工程に分解して考えます。
