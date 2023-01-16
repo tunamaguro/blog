@@ -15,3 +15,9 @@ code[class*="language-"] {
 .token.class-name {
   text-decoration: none;
 }
+
+p{
+  code{
+    @apply font-sans;
+  }
+}
