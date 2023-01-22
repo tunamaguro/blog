@@ -19,6 +19,7 @@ export const Header: React.FC = ({}) => {
           {data.site.siteMetadata.title}
         </Link>
       </div>
+      <span className="flex-grow" />
       <nav className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
