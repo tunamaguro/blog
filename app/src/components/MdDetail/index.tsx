@@ -22,7 +22,7 @@ export const MdDetail: React.FC<MdDetailProps> = ({
         <span className="w-20 md:w-24">
           <Twemoji emoji={emoji || "ℹ️"} />
         </span>
-        <h1 className="text-center break-words text-2xl md:text-4xl font-bold text-primary-content">
+        <h1 className="text-2xl md:text-4xl font-bold text-primary-content">
           {title}
         </h1>
         <p className="">createdAt : {createdAt}</p>
@@ -33,7 +33,7 @@ export const MdDetail: React.FC<MdDetailProps> = ({
         </div>
       </div>
       <div className="bg-base-200 p-8 rounded-3xl">
-        <div className="prose max-w-none break-words">{children}</div>
+        <div className="prose max-w-none">{children}</div>
       </div>
     </div>
   );
