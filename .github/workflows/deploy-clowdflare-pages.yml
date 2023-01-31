@@ -3,7 +3,7 @@ on: [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defalts:
+    defaults:
       run:
         working-directory: app
     steps:
