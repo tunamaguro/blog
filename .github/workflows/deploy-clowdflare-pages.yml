@@ -1,0 +1,46 @@
+name: Deploy Clowdflare Pages
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          cache: "npm"
+          cache-dependency-path: app/package-lock.json
+
+      - run: npm ci
+
+      - name: Gatsby Build
+        run: npm run build
+
+      - name: Deploy Cloudflare Pages
+        id: cloudflare_pages_deploy
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ID }}
+          projectName: blog
+          directory: app/public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add publish URL as commit status
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const sha = context.payload.pull_request?.head.sha ?? context.sha;
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              context: 'Cloudflare Pages',
+              description: 'Cloudflare Pages deployment',
+              state: 'success',
+              sha,
+              target_url: "${{ steps.cloudflare_pages_deploy.outputs.url }}",
+            });
