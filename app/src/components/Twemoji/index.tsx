@@ -14,6 +14,7 @@ export const Twemoji: React.FC<TwemojiProps> = ({ emoji }) => {
           __html: twemoji.parse(emoji, {
             folder: "svg",
             ext: ".svg",
+            base: "/",
           }),
         }}
       />
