@@ -3,6 +3,9 @@ import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 
 // https://astro.build/config
+import tailwind from "@astrojs/tailwind";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), preact()],
+  integrations: [mdx(), preact(), tailwind()]
 });
