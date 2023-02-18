@@ -1,11 +1,10 @@
 ---
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { Layout } from "./Layout";
 ---
 
-<Header siteTitle="aaaa" />
-<h1><slot /></h1>
-<Footer author="aaa" />
+<Layout siteTitle="aaa" author="aaaa">
+  <h1><slot /></h1>
+</Layout>
 
 <style style="scss">
   h1 {
