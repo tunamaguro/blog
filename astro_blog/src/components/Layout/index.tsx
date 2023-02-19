@@ -1,4 +1,4 @@
-import type { FunctionComponent } from "preact";
+import type { FunctionComponent, ReactNode } from "react";
 
 import { Header } from "../Header";
 import { Footer } from "../Footer";
@@ -6,6 +6,7 @@ import { Footer } from "../Footer";
 type Props = {
   siteTitle: string;
   author: string;
+  children: ReactNode;
 };
 
 export const Layout: FunctionComponent<Props> = ({

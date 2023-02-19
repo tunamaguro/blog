@@ -1,4 +1,4 @@
-import type { FunctionComponent } from "preact";
+import type { FunctionComponent } from "react";
 
 type Props = {
   author: string;
