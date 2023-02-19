@@ -1,8 +1,10 @@
 ---
 import { Layout } from "./Layout";
+import Seo from "./Seo/index.astro";
 ---
 
-<Layout siteTitle="aaa" author="aaaa">
+<Layout siteTitle="tunamaguro's blog" author="tunamaguro">
+  <Seo />
   <h1><slot /></h1>
 </Layout>
 

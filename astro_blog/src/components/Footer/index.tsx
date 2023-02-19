@@ -17,7 +17,7 @@ export const Footer: FunctionComponent<Props> = ({ author }) => (
         About
       </a>
     </div>
-    <div>Copyright © 2022 {author}</div>
+    <div>Copyright © 2023 {author}</div>
     <div className="flex items-center">
       Build with
       <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">
