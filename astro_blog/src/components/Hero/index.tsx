@@ -17,11 +17,11 @@ export const Hero: FunctionComponent<Props> = ({ author }) => (
     </h1>
     <div className="flex py-4 gap-8">
       <div className="avatar">
-        <div className="w-40 p-3 rounded-full bg-base-300">
+        <div className="w-40 p-3 rounded-full bg-base-300 ">
           <img
             alt="tsunamaguro icon"
-            src="/icon.png"
-            className="transform rotate-45 translate-y-4"
+            src="/maguro.png"
+            className="transform rotate-45 translate-y-4 !h-24"
           />
         </div>
       </div>
