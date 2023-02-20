@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Hero } from "@/components/Hero";
+import { PostList } from "@/components/PostList";
+
+const articles = await getCollection("article");
+const card_info = articles.map((article) => ({
+  ...article.data,
+  slug: article.slug,
+}));
+---
+
+<BaseLayout>
+  <Hero author="tunamaguro" />
+  <PostList cards={card_info} />
+</BaseLayout>
