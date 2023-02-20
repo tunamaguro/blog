@@ -14,7 +14,7 @@ export const PostList: FC<Props> = ({ cards }) => {
       </h1>
       <div className="flex flex-col">
         {cards.map((card) => (
-          <PostCard {...card} />
+          <PostCard key={card.slug} {...card} />
         ))}
       </div>
     </div>
