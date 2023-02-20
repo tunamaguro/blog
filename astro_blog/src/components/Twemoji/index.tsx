@@ -20,7 +20,7 @@ export const Twemoji: FC<TwemojiProps> = ({ emoji, className }) => {
   }
   return (
     <img
-      className={`h-8 w-8 ${className}`}
+      className={className}
       draggable="false"
       alt={twemojiPath.text}
       loading="lazy"
