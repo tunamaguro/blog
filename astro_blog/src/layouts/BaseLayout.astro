@@ -1,0 +1,19 @@
+---
+import { Layout } from "@/components/Layout";
+import Seo from "@/components/Seo/index.astro";
+
+const siteTitle = "tunamaguro's blog";
+const author = "tunamaguro";
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <Seo />
+  </head>
+  <body>
+    <Layout siteTitle={siteTitle} author={author}>
+      <slot />
+    </Layout>
+  </body>
+</html>
