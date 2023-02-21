@@ -9,12 +9,16 @@ type TwemojiProps = {
 const getFirstwemojiUrl = (text: string) => {
   const entities = parse(text, {
     assetType: "svg",
+    buildUrl: (codepoints, assetType) => {
+      return `/svg/${codepoints}.${assetType}`;
+    },
   });
   return entities.length === 0 ? null : entities[0];
 };
 
 export const Twemoji: FC<TwemojiProps> = ({ emoji, className }) => {
   const twemojiPath = getFirstwemojiUrl(emoji);
+  console.log(twemojiPath);
   if (!twemojiPath) {
     throw Error("Not emoji found");
   }
