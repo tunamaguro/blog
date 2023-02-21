@@ -1,3 +1,5 @@
+import "katex/dist/katex.min.css";
+
 import type { FC } from "react";
 import { Twemoji } from "../Twemoji";
 
@@ -26,7 +28,9 @@ export const MdDetail: FC<MdDetailProps> = ({
         <p className="">createdAt : {createdAt}</p>
         <div className="grid grid-flow-col gap-4">
           {tags.map((tag) => (
-            <div className="badge badge-outline">{tag}</div>
+            <div key={tag} className="badge badge-outline">
+              {tag}
+            </div>
           ))}
         </div>
       </div>
