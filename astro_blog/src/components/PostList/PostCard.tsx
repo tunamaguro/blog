@@ -31,7 +31,9 @@ export const PostCard: FC<PostCardProps> = ({
             <div>{date}</div>
             <div className="flex gap-2 justify-start">
               {tags.map((tag) => (
-                <div className="badge badge-outline">{tag}</div>
+                <div key={tag} className="badge badge-outline">
+                  {tag}
+                </div>
               ))}
             </div>
           </div>
