@@ -18,7 +18,6 @@ const getFirstwemojiUrl = (text: string) => {
 
 export const Twemoji: FC<TwemojiProps> = ({ emoji, className }) => {
   const twemojiPath = getFirstwemojiUrl(emoji);
-  console.log(twemojiPath);
   if (!twemojiPath) {
     throw Error("Not emoji found");
   }
