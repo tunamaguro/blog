@@ -7,9 +7,15 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 import react from "@astrojs/react";
 
+// https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
 // remark
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+
+// https://astro.build/config
+import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +23,6 @@ export default defineConfig({
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
   },
-  integrations: [mdx(), tailwind(), react()],
-  site: "http://localhost:3000/",
+  integrations: [mdx(), tailwind(), react(), sitemap(), robotsTxt()],
+  site: "http://tunamaguro.dev:3000/",
 });
