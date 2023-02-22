@@ -24,5 +24,5 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
   },
   integrations: [mdx(), tailwind(), react(), sitemap(), robotsTxt()],
-  site: "http://tunamaguro.dev:3000/",
+  site: "http://tunamaguro.dev/",
 });
