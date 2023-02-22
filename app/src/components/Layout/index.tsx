@@ -1,15 +1,22 @@
-import React from "react";
+import type { FunctionComponent, ReactNode } from "react";
+
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 
-export const Layout: React.FC<{ children?: React.ReactNode }> = ({
-  children,
-}) => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">{children}</main>
-      <Footer />
-    </div>
-  );
+type Props = {
+  siteTitle: string;
+  author: string;
+  children: ReactNode;
 };
+
+export const Layout: FunctionComponent<Props> = ({
+  children,
+  author,
+  siteTitle,
+}) => (
+  <div className="flex flex-col min-h-screen">
+    <Header siteTitle={siteTitle} />
+    <main className="flex-grow">{children}</main>
+    <Footer author={author} />
+  </div>
+);

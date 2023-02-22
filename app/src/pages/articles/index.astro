@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { PostList } from "@/components/PostList";
+
+const articles = await getCollection("article");
+
+const card_info = articles
+  .map((article) => ({
+    ...article.data,
+    slug: article.slug,
+  }))
+  .sort((a, b) => (a.date < b.date ? 1 : -1));
+---
+
+<BaseLayout>
+  <PostList cards={card_info} />
+</BaseLayout>

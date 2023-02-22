@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from "astro:content";
+type Props = {
+  frontmatter: CollectionEntry<"article">["data"];
+};
+
+import BaseLayout from "./BaseLayout.astro";
+import { MdDetail } from "@/components/MdDetail";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <MdDetail
+    title={frontmatter.title}
+    emoji={frontmatter.emoji}
+    createdAt={frontmatter.date}
+    tags={frontmatter.tags}
+  >
+    <slot />
+  </MdDetail>
+</BaseLayout>

@@ -17,7 +17,7 @@ jobs:
 
       - run: npm ci
 
-      - name: Gatsby Build
+      - name: Astro Build
         run: npm run build
 
       - name: Deploy Cloudflare Pages
@@ -27,7 +27,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ID }}
           projectName: blog
-          directory: app/public
+          directory: app/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Add publish URL as commit status

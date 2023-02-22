@@ -1,5 +1,4 @@
-import { Link } from "gatsby";
-import React from "react";
+import type { FC } from "react";
 import { Twemoji } from "../Twemoji";
 
 type PostCardProps = {
@@ -10,7 +9,7 @@ type PostCardProps = {
   slug: string;
 };
 
-export const PostCard: React.FC<PostCardProps> = ({
+export const PostCard: FC<PostCardProps> = ({
   tags,
   date,
   title,
@@ -19,11 +18,12 @@ export const PostCard: React.FC<PostCardProps> = ({
 }) => {
   return (
     <article className="px-2">
-      <Link to={`/articles/${slug}`}>
+      <a href={`/articles/${slug}`}>
         <div className="flex py-4 gap-4">
-          <div className="bg-base-300 p-4 rounded-xl w-24 h-24 flex-shrink-0">
-            <Twemoji emoji={emoji || "😺"} />
-          </div>
+          <Twemoji
+            className="bg-base-300 p-4 rounded-xl w-24 h-24 flex-shrink-0"
+            emoji={emoji || "😺"}
+          />
           <div className={`flex flex-col gap-2`}>
             <div className="text-primary-content font-bold text-xl md:text-2xl">
               {title}
@@ -31,12 +31,14 @@ export const PostCard: React.FC<PostCardProps> = ({
             <div>{date}</div>
             <div className="flex gap-2 justify-start">
               {tags.map((tag) => (
-                <div className="badge badge-outline">{tag}</div>
+                <div key={tag} className="badge badge-outline">
+                  {tag}
+                </div>
               ))}
             </div>
           </div>
         </div>
-      </Link>
+      </a>
     </article>
   );
 };

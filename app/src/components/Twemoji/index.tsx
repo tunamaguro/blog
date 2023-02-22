@@ -1,23 +1,33 @@
-import React from "react";
-import twemoji from "twemoji";
+import type { FC } from "react";
+import { parse } from "twemoji-parser";
 
 type TwemojiProps = {
   emoji: string;
+  className?: string;
 };
 
-export const Twemoji: React.FC<TwemojiProps> = ({ emoji }) => {
+const getFirstwemojiUrl = (text: string) => {
+  const entities = parse(text, {
+    assetType: "svg",
+    buildUrl: (codepoints, assetType) => {
+      return `/svg/${codepoints}.${assetType}`;
+    },
+  });
+  return entities.length === 0 ? null : entities[0];
+};
+
+export const Twemoji: FC<TwemojiProps> = ({ emoji, className }) => {
+  const twemojiPath = getFirstwemojiUrl(emoji);
+  if (!twemojiPath) {
+    throw Error("Not emoji found");
+  }
   return (
-    <>
-      <span
-        className="block w-auto h-auto"
-        dangerouslySetInnerHTML={{
-          __html: twemoji.parse(emoji, {
-            folder: "svg",
-            ext: ".svg",
-            base: "/",
-          }),
-        }}
-      />
-    </>
+    <img
+      className={className}
+      draggable="false"
+      alt={twemojiPath.text}
+      loading="lazy"
+      src={twemojiPath.url}
+    />
   );
 };
