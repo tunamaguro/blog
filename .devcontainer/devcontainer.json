@@ -32,7 +32,8 @@
         "Syler.sass-indented",
         "astro-build.astro-vscode",
         "mhutchie.git-graph",
-        "unifiedjs.vscode-mdx"
+        "unifiedjs.vscode-mdx",
+        "streetsidesoftware.code-spell-checker"
       ]
     }
   }
