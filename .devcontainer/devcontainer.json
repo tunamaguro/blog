@@ -37,10 +37,8 @@
         "ICS.japanese-proofreading"
       ]
     }
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/git-lfs:1": {}
-}
+  }
+
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
   // Uncomment the next line if you want start specific services in your Docker Compose config.
