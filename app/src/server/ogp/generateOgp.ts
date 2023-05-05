@@ -3,13 +3,10 @@ import satori from "satori";
 import sharp from "sharp";
 import fs from "fs/promises";
 import path from "path";
-import { fileURLToPath } from "url";
 
 export async function generateOgp(title: string) {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
   const font = await fs.readFile(
-    path.resolve(__dirname, "./NotoSansJP-Regular.ttf")
+    path.resolve(process.cwd(), "src/utils/ogp", "./NotoSansJP-Regular.ttf")
   );
   const svg = await satori(Ogp({ title }), {
     // Ogpの推奨サイズが1200x630らしい。要調査
