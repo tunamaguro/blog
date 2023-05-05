@@ -2,6 +2,14 @@
 import { Layout } from "@/components/Layout";
 import Seo from "@/components/Seo/index.astro";
 
+interface Props {
+  title?: string;
+  description?: string;
+  ogpImage?: string;
+}
+
+const { description, title, ogpImage } = Astro.props;
+
 const siteTitle = "tunamaguro's blog";
 const author = "tunamaguro";
 ---
@@ -9,7 +17,7 @@ const author = "tunamaguro";
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <Seo />
+    <Seo title={title} description={description} ogpImage={ogpImage} />
   </head>
   <body>
     <Layout siteTitle={siteTitle} author={author}>

@@ -1,4 +1,6 @@
 import { defineConfig } from "astro/config";
+import { sharpImageService } from "astro/assets";
+
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
@@ -25,4 +27,10 @@ export default defineConfig({
   },
   integrations: [mdx(), tailwind(), react(), sitemap(), robotsTxt()],
   site: "http://www.tunamaguro.dev/",
+  experimental: {
+    assets: true,
+  },
+  image: {
+    service: sharpImageService(),
+  },
 });
