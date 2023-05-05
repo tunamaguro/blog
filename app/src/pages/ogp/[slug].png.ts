@@ -1,7 +1,6 @@
 import type { APIContext, APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { generateOgp } from "@/server/ogp/generateOgp";
-import path from "path";
 
 export const getStaticPaths = async () => {
   const articles = await getCollection("article");
@@ -16,10 +15,7 @@ export const getStaticPaths = async () => {
 
 export const get: APIRoute = async ({ props, site }: APIContext) => {
   const title = props.data.title;
-  const png = await generateOgp(
-    title,
-    path.join(site?.toString() ?? "", "maguro.png")
-  );
+  const png = await generateOgp(title);
   return new Response(png, {
     status: 200,
     headers: {
