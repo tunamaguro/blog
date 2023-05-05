@@ -1,16 +1,20 @@
 ---
+import type { MDXLayoutProps, MarkdownLayoutProps } from "astro";
 import type { CollectionEntry } from "astro:content";
-type Props = {
-  frontmatter: CollectionEntry<"article">["data"];
-};
+
+type Props = MarkdownLayoutProps<CollectionEntry<"article">["data"]>;
 
 import BaseLayout from "./BaseLayout.astro";
 import { MdDetail } from "@/components/MdDetail";
+import { getMarkdownExcerpt } from "@/server/getMarkdownExcerpt";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, rawContent } = Astro.props;
+
+// もしrawContentがなかったデフォルトのdescriptionを使用する
+const description = getMarkdownExcerpt(rawContent?.() ?? "") || undefined;
 ---
 
-<BaseLayout>
+<BaseLayout title={frontmatter.title} description={description}>
   <MdDetail
     title={frontmatter.title}
     emoji={frontmatter.emoji}
