@@ -1,6 +1,6 @@
 import type { APIContext, APIRoute } from "astro";
 import { getCollection } from "astro:content";
-import { generateOgp } from "@/utils/ogp/generateOgp";
+import { generateOgp } from "@/server/ogp/generateOgp";
 import path from "path";
 
 export const getStaticPaths = async () => {
