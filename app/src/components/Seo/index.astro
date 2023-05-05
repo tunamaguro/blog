@@ -6,12 +6,12 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const imageURL = new URL("/icon.png", Astro.site);
+const defaultOgpImageURL = new URL("/maguro.png", Astro.site);
 
 const {
   title = `tunamaguro's blog`,
   description = "tunamaguro's website",
-  image = imageURL.toString(),
+  image = defaultOgpImageURL.toString(),
 } = Astro.props;
 ---
 
