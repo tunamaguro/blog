@@ -1,5 +1,5 @@
 ---
-import type { MDXLayoutProps, MarkdownLayoutProps } from "astro";
+import type { MarkdownLayoutProps } from "astro";
 import type { CollectionEntry } from "astro:content";
 
 type Props = MarkdownLayoutProps<CollectionEntry<"article">["data"]>;
@@ -10,11 +10,22 @@ import { getMarkdownExcerpt } from "@/server/getMarkdownExcerpt";
 
 const { frontmatter, rawContent } = Astro.props;
 
+// もしスラグがない=ブログ用コンテンツでなければデフォルトのogpを利用する
+const ogpImageUrl =
+  Astro.params.slug &&
+  new URL(`/ogp/${Astro.params.slug}.png`, Astro.url).toString();
+
+console.log(ogpImageUrl);
+
 // もしrawContentがなかったデフォルトのdescriptionを使用する
 const description = getMarkdownExcerpt(rawContent?.() ?? "") || undefined;
 ---
 
-<BaseLayout title={frontmatter.title} description={description}>
+<BaseLayout
+  title={frontmatter.title}
+  description={description}
+  ogpImage={ogpImageUrl}
+>
   <MdDetail
     title={frontmatter.title}
     emoji={frontmatter.emoji}
