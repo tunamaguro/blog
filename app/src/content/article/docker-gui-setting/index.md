@@ -76,18 +76,18 @@ services:
       context: .
       dockerfile: Dockerfile
     command: sleep infinity
-  environment:
-    - DISPLAY=$DISPLAY
-    - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
-    - XDG_RUNTIME_DIR=/tmp
-    - PULSE_SERVER=$PULSE_SERVER
-  volumes:
-    - type: bind
-      source: /tmp/.X11-unix
-      target: /tmp/.X11-unix
-    - type: bind
-      source: "${XDG_RUNTIME_DIR}/wayland-0"
-      target: /tmp/wayland-0
+    environment:
+      - DISPLAY=$DISPLAY
+      - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
+      - XDG_RUNTIME_DIR=/tmp
+      - PULSE_SERVER=$PULSE_SERVER
+    volumes:
+      - type: bind
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix
+      - type: bind
+        source: "${XDG_RUNTIME_DIR}/wayland-0"
+        target: /tmp/wayland-0
 ```
 
 `docker compose up`してコンテナを立ち上げ、`docker compose exec app bash`でコンテナ内に入ります。
