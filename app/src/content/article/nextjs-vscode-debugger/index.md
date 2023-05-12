@@ -1,6 +1,6 @@
 ---
 layout: "@/layouts/MdLayout.astro"
-title: "Next.jsをVS Codeでデバッグする"
+title: "サブディレクトリのNext.jsをVS Codeでデバッグする"
 date: "2023-05-13"
 emoji: "🐞"
 tags: ["tech"]
@@ -14,6 +14,15 @@ tags: ["tech"]
 <https://nextjs.org/docs/pages/building-your-application/configuring/debugging>
 
 ## 結論
+
+急いでいる人向けのまとめです。これで理解できる方はこの記事を読む必要はありません。
+
+- ルートディレクトリで`Next.js`を実行している場合
+  - 公式ドキュメントに従う
+  - <https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code>
+- サブディレクトリで`Next.js`を実行している場合
+  - `Next.js`を実行しているディレクトリに公式ドキュメント記載の`.vscode/launch.json`を作成
+  - `VS Code`の``workspace`を作成しサブディレクトリのデバッガーを呼び出す
 
 ## 環境構築
 
