@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import { sharpImageService } from "astro/assets";
 
 import mdx from "@astrojs/mdx";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
@@ -25,7 +26,18 @@ export default defineConfig({
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
   },
-  integrations: [mdx(), tailwind(), react(), sitemap(), robotsTxt()],
+  integrations: [
+    mdx(),
+    tailwind(),
+    react(),
+    sitemap(),
+    robotsTxt(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
   site: "http://www.tunamaguro.dev/",
   experimental: {
     assets: true,
