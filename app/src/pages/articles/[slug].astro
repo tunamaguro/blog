@@ -28,16 +28,18 @@ const {
   date,
   emoji,
   tags,
+  description: maybeDescription,
 } = article.data;
 const { Content, remarkPluginFrontmatter } = await article.render();
 const frontmatter = frontmatterSchema.parse(remarkPluginFrontmatter);
 
+const contentDescription = maybeDescription ?? frontmatter.excerpt;
 const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
 ---
 
 <BaseLayout
   title={title}
-  description={frontmatter.excerpt}
+  description={contentDescription}
   ogpImage={ogpImageUrl.toString()}
 >
   <MdLayout title={title} emoji={emoji} createdAt={date} tags={tags}>
