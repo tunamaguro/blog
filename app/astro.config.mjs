@@ -41,7 +41,7 @@ export default defineConfig({
       },
     }),
   ],
-  site: "http://www.tunamaguro.dev/",
+  site: "https://www.tunamaguro.dev/",
   experimental: {
     assets: true,
   },
