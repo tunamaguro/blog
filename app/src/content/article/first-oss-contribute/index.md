@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/MdLayout.astro"
+
 title: "初めてOSSにコントリビュートした記録"
 date: "2023-01-22"
 emoji: "🌟"

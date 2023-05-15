@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/MdLayout.astro"
+
 title: "ブログを作り直しました"
 date: "2022-12-27"
 emoji: "👋"

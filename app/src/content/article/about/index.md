@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/MdLayout.astro"
+
 title: "このサイトについて"
 date: "2022-12-26"
 emoji: "ℹ️"

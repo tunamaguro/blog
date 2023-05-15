@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/MdLayout.astro"
+
 title: "TauriをDockerを使ってなるべく簡単に始める"
 date: "2023-05-07"
 emoji: "🐳"

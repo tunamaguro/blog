@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/MdLayout.astro"
+
 title: "NetlifyからCloudflareに引っ越しました"
 date: "2023-02-05"
 emoji: "🏡"

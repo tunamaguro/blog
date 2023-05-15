@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/MdLayout.astro"
+
 title: "type-challenges をやってみる(medium編その2)"
 date: "2023-01-08"
 emoji: "📏"

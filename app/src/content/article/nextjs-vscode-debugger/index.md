@@ -1,5 +1,5 @@
 ---
-layout: "@/layouts/MdLayout.astro"
+
 title: "サブディレクトリのNext.jsをVS Codeでデバッグする"
 date: "2023-05-13"
 emoji: "🐞"
