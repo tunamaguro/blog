@@ -1,5 +1,4 @@
 ---
-
 title: "type-challenges をやってみる(medium編その5)"
 date: "2023-01-20"
 emoji: "🔬"

@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import { siteMeta } from "@/constants/siteMeta"
+import { siteMeta } from "@/constants/siteMeta";
 
 /**
  * GitHub user avatar image

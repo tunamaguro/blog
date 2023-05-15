@@ -1,5 +1,4 @@
 ---
-
 title: "Hello World"
 date: "2022-12-26"
 emoji: "📖"
