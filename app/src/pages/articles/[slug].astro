@@ -25,7 +25,7 @@ const frontmatterSchema = z.object({
 const { article } = Astro.props;
 const {
   title,
-  date,
+  createdAt,
   emoji,
   tags,
   description: maybeDescription,
@@ -42,7 +42,7 @@ const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
   description={contentDescription}
   ogpImage={ogpImageUrl.toString()}
 >
-  <MdLayout title={title} emoji={emoji} createdAt={date} tags={tags}>
+  <MdLayout title={title} emoji={emoji} createdAt={createdAt} tags={tags}>
     <Content />
   </MdLayout>
 </BaseLayout>

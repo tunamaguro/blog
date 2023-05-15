@@ -1,6 +1,6 @@
 ---
 title: "サブディレクトリのNext.jsをVS Codeでデバッグする"
-date: "2023-05-13"
+createdAt: "2023-05-13"
 emoji: "🐞"
 tags: ["tech"]
 ---
@@ -203,8 +203,8 @@ Waiting for the debugger to disconnect...
 ```tsx
 // import(略)
 async function getCreatedAt() {
-  const createdAt = new Date()
-  return new Promise<Date>((resolve) => {
+  const createdAt = new createdAt()
+  return new Promise<createdAt>((resolve) => {
     setTimeout(() => {
       resolve(createdAt)
     }, 2000)

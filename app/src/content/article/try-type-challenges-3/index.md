@@ -1,6 +1,6 @@
 ---
 title: "type-challenges をやってみる(medium編その2)"
-date: "2023-01-08"
+createdAt: "2023-01-08"
 emoji: "📏"
 tags: ["tech", "TypeScript"]
 ---
