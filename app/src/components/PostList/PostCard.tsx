@@ -28,7 +28,7 @@ export const PostCard: FC<PostCardProps> = ({
             <div className="text-primary-content font-bold text-xl md:text-2xl">
               {title}
             </div>
-            <div>{createdAt}</div>
+            <div>作成日 : {createdAt}</div>
             <div className="flex gap-2 justify-start">
               {tags.map((tag) => (
                 <div key={tag} className="badge badge-outline">

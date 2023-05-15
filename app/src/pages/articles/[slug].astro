@@ -26,6 +26,7 @@ const { article } = Astro.props;
 const {
   title,
   createdAt,
+  updatedAt,
   emoji,
   tags,
   description: maybeDescription,
@@ -42,7 +43,13 @@ const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
   description={contentDescription}
   ogpImage={ogpImageUrl.toString()}
 >
-  <MdLayout title={title} emoji={emoji} createdAt={createdAt} tags={tags}>
+  <MdLayout
+    title={title}
+    emoji={emoji}
+    createdAt={createdAt}
+    updatedAt={updatedAt}
+    tags={tags}
+  >
     <Content />
   </MdLayout>
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 title: "このサイトについて"
 createdAt: "2022-12-26"
+updatedAt: "2023-05-15"
 emoji: "ℹ️"
 tags: ["info"]
 ---

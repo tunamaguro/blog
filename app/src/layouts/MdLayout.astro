@@ -3,14 +3,15 @@ type Props = {
   title: string;
   emoji: string;
   createdAt: string;
+  updatedAt?: string;
   tags: string[];
 };
 
 import { MdDetail } from "@/components/MdDetail";
 
-const { title, createdAt, emoji, tags } = Astro.props;
+const { title, createdAt,updatedAt, emoji, tags } = Astro.props;
 ---
 
-<MdDetail title={title} emoji={emoji} createdAt={createdAt} tags={tags}>
+<MdDetail title={title} emoji={emoji} createdAt={createdAt} updatedAt={updatedAt} tags={tags}>
   <slot />
 </MdDetail>

@@ -5,6 +5,7 @@ const ArticleCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     createdAt: z.string(),
+    updatedAt:z.string().optional(),
     emoji: z.string(),
     tags: z.array(z.string()),
     description: z.string().optional(),

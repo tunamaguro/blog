@@ -7,6 +7,7 @@ type MdDetailProps = {
   title: string;
   emoji?: string;
   createdAt: string;
+  updatedAt?: string
   tags: string[];
   children: React.ReactNode;
 };
@@ -17,6 +18,7 @@ export const MdDetail: FC<MdDetailProps> = ({
   tags,
   children,
   createdAt,
+  updatedAt
 }) => {
   return (
     <div className="container max-w-5xl mx-auto py-4">
@@ -25,7 +27,8 @@ export const MdDetail: FC<MdDetailProps> = ({
         <h1 className="text-center break-words text-2xl md:text-4xl font-bold text-primary-content">
           {title}
         </h1>
-        <p className="">createdAt : {createdAt}</p>
+        <p className="">作成日 : {createdAt}</p>
+        {updatedAt ? <p>更新日 : {updatedAt}</p> : null}
         <div className="grid grid-flow-col gap-4">
           {tags.map((tag) => (
             <div key={tag} className="badge badge-outline">
