@@ -4,14 +4,14 @@ import { Twemoji } from "../Twemoji";
 type PostCardProps = {
   title: string;
   emoji?: string;
-  date: string;
+  createdAt: string;
   tags: string[];
   slug: string;
 };
 
 export const PostCard: FC<PostCardProps> = ({
   tags,
-  date,
+  createdAt,
   title,
   emoji,
   slug,
@@ -28,7 +28,7 @@ export const PostCard: FC<PostCardProps> = ({
             <div className="text-primary-content font-bold text-xl md:text-2xl">
               {title}
             </div>
-            <div>{date}</div>
+            <div>{createdAt}</div>
             <div className="flex gap-2 justify-start">
               {tags.map((tag) => (
                 <div key={tag} className="badge badge-outline">
