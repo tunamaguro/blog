@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/MdLayout.astro"
 title: "WEB上でHSL色空間を見ることができるアプリを作った"
-date: "2023-05-03"
+createdAt: "2023-05-03"
 emoji: "🎨"
 tags: ["tech"]
 ---

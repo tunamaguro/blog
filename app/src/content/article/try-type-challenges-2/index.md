@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/MdLayout.astro"
 title: "type-challenges をやってみる(medium編その1)"
-date: "2023-01-07"
+createdAt: "2023-01-07"
 emoji: "📝"
 tags: ["tech", "TypeScript"]
 ---

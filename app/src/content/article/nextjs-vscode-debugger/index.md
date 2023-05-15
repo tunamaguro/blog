@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/MdLayout.astro"
 title: "サブディレクトリのNext.jsをVS Codeでデバッグする"
-date: "2023-05-13"
+createdAt: "2023-05-13"
 emoji: "🐞"
 tags: ["tech"]
 ---
@@ -121,35 +120,35 @@ cd app && npm run dev
 
 ![](/images/nextjs-vscode-debugger/debugger-worked-under-app.png)
 
-正しく起動しているようです。ここでは割愛しますが、サーバ側、クライアント側ともにブレークポイントが正常に起動していることを確認できました。  
+正しく起動しているようです。ここでは割愛しますが、サーバ側、クライアント側ともにブレークポイントが正常に起動していることを確認できました。
 
 ですがこのままだとデバッグをするたびに`/app`に移動する必要があるため非常に手間です。
 「何とかできないかな~」とネットの海を彷徨っていたところ、`VS Code`の`workspace`という機能を発見しました。
 この機能を利用することで**特定のディレクトリ**でのみ有効なデバッガーを利用することができるようなので早速使ってみます。
 
 > Persist task and debugger launch configurations that are only valid in the context of that workspace.  
-> そのワークスペースのコンテキストでのみ有効なタスクとデバッガーの起動設定を永続化します。(Deepl翻訳)
+> そのワークスペースのコンテキストでのみ有効なタスクとデバッガーの起動設定を永続化します。(Deepl 翻訳)
 
 <https://code.visualstudio.com/docs/editor/workspaces>
 <https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations>
 
-詳しい説明は上記2つのリンクに書かれているので詳しい情報が知りたい方はそちらをご覧ください。
+詳しい説明は上記 2 つのリンクに書かれているので詳しい情報が知りたい方はそちらをご覧ください。
 今回は‘workspaces.code-workspace'という名前で設定ファイルを作成し、以下のように記載しました。
 
 ```json
 {
- "folders": [
-  {
-   "name": "workspaces",
-   "path": "."
-  },
-  {
-   "name": "frontend",
-   "path": "./app"
-  }
- ],
- "settings": {},
- "extensions": {},
+  "folders": [
+    {
+      "name": "workspaces",
+      "path": "."
+    },
+    {
+      "name": "frontend",
+      "path": "./app"
+    }
+  ],
+  "settings": {},
+  "extensions": {}
 }
 ```
 
@@ -157,11 +156,11 @@ cd app && npm run dev
 
 ![](/images/nextjs-vscode-debugger/open-workspace.gif)
 
-デバッグパネルから`/app`下の`launch.json`を起動できます!!  
+デバッグパネルから`/app`下の`launch.json`を起動できます!!
 
-この状態のコミットは[こちら](https://github.com/tunamaguro/nextjs-vscode-debugger-sample/commit/cae5f060ff5cf83c64fee58e353d9623e788bc90)です。  
+この状態のコミットは[こちら](https://github.com/tunamaguro/nextjs-vscode-debugger-sample/commit/cae5f060ff5cf83c64fee58e353d9623e788bc90)です。
 
-## Route Handlersのデバッグ
+## Route Handlers のデバッグ
 
 はじめに`Route Handlers`(`pages`で言う`API Routes`)の動作チェックをしてみます。
 
@@ -170,11 +169,11 @@ cd app && npm run dev
 上記を参考に`app/api/route.ts`を以下の内容で作成しました。
 
 ```typescript
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-    console.log("Hello Server!")
-    return NextResponse.json({ greet: "Hello!" })
+  console.log("Hello Server!");
+  return NextResponse.json({ greet: "Hello!" });
 }
 ```
 
@@ -189,13 +188,13 @@ Hello Server!
 Waiting for the debugger to disconnect...
 ```
 
-ここで4行目の`console.log("Hello Server!")`にブレークポイントを設定し、止まればいい感じですが...
+ここで 4 行目の`console.log("Hello Server!")`にブレークポイントを設定し、止まればいい感じですが...
 
 ![](/images/nextjs-vscode-debugger/debugger-working-at-route.gif)
 
-しっかり止めてくれました!!  
+しっかり止めてくれました!!
 
-## Server Componentsのデバッグ
+## Server Components のデバッグ
 
 続いて`ServerComponents`がデバッグできるかどうか確認します。
 
@@ -204,8 +203,8 @@ Waiting for the debugger to disconnect...
 ```tsx
 // import(略)
 async function getCreatedAt() {
-  const createdAt = new Date()
-  return new Promise<Date>((resolve) => {
+  const createdAt = new createdAt()
+  return new Promise<createdAt>((resolve) => {
     setTimeout(() => {
       resolve(createdAt)
     }, 2000)
@@ -221,7 +220,7 @@ export default async function Home() {
 // 以下略
 ```
 
-2秒待つ関数`getCreatedAt`を作成しそれを埋め込んでいます。デフォルトが`ServerComponents`なので`getCreatedAt`はサーバー側で実行されるため、先ほどと同じように止まるはずです。
+2 秒待つ関数`getCreatedAt`を作成しそれを埋め込んでいます。デフォルトが`ServerComponents`なので`getCreatedAt`はサーバー側で実行されるため、先ほどと同じように止まるはずです。
 
 ![](/images/nextjs-vscode-debugger/debugger-server-components.gif)
 
@@ -229,7 +228,7 @@ export default async function Home() {
 
 現在の状態のコミットは[こちら](https://github.com/tunamaguro/nextjs-vscode-debugger-sample/commit/2d079fdf7361f6197b93a0364a19fa3ac47f7544)です。
 
-## Client Componentsのデバッグ
+## Client Components のデバッグ
 
 最後に`Client Components`もデバッグができるか確かめます。
 
@@ -238,20 +237,18 @@ export default async function Home() {
 - `src/app/ClientCountUp.tsx`
 
 ```tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export function ClientCountUp() {
   const [count, setCount] = useState(0);
   function countUp() {
-    console.log("count Up!")
+    console.log("count Up!");
     setCount(count + 1);
   }
 
-  return (
-    <button onClick={countUp}>{count}</button>
-  );
+  return <button onClick={countUp}>{count}</button>;
 }
 ```
 

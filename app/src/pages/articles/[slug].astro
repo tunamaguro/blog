@@ -1,5 +1,5 @@
 ---
-import { CollectionEntry, getCollection, getEntryBySlug } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
 
 type Props = { article: CollectionEntry<"article"> };
 
@@ -14,8 +14,42 @@ export const getStaticPaths = async () => {
   }));
 };
 
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MdLayout from "@/layouts/MdLayout.astro";
+import { z } from "astro:content";
+
+const frontmatterSchema = z.object({
+  excerpt: z.string(),
+});
+
 const { article } = Astro.props;
-const { Content } = await article.render();
+const {
+  title,
+  createdAt,
+  updatedAt,
+  emoji,
+  tags,
+  description: maybeDescription,
+} = article.data;
+const { Content, remarkPluginFrontmatter } = await article.render();
+const frontmatter = frontmatterSchema.parse(remarkPluginFrontmatter);
+
+const contentDescription = maybeDescription ?? frontmatter.excerpt;
+const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
 ---
 
-<Content />
+<BaseLayout
+  title={title}
+  description={contentDescription}
+  ogpImage={ogpImageUrl.toString()}
+>
+  <MdLayout
+    title={title}
+    emoji={emoji}
+    createdAt={createdAt}
+    updatedAt={updatedAt}
+    tags={tags}
+  >
+    <Content />
+  </MdLayout>
+</BaseLayout>

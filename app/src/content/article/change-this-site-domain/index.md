@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/MdLayout.astro"
 title: "Google DomainsでNetlifyにサブドメインを設定する"
-date: "2023-01-27"
+createdAt: "2023-01-27"
 emoji: "😅"
 tags: ["blog"]
 ---

@@ -1,6 +1,7 @@
 ---
 import { Layout } from "@/components/Layout";
 import Seo from "@/components/Seo/index.astro";
+import { siteMeta } from "@/constants/siteMeta";
 
 interface Props {
   title?: string;
@@ -8,19 +9,17 @@ interface Props {
   ogpImage?: string;
 }
 
-const { description, title, ogpImage } = Astro.props;
-
-const siteTitle = "tunamaguro's blog";
-const author = "tunamaguro";
+const { description = siteMeta.description, title, ogpImage } = Astro.props;
+const seoTitle = title ? title + " | " + siteMeta.title : siteMeta.title;
 ---
 
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <Seo title={title} description={description} ogpImage={ogpImage} />
+    <Seo title={seoTitle} description={description} ogpImage={ogpImage} />
   </head>
   <body>
-    <Layout siteTitle={siteTitle} author={author}>
+    <Layout siteTitle={siteMeta.title} author={siteMeta.author}>
       <slot />
     </Layout>
   </body>

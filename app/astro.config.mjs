@@ -17,6 +17,9 @@ import sitemap from "@astrojs/sitemap";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
+// rehype
+import { rehypeExcerptContent } from "./src/plugins/rehypeExcerptPlugin";
+
 // https://astro.build/config
 import robotsTxt from "astro-robots-txt";
 
@@ -24,7 +27,7 @@ import robotsTxt from "astro-robots-txt";
 export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeKatex, rehypeExcerptContent],
   },
   integrations: [
     mdx(),
@@ -38,7 +41,7 @@ export default defineConfig({
       },
     }),
   ],
-  site: "http://www.tunamaguro.dev/",
+  site: "https://www.tunamaguro.dev/",
   experimental: {
     assets: true,
   },

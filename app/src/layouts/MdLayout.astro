@@ -1,37 +1,17 @@
 ---
-import type { MarkdownLayoutProps } from "astro";
-import type { CollectionEntry } from "astro:content";
+type Props = {
+  title: string;
+  emoji: string;
+  createdAt: string;
+  updatedAt?: string;
+  tags: string[];
+};
 
-type Props = MarkdownLayoutProps<CollectionEntry<"article">["data"]>;
-
-import BaseLayout from "./BaseLayout.astro";
 import { MdDetail } from "@/components/MdDetail";
-import { getMarkdownExcerpt } from "@/server/getMarkdownExcerpt";
 
-const { frontmatter, rawContent } = Astro.props;
-
-// もしスラグがない=ブログ用コンテンツでなければデフォルトのogpを利用する
-const ogpImageUrl =
-  Astro.params.slug &&
-  new URL(`/ogp/${Astro.params.slug}.png`, Astro.url).toString();
-
-console.log(ogpImageUrl);
-
-// もしrawContentがなかったデフォルトのdescriptionを使用する
-const description = getMarkdownExcerpt(rawContent?.() ?? "") || undefined;
+const { title, createdAt,updatedAt, emoji, tags } = Astro.props;
 ---
 
-<BaseLayout
-  title={frontmatter.title}
-  description={description}
-  ogpImage={ogpImageUrl}
->
-  <MdDetail
-    title={frontmatter.title}
-    emoji={frontmatter.emoji}
-    createdAt={frontmatter.date}
-    tags={frontmatter.tags}
-  >
-    <slot />
-  </MdDetail>
-</BaseLayout>
+<MdDetail title={title} emoji={emoji} createdAt={createdAt} updatedAt={updatedAt} tags={tags}>
+  <slot />
+</MdDetail>

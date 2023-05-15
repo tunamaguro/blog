@@ -1,7 +1,6 @@
 ---
-layout: "@/layouts/MdLayout.astro"
 title: "OSS License"
-date: "2022-12-26"
+createdAt: "2022-12-26"
 emoji: "✨"
 tags: ["info"]
 ---

@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from "react";
+import { siteMeta } from "@/constants/siteMeta";
 
 /**
  * GitHub user avatar image
@@ -47,7 +48,7 @@ export function Ogp({ title }: { title: string }) {
           }}
         >
           <img src={iconImage} width={36} height={36} />
-          <div>tunamaguro's blog</div>
+          <div>{siteMeta.title}</div>
         </div>
       </div>
     </div>

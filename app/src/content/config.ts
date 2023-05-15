@@ -4,9 +4,11 @@ import { z, defineCollection } from "astro:content";
 const ArticleCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    date: z.string(),
+    createdAt: z.string(),
+    updatedAt:z.string().optional(),
     emoji: z.string(),
     tags: z.array(z.string()),
+    description: z.string().optional(),
   }),
 });
 // 3. Export a single `collections` object to register your collection(s)
