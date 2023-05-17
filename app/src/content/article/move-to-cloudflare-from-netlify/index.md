@@ -2,7 +2,10 @@
 title: "NetlifyからCloudflareに引っ越しました"
 createdAt: "2023-02-05"
 emoji: "🏡"
-tags: ["blog"]
+category: "blog"
+tags:
+    - Netlify
+    - Cloudflare
 ---
 
 ## はじめに

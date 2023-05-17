@@ -2,7 +2,11 @@
 title: "Google DomainsでNetlifyにサブドメインを設定する"
 createdAt: "2023-01-27"
 emoji: "😅"
-tags: ["blog"]
+category: "blog"
+tags: 
+    - Gatsby
+    - Netlify
+    - "Google Domains"
 ---
 
 ## はじめに

@@ -2,7 +2,10 @@
 title: "サブディレクトリのNext.jsをVS Codeでデバッグする"
 createdAt: "2023-05-13"
 emoji: "🐞"
-tags: ["tech"]
+category: "tech"
+tags:
+    - "VS Code"
+    - Next.js
 ---
 
 ## はじめに

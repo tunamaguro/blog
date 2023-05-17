@@ -2,7 +2,9 @@
 title: "AstroでもGatsbyのexcerptがしたい!"
 createdAt: "2023-05-17"
 emoji: "🔧"
-tags: ["tech"]
+category: "tech"
+tags:
+    - "Astro"
 ---
 
 ## はじめに
@@ -58,7 +60,7 @@ export const query = graphql`
         title
         date(formatString: "yyyy-MM-DD")
         emoji
-        tags
+        category
         slug
       }
       excerpt(pruneLength: 50)

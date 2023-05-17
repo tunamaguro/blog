@@ -2,7 +2,10 @@
 title: "docker内でGUIを使おうと色々した話"
 createdAt: "2023-02-11"
 emoji: "💻️"
-tags: ["tech"]
+category: "tech"
+tags: 
+    - Docker
+    - wslg
 ---
 
 ## はじめに

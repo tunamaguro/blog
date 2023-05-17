@@ -2,7 +2,12 @@
 title: "WEB上でHSL色空間を見ることができるアプリを作った"
 createdAt: "2023-05-03"
 emoji: "🎨"
-tags: ["tech"]
+category: "tech"
+tags:
+    - React
+    - Vite
+    - Three.js
+    - Firebase
 ---
 
 ## はじめに
