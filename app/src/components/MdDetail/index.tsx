@@ -2,13 +2,14 @@ import "katex/dist/katex.min.css";
 
 import type { FC } from "react";
 import { Twemoji } from "../Twemoji";
-import { ArticleInfo } from "./ArticleInfo";
+import { ArticleInfo, type ArticleInfoProps } from "./ArticleInfo";
 
 type MdDetailProps = {
   title: string;
   emoji?: string;
   createdAt: string;
-  updatedAt?: string
+  updatedAt?: string,
+  metas?: ArticleInfoProps["info"]
   tags: string[];
   children: React.ReactNode;
 };
@@ -19,7 +20,8 @@ export const MdDetail: FC<MdDetailProps> = ({
   tags,
   children,
   createdAt,
-  updatedAt
+  updatedAt,
+  metas = []
 }) => {
   return (
     <div className="container max-w-5xl mx-auto py-4">
@@ -29,7 +31,7 @@ export const MdDetail: FC<MdDetailProps> = ({
           {title}
         </h1>
         <ArticleInfo info={[
-          { key: "createdAt", name: "作成日", value: createdAt }, updatedAt ? { key: "updatedAt", name: "更新日", value: updatedAt } : null,
+          { key: "createdAt", name: "作成日", value: createdAt }, updatedAt ? { key: "updatedAt", name: "更新日", value: updatedAt } : null, ...metas
         ]} />
         <div className="grid grid-flow-col gap-4">
           {tags.map((tag) => (
