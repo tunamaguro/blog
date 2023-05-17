@@ -38,7 +38,7 @@ export const MdDetail: FC<MdDetailProps> = ({
         </div>
       </div>
       <div className="bg-base-200 p-8 rounded-3xl">
-        <div className="prose max-w-none break-words">{children}</div>
+        <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto">{children}</div>
       </div>
     </div>
   );
