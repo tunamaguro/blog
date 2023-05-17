@@ -2,6 +2,7 @@ import "katex/dist/katex.min.css";
 
 import type { FC } from "react";
 import { Twemoji } from "../Twemoji";
+import { ArticleInfo } from "./ArticleInfo";
 
 type MdDetailProps = {
   title: string;
@@ -22,13 +23,14 @@ export const MdDetail: FC<MdDetailProps> = ({
 }) => {
   return (
     <div className="container max-w-5xl mx-auto py-4">
-      <div className="flex flex-col items-center gap-2 pb-8">
+      <div className="flex flex-col items-center gap-4 pb-4">
         <Twemoji className="w-20 md:w-24" emoji={emoji || "ℹ️"} />
         <h1 className="text-center break-words text-2xl md:text-4xl font-bold text-primary-content">
           {title}
         </h1>
-        <p className="">作成日 : {createdAt}</p>
-        {updatedAt ? <p>更新日 : {updatedAt}</p> : null}
+        <ArticleInfo info={[
+          { key: "createdAt", name: "作成日", value: createdAt }, updatedAt ? { key: "updatedAt", name: "更新日", value: updatedAt } : null,
+        ]} />
         <div className="grid grid-flow-col gap-4">
           {tags.map((tag) => (
             <div key={tag} className="badge badge-outline">
