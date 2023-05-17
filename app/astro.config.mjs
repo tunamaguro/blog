@@ -19,6 +19,7 @@ import rehypeKatex from "rehype-katex";
 
 // rehype
 import { rehypeExcerptContent } from "./src/plugins/rehypeExcerptPlugin";
+import { rehypeReadingTime } from "./src/plugins/rehypeReadingTime";
 
 // https://astro.build/config
 import robotsTxt from "astro-robots-txt";
@@ -27,7 +28,7 @@ import robotsTxt from "astro-robots-txt";
 export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex, rehypeExcerptContent],
+    rehypePlugins: [rehypeKatex, rehypeExcerptContent, rehypeReadingTime],
   },
   integrations: [
     mdx(),
