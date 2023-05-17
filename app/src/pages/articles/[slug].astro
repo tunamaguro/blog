@@ -51,7 +51,7 @@ const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
     updatedAt={updatedAt}
     tags={tags}
     metas={[
-      { key: "readingTime", name: "読了時間", value: frontmatter.minutesRead },
+      { key: "readingTime", name: "reading time", value: frontmatter.minutesRead },
     ]}
   >
     <Content />

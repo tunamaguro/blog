@@ -31,7 +31,7 @@ export const MdDetail: FC<MdDetailProps> = ({
           {title}
         </h1>
         <ArticleInfo info={[
-          { key: "createdAt", name: "作成日", value: createdAt }, updatedAt ? { key: "updatedAt", name: "更新日", value: updatedAt } : null, ...metas
+          { key: "createdAt", name: "createdAt", value: createdAt }, updatedAt ? { key: "updatedAt", name: "updatedAt", value: updatedAt } : null, ...metas
         ]} />
         <div className="grid grid-flow-col gap-4">
           {tags.map((tag) => (
