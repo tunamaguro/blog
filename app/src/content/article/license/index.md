@@ -2,7 +2,7 @@
 title: "OSS License"
 createdAt: "2022-12-26"
 emoji: "✨"
-tags: ["info"]
+category: blog
 ---
 
 This site incorporates material as listed below or described in the code.

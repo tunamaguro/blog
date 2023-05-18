@@ -2,7 +2,7 @@
 title: "Hello World"
 createdAt: "2022-12-26"
 emoji: "📖"
-tags: ["hello world"]
+category: blog
 ---
 
 This is my first post on my new fake blog! How exciting!

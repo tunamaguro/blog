@@ -2,7 +2,9 @@
 title: "type-challenges をやってみる(easy編)"
 createdAt: "2023-01-06"
 emoji: "🖊️"
-tags: ["tech", "TypeScript"]
+category: "tech"
+tags:
+    - "TypeScript"
 ---
 
 Typescript の練習として type-challenges をやった備忘録です。

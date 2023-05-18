@@ -15,11 +15,12 @@ export const getStaticPaths = async () => {
 };
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import MdLayout from "@/layouts/MdLayout.astro";
 import { z } from "astro:content";
+import { MdDetail } from "@/components/MdDetail";
 
 const frontmatterSchema = z.object({
   excerpt: z.string(),
+  minutesRead: z.string(),
 });
 
 const { article } = Astro.props;
@@ -43,13 +44,16 @@ const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
   description={contentDescription}
   ogpImage={ogpImageUrl.toString()}
 >
-  <MdLayout
+  <MdDetail
     title={title}
     emoji={emoji}
     createdAt={createdAt}
     updatedAt={updatedAt}
     tags={tags}
+    metas={[
+      { key: "readingTime", name: "reading time", value: frontmatter.minutesRead },
+    ]}
   >
     <Content />
-  </MdLayout>
+  </MdDetail>
 </BaseLayout>
