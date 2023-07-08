@@ -37,7 +37,8 @@
         "unifiedjs.vscode-mdx",
         "streetsidesoftware.code-spell-checker",
         "ICS.japanese-proofreading",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "docsmsft.docs-authoring-pack"
       ]
     }
   }
