@@ -7,13 +7,14 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/mdx": "^0.17.0",
-    "@astrojs/react": "^2.0.2",
+    "@astrojs/react": "^3.0.4",
     "@astrojs/sitemap": "^1.0.1",
-    "@astrojs/tailwind": "^3.0.1",
+    "@astrojs/tailwind": "^5.0.2",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
@@ -21,7 +22,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "astro": "^2.3.4",
+    "astro": "^3.4.3",
     "astro-robots-txt": "^0.4.0",
     "daisyui": "^2.50.1",
     "hast-util-to-string": "^2.0.0",
@@ -45,6 +46,7 @@
     "@types/twemoji-parser": "^13.1.1",
     "prettier": "^2.8.4",
     "prettier-plugin-astro": "^0.8.0",
-    "sass": "^1.58.3"
+    "sass": "^1.58.3",
+    "typescript": "^5.2.2"
   }
 }

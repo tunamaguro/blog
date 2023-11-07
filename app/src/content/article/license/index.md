@@ -32,3 +32,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
+
+This is CC0 1.0, not OSS.
+
+https://www.iconarchive.com/show/simple-icons-by-simpleicons-team/misskey-icon.html
+
+---

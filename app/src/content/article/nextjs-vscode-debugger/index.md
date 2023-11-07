@@ -4,8 +4,8 @@ createdAt: "2023-05-13"
 emoji: "🐞"
 category: "tech"
 tags:
-    - "VS Code"
-    - Next.js
+  - "VS Code"
+  - Next.js
 ---
 
 ## はじめに

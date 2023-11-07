@@ -8,8 +8,8 @@ type MdDetailProps = {
   title: string;
   emoji?: string;
   createdAt: string;
-  updatedAt?: string,
-  metas?: ArticleInfoProps["info"]
+  updatedAt?: string;
+  metas?: ArticleInfoProps["info"];
   tags: string[];
   children: React.ReactNode;
 };
@@ -21,7 +21,7 @@ export const MdDetail: FC<MdDetailProps> = ({
   children,
   createdAt,
   updatedAt,
-  metas = []
+  metas = [],
 }) => {
   return (
     <div className="container max-w-5xl mx-auto py-4">
@@ -30,9 +30,15 @@ export const MdDetail: FC<MdDetailProps> = ({
         <h1 className="text-center break-words text-2xl md:text-4xl font-bold text-primary-content">
           {title}
         </h1>
-        <ArticleInfo info={[
-          { key: "createdAt", name: "createdAt", value: createdAt }, updatedAt ? { key: "updatedAt", name: "updatedAt", value: updatedAt } : null, ...metas
-        ]} />
+        <ArticleInfo
+          info={[
+            { key: "createdAt", name: "createdAt", value: createdAt },
+            updatedAt
+              ? { key: "updatedAt", name: "updatedAt", value: updatedAt }
+              : null,
+            ...metas,
+          ]}
+        />
         <div className="grid grid-flow-col gap-4">
           {tags.map((tag) => (
             <div key={tag} className="badge badge-outline">
@@ -42,7 +48,9 @@ export const MdDetail: FC<MdDetailProps> = ({
         </div>
       </div>
       <div className="bg-base-200 p-8 rounded-3xl">
-        <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto">{children}</div>
+        <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto">
+          {children}
+        </div>
       </div>
     </div>
   );

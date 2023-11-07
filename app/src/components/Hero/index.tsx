@@ -5,6 +5,7 @@ import {
   faTwitterSquare,
   faSquareGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import { MisskeyIcon } from "./MisskeyIcon";
 
 type Props = {
   author: string;
@@ -40,6 +41,13 @@ export const Hero: FunctionComponent<Props> = ({ author }) => (
             aria-label="tunamaguroのGithubプロフィール"
           >
             <FontAwesomeIcon className="h-8 w-8" icon={faSquareGithub} />
+          </a>
+          <a
+            className="bg-base-content rounded-sm"
+            href="https://misskey.tunamaguro.dev/@tunamaguro"
+            aria-label="tunamaguroのMisskey"
+          >
+            <MisskeyIcon className="h-8 w-8 p-1 fill-base-content" />
           </a>
         </div>
       </div>

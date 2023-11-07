@@ -4,7 +4,7 @@ createdAt: "2023-01-06"
 emoji: "🖊️"
 category: "tech"
 tags:
-    - "TypeScript"
+  - "TypeScript"
 ---
 
 Typescript の練習として type-challenges をやった備忘録です。

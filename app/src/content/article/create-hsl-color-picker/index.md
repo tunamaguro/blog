@@ -4,10 +4,10 @@ createdAt: "2023-05-03"
 emoji: "🎨"
 category: "tech"
 tags:
-    - React
-    - Vite
-    - Three.js
-    - Firebase
+  - React
+  - Vite
+  - Three.js
+  - Firebase
 ---
 
 ## はじめに
