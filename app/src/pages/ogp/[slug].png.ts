@@ -13,7 +13,7 @@ export const getStaticPaths = async () => {
   }));
 };
 
-export const get: APIRoute = async ({ props, site }: APIContext) => {
+export const GET: APIRoute = async ({ props, site }: APIContext) => {
   const title = props.data.title;
   const png = await generateOgp(title);
   return new Response(png, {

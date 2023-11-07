@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import { sharpImageService } from "astro/assets";
 
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
@@ -43,7 +42,4 @@ export default defineConfig({
     }),
   ],
   site: "https://www.tunamaguro.dev/",
-  image: {
-    service: sharpImageService(),
-  },
 });
