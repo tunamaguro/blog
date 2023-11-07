@@ -4,8 +4,8 @@ createdAt: "2023-05-07"
 emoji: "🐳"
 category: "tech"
 tags:
-    - Docker
-    - Tauri
+  - Docker
+  - Tauri
 ---
 
 ## はじめに

@@ -1,7 +1,7 @@
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from "astro:content";
 
-const categories = ["blog", "tech"] as const
+const categories = ["blog", "tech"] as const;
 // 2. Define your collection(s)
 const ArticleCollection = defineCollection({
   schema: z.object({

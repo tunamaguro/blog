@@ -69,10 +69,10 @@ ingress-nginx-controller-5fcb5746fc-wcbs8   2m           96Mi
 
 https://github.com/prometheus-community/helm-charts/issues/192
 
-過去に`prometheus-operator`を導入していた場合、Helmが`kube-system`のサービスを削除しなかったために複数の値(今回は2つ)が記録され、
-実際より多い値がGrafanaで表示されていたようです。
+過去に`prometheus-operator`を導入していた場合、Helm が`kube-system`のサービスを削除しなかったために複数の値(今回は 2 つ)が記録され、
+実際より多い値が Grafana で表示されていたようです。
 
-実際にGrafanaでクエリを発行して表の`Service`を確認すると、写真が小さく見にくいですが2つのサービスから値が記録されていたことがわかります。
+実際に Grafana でクエリを発行して表の`Service`を確認すると、写真が小さく見にくいですが 2 つのサービスから値が記録されていたことがわかります。
 
 ![Send from two Service](/images/kube-prometheus-stack-cpu-usage-is-not-correct/value-from-two-service.png)
 

@@ -4,7 +4,7 @@ createdAt: "2023-05-17"
 emoji: "🔧"
 category: "tech"
 tags:
-    - "Astro"
+  - "Astro"
 ---
 
 ## はじめに
@@ -14,7 +14,7 @@ tags:
 この記事は`Astro`で`excerpt`っぽいものを再現した記録です。
 
 - `gatsby-plugin-mdx`  
-<https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/#graphql-mdx-node-structure>
+  <https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/#graphql-mdx-node-structure>
 
 ## 再現したいこと
 
@@ -37,7 +37,6 @@ tags:
 - [GitHub Actions でビルドして Cloudflare Pages にデプロイする](https://zenn.dev/nwtgck/articles/1fdee0e84e5808)
 
 そのほかの参考リンクは[このイシュー](https://github.com/tunamaguro/blog/issues/26)にすべて貼ってあります。
-
 ```
 
 このように変換されます。
@@ -47,12 +46,11 @@ tags:
 ```
 
 これが可能になると面倒な記事の説明を考える作業を自動で行うようになり、記事を各手間を減らすことができます。
-(もちろん自分で考えた説明のほうがSEO上良いとは思いますが面倒なのです)
-  
-👇`Gatsby`で`excerpt`を使えば自動でdescriptionを設定できる!
+(もちろん自分で考えた説明のほうが SEO 上良いとは思いますが面倒なのです)
+
+👇`Gatsby`で`excerpt`を使えば自動で description を設定できる!
 
 ```tsx
-
 export const query = graphql`
   query ArticleQuery($id: String) {
     mdx(id: { eq: $id }) {
@@ -97,13 +95,12 @@ export function rehypeExcerptContent(
   | void
   | import("unified").Transformer<import("hast").Root, import("hast").Root> {
   return function (tree, { data }) {
-    const truncatedTree = truncate(tree, { ellipsis: '…', ...options });
+    const truncatedTree = truncate(tree, { ellipsis: "…", ...options });
     const excerpt = toString(truncatedTree).replaceAll(/\s/g, " ");
     // @ts-ignore See https://docs.astro.build/en/guides/markdown-content/#modifying-frontmatter-programmatically
     data.astro.frontmatter.excerpt = excerpt;
   };
 }
-
 ```
 
 > 私の理解が低く仕組みがよくわかっていないので、詳しくは公式ドキュメントやその他の解説記事をご覧ください
@@ -123,7 +120,7 @@ export default defineConfig({
   },
 ```
 
-このようにすることで、`frontmatter.excerpt`に記事の先頭140文字が設定されます。
+このようにすることで、`frontmatter.excerpt`に記事の先頭 140 文字が設定されます。
 
 ## 実際に使ってみる
 
@@ -163,7 +160,6 @@ const contentDescription = maybeDescription ?? frontmatter.excerpt;
 ## おわりに
 
 `Gatsby`っぽい機能を再現するだけの記事を最後まで読んでくださりありがとうございました。少しでも誰かの助けになれば幸いです。
-
 
 ## 余談
 

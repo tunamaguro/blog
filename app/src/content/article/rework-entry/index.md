@@ -4,9 +4,9 @@ createdAt: "2022-12-27"
 emoji: "👋"
 category: "blog"
 tags:
-    - Gatsby
-    - daisyUI
-    - Tailwind CSS
+  - Gatsby
+  - daisyUI
+  - Tailwind CSS
 ---
 
 以前まで使っていたブログの見た目があんまりにも残念だったので、作り直しました。

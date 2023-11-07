@@ -28,11 +28,11 @@ category: "blog"
 
 tunamaguro が運営しています。ただコードを書くのが趣味の一般人です。もし、ご連絡されたい場合は Twitter の DM にお願いします。
 
-## Google Analyticsの利用について
+## Google Analytics の利用について
 
-当サイトはアクセス状況把握のため、Google社の提供するGoogle Analyticsを利用しています。
-Google Analyticsは利用状況収集のためCookieを利用しています。
-Google Analyticsによって収集される情報は匿名化されており、個人を特定するものではありません。
+当サイトはアクセス状況把握のため、Google 社の提供する Google Analytics を利用しています。
+Google Analytics は利用状況収集のため Cookie を利用しています。
+Google Analytics によって収集される情報は匿名化されており、個人を特定するものではありません。
 
 詳しくは[こちらを](https://marketingplatform.google.com/about/analytics/terms/jp/)ご覧ください。
 

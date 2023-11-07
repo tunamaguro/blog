@@ -1,3 +1,3 @@
 export type AstroPluginOptions = {
-    property: string
-}
+  property: string;
+};

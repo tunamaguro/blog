@@ -4,8 +4,8 @@ createdAt: "2023-02-05"
 emoji: "🏡"
 category: "blog"
 tags:
-    - Netlify
-    - Cloudflare
+  - Netlify
+  - Cloudflare
 ---
 
 ## はじめに
