@@ -43,9 +43,6 @@ export default defineConfig({
     }),
   ],
   site: "https://www.tunamaguro.dev/",
-  experimental: {
-    assets: true,
-  },
   image: {
     service: sharpImageService(),
   },
