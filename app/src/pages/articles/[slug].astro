@@ -17,6 +17,7 @@ export const getStaticPaths = async () => {
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { z } from "astro:content";
 import { MdDetail } from "@/components/MdDetail";
+import Giscus from "@/components/Giscus/index.astro";
 
 const frontmatterSchema = z.object({
   excerpt: z.string(),
@@ -60,4 +61,5 @@ const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
   >
     <Content />
   </MdDetail>
+  <Giscus />
 </BaseLayout>
