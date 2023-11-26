@@ -32,7 +32,7 @@ export const PostCard: FC<PostCardProps> = ({
             </h2>
           </a>
           <div>作成日 : {createdAt}</div>
-          <div className="flex gap-2 justify-start">
+          <div className="flex gap-2 justify-start flex-wrap">
             {tags.map((tag) => (
               <Tag key={tag} tag={tag}>
                 {tag}
