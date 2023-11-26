@@ -24,6 +24,7 @@ export const getStaticPaths = (async () => {
         tag: slugfy(tag),
       },
       props: {
+        tag,
         posts: filteredPosts,
       },
     };
@@ -32,9 +33,14 @@ export const getStaticPaths = (async () => {
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { PostList } from "@/components/PostList";
-const { posts } = Astro.props;
+import { PostListHeader } from "@/components/PostList/Header";
+const { tag, posts } = Astro.props;
 ---
 
 <BaseLayout>
-  <PostList cards={posts} />
+  <PostList cards={posts}>
+    <PostListHeader>
+      {tag}
+    </PostListHeader>
+  </PostList>
 </BaseLayout>
