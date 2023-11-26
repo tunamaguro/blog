@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { PostList } from "@/components/PostList";
+import { PostListHeader } from "@/components/PostList/Header";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 const articles = await getCollection("article");
 
@@ -15,5 +17,7 @@ const card_info = articles
 ---
 
 <BaseLayout>
-  <PostList cards={card_info} />
+  <PostList cards={card_info}>
+    <PostListHeader icon={faBook}>Blog</PostListHeader>
+  </PostList>
 </BaseLayout>

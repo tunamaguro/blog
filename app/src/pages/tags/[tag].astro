@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import { slugfy } from "@/utils/slugfy";
+
+export const getStaticPaths = (async () => {
+  const articles = await getCollection("article");
+
+  const allTags = Array.from(
+    new Set(articles.flatMap((article) => article.data.tags))
+  );
+
+  return allTags.map((tag) => {
+    const filteredPosts = articles
+      .map((article) => ({
+        ...article.data,
+        slug: article.slug,
+      }))
+      .filter((article) => article.tags.includes(tag))
+      .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+
+    return {
+      params: {
+        tag: slugfy(tag),
+      },
+      props: {
+        tag,
+        posts: filteredPosts,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { PostList } from "@/components/PostList";
+import { PostListHeader } from "@/components/PostList/Header";
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout>
+  <PostList cards={posts}>
+    <PostListHeader>
+      {tag}
+    </PostListHeader>
+  </PostList>
+</BaseLayout>

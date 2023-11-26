@@ -1,18 +1,17 @@
-import type { FC, ComponentProps } from "react";
+import type { FC, ComponentProps, ReactNode } from "react";
 
 import { PostCard } from "./PostCard";
 
 type Props = {
+  children?: ReactNode;
   cards: ComponentProps<typeof PostCard>[];
 };
 
-export const PostList: FC<Props> = ({ cards }) => {
+export const PostList: FC<Props> = ({ children, cards }) => {
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl md:text-3xl font-bold border-b-4 border-base-content py-4">
-        Blog
-      </h1>
-      <div className="flex flex-col">
+      {children}
+      <div className="flex flex-col px-2">
         {cards.map((card) => (
           <PostCard key={card.slug} {...card} />
         ))}
