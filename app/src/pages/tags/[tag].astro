@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async () => {
+  const slugfy = (s: string) =>
+    s
+      .replaceAll(/^\p{Z}+|\p{Z}+$/g, "") // 先頭か末尾の空白を削除
+      .toLowerCase()
+      .replaceAll(/[^a-zA-Z\d\s]/g, "") // alphanumericまたは空白でない文字列を削除
+      .replaceAll(/\s+/g, "-") // 空白をハイフンに置換
+      .replaceAll(/-+/g, "-"); // 連続したハイフンを削除
+  const articles = await getCollection("article");
+
+  const allTags = Array.from(
+    new Set(articles.flatMap((article) => article.data.tags))
+  );
+
+  return allTags.map((tag) => {
+    const filteredPosts = articles
+      .map((article) => ({
+        ...article.data,
+        slug: article.slug,
+      }))
+      .filter((article) => article.tags.includes(tag))
+      .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+
+    return {
+      params: {
+        tag: slugfy(tag),
+      },
+      props: {
+        posts: filteredPosts,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { PostList } from "@/components/PostList";
+const { posts } = Astro.props;
+---
+
+<BaseLayout>
+  <PostList cards={posts} />
+</BaseLayout>
