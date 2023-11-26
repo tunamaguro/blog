@@ -16,7 +16,7 @@ Oh, and here's a great quote from this Wikipedia on
 > The Thunnini comprise 15 species across five genera,[2] the sizes of which vary greatly,
 > ranging from the bullet tuna (max length: 50 cm or 1.6 ft, weight: 1.8 kg or 4 lb) up to the Atlantic bluefin tuna (max length: 4.6 m or 15 ft, weight: 684 kg or 1,508 lb),
 > which averages 2 m (6.6 ft) and is believed to live up to 50 years.
-> ![Super Maguro](/images/hello-world/maguro.png)
+> ![Super Maguro](src/assets/images/hello-world/maguro.png)
 
 You can also write code blocks here!
 

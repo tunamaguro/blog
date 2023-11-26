@@ -20,13 +20,13 @@ tags:
 
 「Site settings」から「Domain Management」を開きます。「Site overview」の「Domain Settings」から直接開いても問題ありません。
 
-![Domainの設定画面](/images/change-this-site-domain/step-1-1.png)
+![Domainの設定画面](src/assets/images/change-this-site-domain/step-1-1.png)
 
 「Add custom domain」を押して登録したいドメイン、またはサブドメインを入力し「Verify」、「Add domain」の順に押していきます。
 
 いい感じにできていれば下のような画面になっているはずです。
 
-![追加後の画面](/images/change-this-site-domain/step-1-2.png)
+![追加後の画面](src/assets/images/change-this-site-domain/step-1-2.png)
 
 ## 外部 DNS の設定
 
@@ -41,11 +41,11 @@ tags:
 
 これが完了すると以下のようになっているはずです。
 
-![Google Domainsの設定](/images/change-this-site-domain/step-2-1.png)
+![Google Domainsの設定](src/assets/images/change-this-site-domain/step-2-1.png)
 
 ここで Netlify に戻り「Check DNS Configuration」の表示がなくなっていれば完了です。
 
-![設定後の画面](/images/change-this-site-domain/step-2-2.png)
+![設定後の画面](src/assets/images/change-this-site-domain/step-2-2.png)
 
 もし「www.yourdomain.com」を設定しようとされている場合は、「Options」から「Set as primary domain」を選択し
 プライマリドメインを切り替えると直ると思います(未検証)。
@@ -53,7 +53,7 @@ tags:
 その他のサブドメインを設定したい場合は上の手順を真似て行えばいけると思います。
 例えば下は「www」「blog」2 つのサブドメインを設定した例です。
 
-![サブドメイン追加設定後](/images/change-this-site-domain/step-2-3.png)
+![サブドメイン追加設定後](src/assets/images/change-this-site-domain/step-2-3.png)
 
 サブドメインを設定したあとに「証明書が~」のような問題が発生する場合はブラウザのキャッシュを削除するか、時間をおいて(24 時間)再度アクセスするとうまくいくかもしれません。
 私はキャッシュをすることによってアクセスできるようになりました。
@@ -70,7 +70,7 @@ Apex ドメインは`xxxx.com`のように独自ドメインの左側にホス�
 やることは簡単で A レコードに Netlify のロードバランサを設定するだけです。記事作成時点では`75.2.60.5`を設定します。
 変更されている可能性がありますので、その時々で正しい IP アドレスを確認してください。
 
-![ロードバランサの設定](/images/change-this-site-domain/step-3-1.png)
+![ロードバランサの設定](src/assets/images/change-this-site-domain/step-3-1.png)
 
 ## SSL 証明書の発行
 

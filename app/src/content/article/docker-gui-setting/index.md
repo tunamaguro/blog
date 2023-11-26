@@ -34,7 +34,7 @@ tags:
 
 [WSL その 222 - Linux GUI アプリを動かす WSLg のアーキテクチャーと仕組み](https://kledgeb.blogspot.com/2021/04/wsl-222-linux-guiwslg.html)を見るとなんとなく御理解いただけるのではないかなと思います。
 
-![WSLg-diagram](/images/docker-gui-setting/wslg-diagram.png)
+![WSLg-diagram](src/assets/images/docker-gui-setting/wslg-diagram.png)
 
 上記ブログでも紹介されている[Microsoft のブログ](https://devblogs.microsoft.com/commandline/wslg-architecture/)から図を拝借してきました。普段使用しているディストリビューションの一部が書き換えられて、裏で動作している GUI 用のサーバーに接続しているようです。そしてこのサーバーからリモートデスクトップを使ってホスト(つまり Windows)と通信しているのだと思います。
 
@@ -110,11 +110,11 @@ wayland-0
 $ xeyes
 ```
 
-![xeyes実行結果](/images/docker-gui-setting/wslg-xeyes.png)
+![xeyes実行結果](src/assets/images/docker-gui-setting/wslg-xeyes.png)
 
 ちゃんと画面が出てきました!!。軽くしか試していませんが２つ以上ウィンドウを立ち上げても問題ないようです。
 
-![2つのウィンドウ](/images/docker-gui-setting/wslg-2-window.png)
+![2つのウィンドウ](src/assets/images/docker-gui-setting/wslg-2-window.png)
 
 docker 内で日本語化の設定などをすれば、おそらく日本語入力などもできると思います(未検証)。
 
@@ -182,13 +182,13 @@ services:
 $ USER=root vncserver :1 -geometry 800x600 -depth 24
 ```
 
-![vncserver](/images/docker-gui-setting/vnc-vncserver.png)
+![vncserver](src/assets/images/docker-gui-setting/vnc-vncserver.png)
 
 `root`でユーザを作成し解像度 800x600 の VNC デスクトップを立ち上げています。`depth`の意味はよくわかっていません。パスワード入力してくださいと言われたら、適当なパスワードを設定します。
 
 > `vncserver -list`で現在の VNC デスクトップを確認できます。また、`vncserver -kill :x`で対象の VNC デスクトップを削除できます。
 
-![vnclist](/images/docker-gui-setting/vnc-vnclist.png)
+![vnclist](src/assets/images/docker-gui-setting/vnc-vnclist.png)
 
 5901 番のポートにサーバーが立っているので、localhost:5901 を指定します。
 
@@ -196,19 +196,19 @@ $ USER=root vncserver :1 -geometry 800x600 -depth 24
 $ websockify -D --web=/usr/share/novnc/ 80 localhost:5901
 ```
 
-![websockify](/images/docker-gui-setting/vnc-websockify.png)
+![websockify](src/assets/images/docker-gui-setting/vnc-websockify.png)
 
 ここまで実施したら、ホスト PC から[localhost:7001/vnc.html](http://localhost:7001/vnc.html)にアクセスすると...
 
-![novnc](/images/docker-gui-setting/vnc-novnc.png)
+![novnc](src/assets/images/docker-gui-setting/vnc-novnc.png)
 
 `NoVNC`の画面が表示されるので、Connect を押して先程設定したパスワードを入力します。すると、コンテナ内の GUI が表示されます。
 
-![guiからxcalc](/images/docker-gui-setting/vnc-gui-terminal.png)
+![guiからxcalc](src/assets/images/docker-gui-setting/vnc-gui-terminal.png)
 
 👆 は`xcalc`を実行してみた例です。コンテナ内のターミナルから実行しても問題なく表示されています。
 
-![terminalからxeyes](/images/docker-gui-setting/vnc-gui-xeyes.png)
+![terminalからxeyes](src/assets/images/docker-gui-setting/vnc-gui-xeyes.png)
 
 ブラウザだけで GUI が使えるのは便利です。
 

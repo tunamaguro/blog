@@ -55,7 +55,7 @@ PC に作成した USB を挿して、電源ボタンを押したら F2 を連�
 
 最終的にネットワーク構成はこうなりました。
 
-![ネットワーク概要](/images/create-home-kubernates-with-kubespray/network.svg)
+![ネットワーク概要](src/assets/images/create-home-kubernates-with-kubespray/network.svg)
 
 本当は普段使いのネットワークと kubernetes が入っているネットワークは分けたかったのですが、
 L3 スイッチやルータを追加で買うのも面倒だったので同じネットワークに所属しています。
@@ -270,7 +270,7 @@ nginx-service   10.233.102.142:80,10.233.104.71:80,10.233.75.14:80   2m35s
 kubectl port-forward services/nginx-service 8080:80
 ```
 
-![](/images/create-home-kubernates-with-kubespray/access-nginx-service-replica-3.png)
+![](src/assets/images/create-home-kubernates-with-kubespray/access-nginx-service-replica-3.png)
 
 ブラウザで localhost:8080 アクセスしてみると Nginx のメッセージを確認できました。
 一応実験として Pod を削除した時にはアクセスできないことも確かめておきます。
@@ -289,7 +289,7 @@ spec:
 kubectl apply -f sample-deployment.yaml
 ```
 
-![](/images/create-home-kubernates-with-kubespray/access-nginx-service-replica-0.png)
+![](src/assets/images/create-home-kubernates-with-kubespray/access-nginx-service-replica-0.png)
 
 当然ですがアクセスできません。ログを確認すると「Pod との接続が無くなったぞ!!」と怒っているようです。~~このログが出るのをはじめて見ました~~
 

@@ -24,7 +24,7 @@ NAME                                        CPU(cores)   MEMORY(bytes)
 ingress-nginx-controller-5fcb5746fc-wcbs8   4m           97Mi
 ```
 
-![Grafana shows incorrect value](/images/kube-prometheus-stack-cpu-usage-is-not-correct/grafana-chart-incorrect.png)
+![Grafana shows incorrect value](src/assets/images/kube-prometheus-stack-cpu-usage-is-not-correct/grafana-chart-incorrect.png)
 
 大体 2 倍程度大きく表示されています。
 
@@ -61,7 +61,7 @@ NAME                                        CPU(cores)   MEMORY(bytes)
 ingress-nginx-controller-5fcb5746fc-wcbs8   2m           96Mi
 ```
 
-![Grafana shows correct value](/images/kube-prometheus-stack-cpu-usage-is-not-correct/grafana-chart-correct.png)
+![Grafana shows correct value](src/assets/images/kube-prometheus-stack-cpu-usage-is-not-correct/grafana-chart-correct.png)
 
 ## 原因
 
@@ -74,7 +74,7 @@ https://github.com/prometheus-community/helm-charts/issues/192
 
 実際に Grafana でクエリを発行して表の`Service`を確認すると、写真が小さく見にくいですが 2 つのサービスから値が記録されていたことがわかります。
 
-![Send from two Service](/images/kube-prometheus-stack-cpu-usage-is-not-correct/value-from-two-service.png)
+![Send from two Service](src/assets/images/kube-prometheus-stack-cpu-usage-is-not-correct/value-from-two-service.png)
 
 つまるところ、「過去のゴミが削除されずに悪さをしていた」というおちでした。
 

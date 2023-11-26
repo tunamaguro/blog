@@ -64,7 +64,7 @@ Creating a new Next.js app in /workspaces/app.
 cd app && npm run dev
 ```
 
-![](/images/nextjs-vscode-debugger/npm-run-dev.png)
+![](src/assets/images/nextjs-vscode-debugger/npm-run-dev.png)
 
 問題なさそうですね!
 
@@ -109,9 +109,9 @@ cd app && npm run dev
 
 `Python`でデバッグするように`Ctrl + Shift + D`でデバッグパネルを開いて`F5`でデバッガーを起動します。今回は`Next.js: debug server-side`を選んで起動させます。
 
-![](/images/nextjs-vscode-debugger/debugger-tab.png)
+![](src/assets/images/nextjs-vscode-debugger/debugger-tab.png)
 
-![](/images/nextjs-vscode-debugger/debugger-not-working.png)
+![](src/assets/images/nextjs-vscode-debugger/debugger-not-working.png)
 
 ダメみたいですね...
 
@@ -121,7 +121,7 @@ cd app && npm run dev
 コンソールの出力を見る限り出力を見る限り、コマンドの実行位置がおかしいのが原因に思えます。
 なので、いったん`.vscode/launch.json`を`/app`下に移動させそれで正しく動作するか確認します。
 
-![](/images/nextjs-vscode-debugger/debugger-worked-under-app.png)
+![](src/assets/images/nextjs-vscode-debugger/debugger-worked-under-app.png)
 
 正しく起動しているようです。ここでは割愛しますが、サーバ側、クライアント側ともにブレークポイントが正常に起動していることを確認できました。
 
@@ -182,7 +182,7 @@ export async function GET(request: Request) {
 
 `http://localhost:3000/api`にブラウザでアクセスすると予想通り`{ greet: "Hello!" }`と表示され、同時にサーバ側では`Hello Server!`が出力されています。
 
-![](/images/nextjs-vscode-debugger/access-api-by-browser.png)
+![](src/assets/images/nextjs-vscode-debugger/access-api-by-browser.png)
 
 ```bash
 ---略--

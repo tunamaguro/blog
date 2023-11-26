@@ -33,7 +33,7 @@ tags:
 
 **GitHub Actions**を使うのは今回が初めてだったので良い勉強でした。
 
-![GitHub Actionsの様子](/images/move-to-cloudflare-from-netlify/action-image.png)
+![GitHub Actionsの様子](src/assets/images/move-to-cloudflare-from-netlify/action-image.png)
 
 ちゃんと動いているようです。
 
@@ -51,7 +51,7 @@ UI が良かったので迷うことはないと思いますが、一応公式�
 
 もう使わなくなったので**Netlify**から退会します。
 
-![サイトを消す](/images/move-to-cloudflare-from-netlify/delete-netlify.png)
+![サイトを消す](src/assets/images/move-to-cloudflare-from-netlify/delete-netlify.png)
 
 ## 終わりに
 

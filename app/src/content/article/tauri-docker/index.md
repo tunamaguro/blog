@@ -260,7 +260,7 @@ npm run tauri dev
 ```
 
 下のような画面が表示されれば成功です!  
-![welcome Tauri](/images/tauri-docker/welcome-tauri.png)
+![welcome Tauri](src/assets/images/tauri-docker/welcome-tauri.png)
 
 ## まとめ
 

@@ -32,7 +32,7 @@ Proxmox のインストールについては、多くの解説記事が存在す
 今回は以下の設定で作成し、インストール時のオプションは SSH のみ有効にし、それ以外はデフォルトで設定しました。
 この部分については各自の環境に合わせて調整してください。
 
-![VM設定](/images/move-home-kubernetes-to-proxmox/proxmox-vm-preference.png)
+![VM設定](src/assets/images/move-home-kubernetes-to-proxmox/proxmox-vm-preference.png)
 
 作成が完了したら、パッケージを更新しておきます
 
@@ -69,7 +69,7 @@ sudo sysctl --system
 
 正直何をしているか全然わかっていないので、周りの詳しい方に聞いたほうが良いと思います。一応 ChatGPT に聞いてみたら下のように返してきました
 
-![ChatGPTに聞いた](/images/move-home-kubernetes-to-proxmox/ipv4-forwarding-chatgpt.png)
+![ChatGPTに聞いた](src/assets/images/move-home-kubernetes-to-proxmox/ipv4-forwarding-chatgpt.png)
 
 このコマンドを実行して必要なモジュールが正しくロードされていることを確認します
 
@@ -185,7 +185,7 @@ sudo systemctl start crio
 crictl info
 ```
 
-![crictl info](/images/move-home-kubernetes-to-proxmox/crictl-info.png)
+![crictl info](src/assets/images/move-home-kubernetes-to-proxmox/crictl-info.png)
 
 ここまでで VM 共通の設定が完了したので VM をシャットダウンしてください
 
