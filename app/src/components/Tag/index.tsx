@@ -6,7 +6,7 @@ type TagProps = { tag: string; children: ReactNode };
 export const Tag = ({ tag, children }: TagProps) => {
   return (
     <a href={`/tags/${slugfy(tag)}`}>
-      <div className="badge badge-outline hover:bg-primary hover:text-primary-content">
+      <div className="badge badge-outline hover:bg-primary hover:text-primary-content whitespace-nowrap">
         {children}
       </div>
     </a>
