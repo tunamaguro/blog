@@ -27,6 +27,7 @@ export const Twemoji: FC<TwemojiProps> = ({ emoji, className }) => {
       draggable="false"
       alt={twemojiPath.text}
       loading="lazy"
+      decoding="async"
       src={twemojiPath.url}
     />
   );

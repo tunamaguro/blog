@@ -29,7 +29,7 @@ tags:
 
 実際に動かしてみるとしたのような形です。`Clouflare Pages`の制限に引っかからないよう調整していたらだいぶ見にくい`gif`になってしまいました。
 
-![動作イメージ](/images/create-hsl-color-picker/working.gif)
+![動作イメージ](src/assets/images/create-hsl-color-picker/working.gif)
 
 > 素晴らしい絵は以下からお借りしました。ありがとうございます。  
 > 出典: 川瀬巴水版画集 1 (https://rnavi.ndl.go.jp/imagebank/data/post.html)

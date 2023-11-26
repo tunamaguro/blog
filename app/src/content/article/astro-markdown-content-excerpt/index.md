@@ -155,7 +155,7 @@ const contentDescription = maybeDescription ?? frontmatter.excerpt;
 
 確認してみると確かに設定されています。
 
-![](/images/astro-markdown-content-excerpt/meta.png)
+![](src/assets/images/astro-markdown-content-excerpt/meta.png)
 
 ## おわりに
 

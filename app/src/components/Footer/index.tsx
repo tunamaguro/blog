@@ -1,4 +1,5 @@
 import type { FunctionComponent } from "react";
+import AstroDarkLogo from "@/assets/astro_dark.svg"
 
 type Props = {
   author: string;
@@ -29,7 +30,7 @@ export const Footer: FunctionComponent<Props> = ({ author }) => (
         <img
           className="h-6 mx-2"
           alt="Astro logo"
-          src="/astro_dark.svg"
+          src={AstroDarkLogo.src}
           width="100%"
           height="100%"
           loading="lazy"

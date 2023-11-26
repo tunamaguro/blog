@@ -5,6 +5,7 @@ import {
   faTwitterSquare,
   faSquareGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import MaguroImage from "@/assets/maguro.png"
 import { MisskeyIcon } from "./MisskeyIcon";
 
 type Props = {
@@ -21,7 +22,7 @@ export const Hero: FunctionComponent<Props> = ({ author }) => (
         <div className="w-30 h-auto md:w-40 p-3 rounded-full bg-base-300 ">
           <img
             alt="tsunamaguro icon"
-            src="/maguro.png"
+            src={MaguroImage.src}
             className="transform rotate-45 md:translate-y-6 !h-24"
           />
         </div>

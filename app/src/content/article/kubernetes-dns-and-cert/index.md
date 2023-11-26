@@ -296,13 +296,13 @@ ExternalDNS は作成された Ingress や Service の情報を見て、いい�
 
 なんかいっぱいありますが、一番下の Custom token を選択します。
 
-![Custom Tokenを選択](/images/kubernetes-dns-and-cert/cloudflare-token-custom.png)
+![Custom Tokenを選択](src/assets/images/kubernetes-dns-and-cert/cloudflare-token-custom.png)
 
 公式ドキュメントにあるようにいくつか権限を与えて作成します。
 
 > When using API Token authentication, the token should be granted Zone Read, DNS Edit privileges, and access to All zones.
 
-![ExternalDNS用トークン](/images/kubernetes-dns-and-cert/cloudflare-token-externaldns.png)
+![ExternalDNS用トークン](src/assets/images/kubernetes-dns-and-cert/cloudflare-token-externaldns.png)
 
 ここで作成されたトークンを忘れないようにメモしておきます。
 
@@ -522,11 +522,11 @@ time="2023-07-02T07:33:34Z" level=info msg="Changing record." action=CREATE reco
 
 確認しに行くと確かに DNS レコードが増えていることが確認できます。
 
-![DNSレコードが登録される](/images/kubernetes-dns-and-cert/cloudflare-dns-registered.png)
+![DNSレコードが登録される](src/assets/images/kubernetes-dns-and-cert/cloudflare-dns-registered.png)
 
 この状態で nginx.your.domain にアクセスすると Nginx の Welcome メッセージが表示されます。
 
-![NginxのWelcomeメッセージ](/images/kubernetes-dns-and-cert/cloudflare-access-by-domain.png)
+![NginxのWelcomeメッセージ](src/assets/images/kubernetes-dns-and-cert/cloudflare-access-by-domain.png)
 
 最後に作成した Ingress を削除し DNS レコードが削除されることを確かめます。
 
@@ -534,7 +534,7 @@ time="2023-07-02T07:33:34Z" level=info msg="Changing record." action=CREATE reco
 kubectl delete -f dns-sample.yaml
 ```
 
-![DNSレコードが削除される](/images/kubernetes-dns-and-cert/cloudflare-dns-unregistered.png)
+![DNSレコードが削除される](src/assets/images/kubernetes-dns-and-cert/cloudflare-dns-unregistered.png)
 
 ## cert-manager
 
@@ -573,7 +573,7 @@ helm install \
 今回は先ほど作成した ExternalDNS と連携して TLS 証明書を発行するようにするため Cloudflare 用の設定を行います。
 ExternalDNS と同じようにこちらもいくつか権限を与えて作成します。詳しくは上記ドキュメントを参照してください。
 
-![cert-manager用トークン発行](/images/kubernetes-dns-and-cert/cloudflare-token-cert-manager.png)
+![cert-manager用トークン発行](src/assets/images/kubernetes-dns-and-cert/cloudflare-token-cert-manager.png)
 
 先ほどメモしたトークンを使って以下のような`Issuer`を作成します。
 `Issuer`は実際に証明書を発行するリソースで、これには`Issuer`と`ClusterIssuer`の 2 つがあります。
