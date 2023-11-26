@@ -1,9 +1,9 @@
 import "katex/dist/katex.min.css";
 
 import type { FC } from "react";
+import { Tag } from "@/components/Tag";
 import { Twemoji } from "../Twemoji";
 import { ArticleInfo, type ArticleInfoProps } from "./ArticleInfo";
-import { Tag } from "./Tag";
 
 type MdDetailProps = {
   title: string;

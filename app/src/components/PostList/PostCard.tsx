@@ -1,5 +1,6 @@
 import type { FC } from "react";
-import { Twemoji } from "../Twemoji";
+import { Twemoji } from "@/components/Twemoji";
+import {Tag}from "@/components/Tag"
 
 type PostCardProps = {
   title: string;
@@ -31,9 +32,9 @@ export const PostCard: FC<PostCardProps> = ({
             <div>作成日 : {createdAt}</div>
             <div className="flex gap-2 justify-start">
               {tags.map((tag) => (
-                <div key={tag} className="badge badge-outline">
+                <Tag key={tag} tag={tag}>
                   {tag}
-                </div>
+                </Tag>
               ))}
             </div>
           </div>
