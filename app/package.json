@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/mdx": "^0.17.0",
     "@astrojs/react": "^3.0.4",
+    "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/tailwind": "^5.0.2",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
