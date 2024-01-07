@@ -1,5 +1,5 @@
 import type { FunctionComponent } from "react";
-import AstroDarkLogo from "@/assets/astro_dark.svg"
+import AstroDarkLogo from "@/assets/astro_dark.svg";
 
 type Props = {
   author: string;

@@ -5,7 +5,7 @@ import {
   faTwitterSquare,
   faSquareGithub,
 } from "@fortawesome/free-brands-svg-icons";
-import MaguroImage from "@/assets/maguro.png"
+import MaguroImage from "@/assets/maguro.png";
 import { MisskeyIcon } from "./MisskeyIcon";
 
 type Props = {
