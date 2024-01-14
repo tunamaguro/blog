@@ -9,7 +9,7 @@ type Props = {
 
 export const PostList: FC<Props> = ({ children, cards }) => {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       {children}
       <div className="px-4 py-4 grid grid-cols-auto-fill-80 gap-6">
         {cards.map((card) => (

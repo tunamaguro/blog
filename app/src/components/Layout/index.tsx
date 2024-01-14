@@ -16,7 +16,7 @@ export const Layout: FunctionComponent<Props> = ({
 }) => (
   <div className="flex flex-col min-h-screen">
     <Header siteTitle={siteTitle} />
-    <main className="flex-grow container mx-auto">{children}</main>
+    <main className="flex-grow container max-w-6xl mx-auto">{children}</main>
     <Footer author={author} />
   </div>
 );
