@@ -9,24 +9,23 @@ tags:
 
 ## はじめに
 
-[前回の記事](/articles/argocd-with-vault-operator)で気になっていたVaultの`auto-unseal`と`auto-join`について、実際に試してみた記録です。今回試してみたリポジトリはこちら
+[前回の記事](/articles/argocd-with-vault-operator)で気になっていた Vault の`auto-unseal`と`auto-join`について、実際に試してみた記録です。今回試してみたリポジトリはこちら
 
 https://github.com/tunamaguro/try-vault-heal-join
 
 > この例ではすぐに環境を壊しているので機密情報を含むデータを掲載していますが、実際に行われる場合は慎重に扱ってください。  
-> また、掲載するデータには注意をしているつもりですが、もし載せてはいけない情報が書いてあった場合、TwitterのDMなどでこっそり教えていただけると助かります。
+> また、掲載するデータには注意をしているつもりですが、もし載せてはいけない情報が書いてあった場合、Twitter の DM などでこっそり教えていただけると助かります。
 
-
-## auto-unsealを有効化する
+## auto-unseal を有効化する
 
 とりあえず公式ドキュメントを読みます。
 
 https://developer.hashicorp.com/vault/docs/configuration/seal
 
-ざっくり読んだ感じAWSやGCP,Azureの暗号化キー管理サービスを暗号化に用いることで、面倒だった`unseal`を省いてくれるらしいです。
-なので、事前に各サービスで鍵を生成しておく必要があります。今回は安いという理由でGCPを利用しました。
+ざっくり読んだ感じ AWS や GCP,Azure の暗号化キー管理サービスを暗号化に用いることで、面倒だった`unseal`を省いてくれるらしいです。
+なので、事前に各サービスで鍵を生成しておく必要があります。今回は安いという理由で GCP を利用しました。
 
-適当なプロジェクトを作成した後、[GCPでのunseal](https://developer.hashicorp.com/vault/tutorials/auto-unseal/autounseal-gcp-kms)チュートリアルを参考に
+適当なプロジェクトを作成した後、[GCP での unseal](https://developer.hashicorp.com/vault/tutorials/auto-unseal/autounseal-gcp-kms)チュートリアルを参考に
 サービスアカウントを作成します。今回は次の権限を与えて作成しました。  
 ![サービスアカウントのロール](src/assets/images/vault-auto-unseal-and-join/sa-role.png)
 
@@ -34,8 +33,8 @@ https://developer.hashicorp.com/vault/docs/configuration/seal
 
 ![サービスアカウント鍵のダウンロード](src/assets/images/vault-auto-unseal-and-join/credential.png)
 
-次にキーリングを作成します。GCPを全然触ったことがないのでよくわかっていませんが、暗号化に利用する鍵をまとめて管理するための何かだと思っています。
-リージョンについてもここを変えると何が変わるのか分かっていませんが、チュートリアル見た感じglobalで作られている風だったので揃えました
+次にキーリングを作成します。GCP を全然触ったことがないのでよくわかっていませんが、暗号化に利用する鍵をまとめて管理するための何かだと思っています。
+リージョンについてもここを変えると何が変わるのか分かっていませんが、チュートリアル見た感じ global で作られている風だったので揃えました
 
 https://github.com/hashicorp/vault-guides/blob/87f2fe347b581ad46e2e0a4b8a540f227cecb4f5/operations/gcp-kms-unseal/variables.tf#L31-L33
 
@@ -44,7 +43,7 @@ https://github.com/hashicorp/vault-guides/blob/87f2fe347b581ad46e2e0a4b8a540f227
 その後鍵を作成します
 ![鍵作成](src/assets/images/vault-auto-unseal-and-join/unseal-key.png)
 
-ここまででGCPでの作業は終了して、kubernetesでの作業に移ります。先ほどダウンロードした`credentials.json`をSecretとして作成します
+ここまでで GCP での作業は終了して、kubernetes での作業に移ります。先ほどダウンロードした`credentials.json`を Secret として作成します
 
 ```bash
 kubectl create ns vault
@@ -64,8 +63,8 @@ metadata:
   namespace: vault
 ```
 
-その後この認証ファイルをvaultがマウントして利用できるように設定ファイルを書き換えます。
-ドキュメントを読む限りすべての設定値は環境変数に設定すれば良さそうなので、セキュリティを考えるならSecretから利用したほうがよいと思います
+その後この認証ファイルを vault がマウントして利用できるように設定ファイルを書き換えます。
+ドキュメントを読む限りすべての設定値は環境変数に設定すれば良さそうなので、セキュリティを考えるなら Secret から利用したほうがよいと思います
 
 https://developer.hashicorp.com/vault/docs/configuration/seal/gcpckms#gcpckms-parameters
 
@@ -111,12 +110,12 @@ server:
 
 [作業コミット](https://github.com/tunamaguro/try-vault-heal-join/commit/0a83a3f82ea0e3231bcd194fe013f39cfe68c6ba#diff-ce9456e5067b90f33aeddca4cdce2f3c769350c9cb2e72b37fb86853570e62cdR10-R40)
 
-これを`argocd sync`するとポッドが作成はされますがReadyにはまだなりません。チュートリアルにも記載がありましたが、はじめの`operator init`だけは手動で行う必要があるようです
+これを`argocd sync`するとポッドが作成はされますが Ready にはまだなりません。チュートリアルにも記載がありましたが、はじめの`operator init`だけは手動で行う必要があるようです
 
 ![ArgoCD上での表示](src/assets/images/vault-auto-unseal-and-join/argocd-vault-sync-unseal-before-init.png)
 
 ```bash
-kubectl get pod -n vault 
+kubectl get pod -n vault
 NAME      READY   STATUS    RESTARTS   AGE
 vault-0   0/1     Running   0          20s
 ```
@@ -139,7 +138,7 @@ Recovery key initialized with 5 key shares and a key threshold of 3. Please
 securely distribute the key shares printed above.
 ```
 
-状態を確認すると`vault operator unseal`しないとTrueのままだったSealedが、何もしなくてもFalseになっています
+状態を確認すると`vault operator unseal`しないと True のままだった Sealed が、何もしなくても False になっています
 
 ```bash
 kubectl -n vault exec -it vault-0 -- vault status
@@ -158,11 +157,11 @@ Cluster ID               2d16b1bd-6586-68f3-8a0d-70d78b32db1f
 HA Enabled               false
 ```
 
-## auto-joinを有効にする
+## auto-join を有効にする
 
 https://developer.hashicorp.com/vault/tutorials/raft/raft-storage#retry-join
 
-HA化した際のストレージとしてRaftを用いる場合、各ポッドで`vault operator raft join`を実行しないといけませんでした。ポッドが落ちるたびにこんなことをやりたくないので、自動でRaftクラスターに接続してもらうように設定します。
+HA 化した際のストレージとして Raft を用いる場合、各ポッドで`vault operator raft join`を実行しないといけませんでした。ポッドが落ちるたびにこんなことをやりたくないので、自動で Raft クラスターに接続してもらうように設定します。
 ドキュメントによると、`retry_join`に接続先サーバのアドレスを書けば良さそうなので設定を追加します
 
 ```yaml
@@ -174,7 +173,7 @@ server:
       enabled: true
       config: |
         ui = true
-  
+
         listener "tcp" {
           tls_disable = 1
           address = "[::]:8200"
@@ -184,7 +183,7 @@ server:
           #  unauthenticated_metrics_access = "true"
           #}
         }
-        
+
         storage "raft" {
           path = "/vault/data"
           retry_join {
@@ -197,7 +196,7 @@ server:
             leader_api_addr = "http://vault-2.vault-internal:8200"
           }
         }
-  
+
         seal "gcpckms" {
           credentials = "/vault/userconfig/credentials.json"
           project     = "test-vault-auto-unseal"
@@ -205,15 +204,15 @@ server:
           key_ring    = "vault-auto-unseal"
           crypto_key  = "unseal-key"
         }
-  
+
         service_registration "kubernetes" {}
 ```
 
 [作業コミット](https://github.com/tunamaguro/try-vault-heal-join/commit/02d6d27f9a3206d5181c0ce676ed48702b5a9a31#diff-ce9456e5067b90f33aeddca4cdce2f3c769350c9cb2e72b37fb86853570e62cdR26-R57)
 
-raft.enabledをtrueにしないとうまく動かなかったので注意。configもraftの下のものに書く必要がありました。~ここでしばらく沼にはまり30分程度ムダにしました。皆さんはHelmの説明をよく読みましょう~
+raft.enabled を true にしないとうまく動かなかったので注意。config も raft の下のものに書く必要がありました。~ここでしばらく沼にはまり 30 分程度ムダにしました。皆さんは Helm の説明をよく読みましょう~
 
-これをデプロイすると下のようになります。意図通り3個ポッドがありHA用の設定になっているようです
+これをデプロイすると下のようになります。意図通り 3 個ポッドがあり HA 用の設定になっているようです
 
 ![ArgoCD上での表示](src/assets/images/vault-auto-unseal-and-join/argocd-vault-sync-auto-join.png)
 
@@ -257,7 +256,7 @@ Raft Committed Index     61
 Raft Applied Index       61
 ```
 
-`vault-0`の初期化は無事完了し、auto-unsealまで行われたことが確認できます。ほかのポッドも同じようになっているか確認します
+`vault-0`の初期化は無事完了し、auto-unseal まで行われたことが確認できます。ほかのポッドも同じようになっているか確認します
 
 ```bash
 kubectl -n vault exec -it vault-1 -- vault status
@@ -303,11 +302,11 @@ Raft Committed Index     64
 Raft Applied Index       64
 ```
 
-どのポッドも初期化が完了しvaultクラスターが動き始めました
+どのポッドも初期化が完了し vault クラスターが動き始めました
 
 ![初期化後のArgoCD](src/assets/images/vault-auto-unseal-and-join/argocd-vault-sync-after-init.png)
 
-一応CLI上でも確認しておきます
+一応 CLI 上でも確認しておきます
 
 ```bash
 vault login
@@ -321,7 +320,7 @@ c6ea822c-1d43-3c0b-9932-dac4465574a6    vault-1.vault-internal:8201    follower 
 
 ## 後片付け
 
-作製したkubernetesクラスターとGCP上のリソースは忘れないうちに消しておきましょう
+作製した kubernetes クラスターと GCP 上のリソースは忘れないうちに消しておきましょう
 
 ```bash
 kind delete clusters vault-test
@@ -333,6 +332,6 @@ Deleted clusters: ["vault-test"]
 
 ## 後書き
 
-`auto-unseal`と`auto-join`を設定しておけば、簡単に秘密鍵を管理する基盤をお家kubernetes上に構築できそうでした。
-とくに今回で一番面倒だったのは、GCPプロジェクト作成~キーリング作成あたりなので、ここら辺をTerraformを使って自動化できれば、
-お家kubernetesに簡単に導入することも夢じゃなさそうだと思います。今度はそれをやりながらお家kubernetesの設定ファイルを公開する作業を進めたいです
+`auto-unseal`と`auto-join`を設定しておけば、簡単に秘密鍵を管理する基盤をお家 kubernetes 上に構築できそうでした。
+とくに今回で一番面倒だったのは、GCP プロジェクト作成~キーリング作成あたりなので、ここら辺を Terraform を使って自動化できれば、
+お家 kubernetes に簡単に導入することも夢じゃなさそうだと思います。今度はそれをやりながらお家 kubernetes の設定ファイルを公開する作業を進めたいです
