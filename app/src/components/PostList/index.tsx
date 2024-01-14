@@ -9,9 +9,9 @@ type Props = {
 
 export const PostList: FC<Props> = ({ children, cards }) => {
   return (
-    <div className="container mx-auto">
+    <div className="container">
       {children}
-      <div className="flex flex-col px-2">
+      <div className="px-4 py-4 grid grid-cols-auto-fill-80 gap-6">
         {cards.map((card) => (
           <PostCard key={card.slug} {...card} />
         ))}

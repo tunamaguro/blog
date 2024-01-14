@@ -18,7 +18,7 @@ export const PostCard: FC<PostCardProps> = ({
   slug,
 }) => {
   return (
-    <article className="card w-80 md:w-96   bg-base-200 shadow-xl">
+    <article className="card bg-base-200 shadow-xl">
       <a href={`/articles/${slug}`}>
         <figure className="w-16 md:w-24 pt-4 mx-auto">
           <Twemoji emoji={emoji || "😺"} />
@@ -31,8 +31,10 @@ export const PostCard: FC<PostCardProps> = ({
               </Tag>
             ))}
           </div>
-          <h2 className="card-title">{title}</h2>
-          <div className="text-right">作成日 : {createdAt}</div>
+          <a href={`/articles/${slug}`}>
+            <h2 className="card-title">{title}</h2>
+            <div className="text-right">作成日 : {createdAt}</div>
+          </a>
         </div>
       </a>
     </article>
