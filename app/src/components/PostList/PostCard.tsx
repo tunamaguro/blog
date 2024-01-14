@@ -18,7 +18,7 @@ export const PostCard: FC<PostCardProps> = ({
   slug,
 }) => {
   return (
-    <article className="card bg-base-200 shadow-xl transition hover:scale-105 ">
+    <article className="card bg-base-200 shadow-xl transition hover:scale-95 ">
       <a href={`/articles/${slug}`}>
         <figure className="w-16 md:w-24 pt-4 mx-auto">
           <Twemoji emoji={emoji || "😺"} />
