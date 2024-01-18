@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import { Layout } from "@/components/Layout";
 import Seo from "@/components/Seo/index.astro";
 import { siteMeta } from "@/constants/siteMeta";
@@ -17,6 +19,7 @@ const seoTitle = title ? title + " | " + siteMeta.title : siteMeta.title;
 <html lang="ja">
   <head>
     <Seo title={seoTitle} description={description} ogpImage={ogpImage} />
+    <ViewTransitions />
   </head>
   <body>
     <Layout siteTitle={siteMeta.title} author={siteMeta.author}>
