@@ -1,9 +1,7 @@
 import { defineConfig } from "astro/config";
-
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 
-// https://astro.build/config
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
@@ -24,12 +22,18 @@ import { rehypeReadingTime } from "./src/plugins/rehypeReadingTime";
 import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
+import expressiveCode from "astro-expressive-code";
+
+// https://astro.build/config
 export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex, rehypeExcerptContent, rehypeReadingTime],
   },
   integrations: [
+    expressiveCode({
+      themes: ["one-dark-pro"],
+    }),
     mdx(),
     tailwind(),
     react(),
