@@ -7,7 +7,11 @@ export const getStaticPaths = (async () => {
   const articles = await getCollection("article");
 
   const allTags = Array.from(
-    new Set(articles.flatMap((article) => article.data.tags))
+    new Set(
+      articles.flatMap((article) =>
+        article.data.tags.map((tag) => tag.toLowerCase())
+      )
+    )
   );
 
   return allTags.map((tag) => {
@@ -16,7 +20,11 @@ export const getStaticPaths = (async () => {
         ...article.data,
         slug: article.slug,
       }))
-      .filter((article) => article.tags.includes(tag))
+      .filter((article) =>
+        article.tags
+          .map((article_tag) => article_tag.toLowerCase())
+          .includes(tag)
+      )
       .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 
     return {
