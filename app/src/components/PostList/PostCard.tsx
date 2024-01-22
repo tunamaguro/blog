@@ -18,8 +18,8 @@ export const PostCard: FC<PostCardProps> = ({
   slug,
 }) => {
   return (
-    <article className="card bg-base-200 shadow-xl transition hover:scale-95">
-      <a href={`/articles/${slug}`} className="absolute inset-0" tabIndex={-1}></a>
+    <article className="card bg-base-200 hover:shadow-xl">
+      <a href={`/articles/${slug}`} className="absolute inset-0" tabIndex={-1} aria-label="記事に移動"></a>
 
       <figure className="w-16 md:w-24 pt-4 mx-auto">
         <Twemoji emoji={emoji || "😺"} />
