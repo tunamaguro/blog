@@ -1,6 +1,7 @@
 ---
 title: "お家KubernetesをProxmoxで作り直した"
 createdAt: "2023-07-08"
+updatedAt: "2024-01-23"
 emoji: "☀️"
 category: "tech"
 tags:
@@ -106,16 +107,20 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
 ```
 
-Google Cloud の公開鍵ダウンロード
+公開鍵ダウンロード
+
+> 2024-01-23追記  
+> 旧リポジトリの利用が非推奨になったためコマンドを変更しました。詳細は以下のリンクを確認してください  
+> https://kubernetes.io/blog/2023/08/31/legacy-package-repository-deprecation/
 
 ```bash
-curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
 kubernetes のリポジトリをリポジトリリスト追加しダウンロードできるようにします
 
 ```bash
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 
 主要なコンポーネントである kubelet、kubeadm、kubectl をインストールし、これらのパッケージが自動的にアップデートされないようにバージョンを固定します
