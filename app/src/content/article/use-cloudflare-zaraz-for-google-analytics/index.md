@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Google AnalyticsをCloudflare Zarazに移行する"
 createdAt: "2024-01-23"
 emoji: "☀️"
