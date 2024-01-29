@@ -39,11 +39,6 @@ export default defineConfig({
     react(),
     sitemap(),
     robotsTxt(),
-    partytown({
-      config: {
-        forward: ["dataLayer.push"],
-      },
-    }),
   ],
   site: "https://www.tunamaguro.dev/",
 });
