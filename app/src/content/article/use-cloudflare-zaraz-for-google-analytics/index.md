@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: "Google AnalyticsをCloudflare Zarazに移行する"
 createdAt: "2024-01-23"
 emoji: "☀️"
@@ -48,3 +48,26 @@ Tool Nameはお好きなものを、Measurement IDには自身のものを入力
 
 > 該当部分のソースコード  
 > https://github.com/tunamaguro/blog/blob/cade0169846461b6025ec911a3b4d9865ddbab65/app/src/components/Seo/index.astro#L43-L57
+
+大体正しく動作していそうなことが分かったので、もともと設定していたスクリプトタグを削除します
+
+```diff
+-<!-- Google tag (gtag.js) -->
+-<script
+-  async
+-  src="https://www.googletagmanager.com/gtag/js?id=G-SDE96EMGMW"
+-></script>
+-<script>
+-  window.dataLayer = window.dataLayer || [];
+-  function gtag() {
+-    dataLayer.push(arguments);
+-  }
+-  gtag("js", new Date());
+-
+-  gtag("config", "G-SDE96EMGMW");
+-</script>
+```
+
+> https://github.com/tunamaguro/blog/pull/70/commits/18ea75e76f19fa5e4998e3251abd242116bc9561
+
+これをマージしてみると
