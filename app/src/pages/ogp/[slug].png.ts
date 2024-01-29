@@ -1,9 +1,9 @@
 import type { APIContext, APIRoute } from "astro";
-import { getCollection } from "astro:content";
 import { generateOgp } from "@/server/ogp/generateOgp";
+import { getArticles } from "@/utils/getArticles";
 
 export const getStaticPaths = async () => {
-  const articles = await getCollection("article");
+  const articles = await getArticles();
 
   return articles.map((article) => ({
     params: { slug: article.slug },

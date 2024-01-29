@@ -3,11 +3,11 @@ import type { RSSFeedItem } from "@astrojs/rss";
 import rss from "@astrojs/rss";
 import { z } from "astro:content";
 
-import { getCollection } from "astro:content";
 import { siteMeta } from "@/constants/siteMeta";
+import { getArticles } from "@/utils/getArticles";
 
 export async function GET(context: APIContext) {
-  const articles = await getCollection("article");
+  const articles = await getArticles();
 
   const feeditems_promise = articles.map(async (article) => {
     const { description: maybeDescription } = article.data;

@@ -1,13 +1,12 @@
 ---
-import { getCollection } from "astro:content";
-
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Hero } from "@/components/Hero";
 import { PostList } from "@/components/PostList";
 import { PostListHeader } from "@/components/PostList/Header";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { getArticles } from "@/utils/getArticles";
 
-const articles = await getCollection("article");
+const articles = await getArticles();
 
 const showNum = 6;
 const card_info = articles
@@ -25,8 +24,6 @@ const card_info = articles
     <PostListHeader icon={faBook}>Blog</PostListHeader>
   </PostList>
   <div class="py-4 px-4 flex justify-center">
-    <button class="btn btn-primary">
-      <a href="/articles">記事一覧</a></button
-    >
+    <button class="btn btn-primary"> <a href="/articles">記事一覧</a></button>
   </div>
 </BaseLayout>

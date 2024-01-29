@@ -1,10 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
 import { slugfy } from "@/utils/slugfy";
 
 export const getStaticPaths = (async () => {
-  const articles = await getCollection("article");
+  const articles = await getArticles();
 
   const allTags = Array.from(
     new Set(
@@ -42,6 +41,7 @@ export const getStaticPaths = (async () => {
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { PostList } from "@/components/PostList";
 import { PostListHeader } from "@/components/PostList/Header";
+import { getArticles } from "@/utils/getArticles";
 const { tag, posts } = Astro.props;
 ---
 
