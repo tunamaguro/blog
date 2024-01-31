@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "Google AnalyticsをCloudflare Zarazに移行する"
 createdAt: "2024-01-23"
 emoji: "☀️"
@@ -7,7 +6,7 @@ category: "tech"
 tags:
   - Cloudflare
 ---
-<!-- https://requestmap.webperf.tools/render/240122_BiDcC5_FY3  -->
+
 ## はじめに
 
 https://zenn.dev/kameoncloud/articles/a44fec324cfb3f
@@ -70,4 +69,33 @@ Tool Nameはお好きなものを、Measurement IDには自身のものを入力
 
 > https://github.com/tunamaguro/blog/pull/70/commits/18ea75e76f19fa5e4998e3251abd242116bc9561
 
-これをマージしてみると
+最終的には次のようなスクリプトが挿入されていました
+
+```html
+<script defer="" referrerpolicy="origin" src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ0JTIyJTNBJTIydHVuYW1hZ3VybydzJTIwYmxvZyUyMiUyQyUyMnglMjIlM0EwLjM3OTQ1ODIxMTUyNDc0NzM1JTJDJTIydyUyMiUzQTI1NjAlMkMlMjJoJTIyJTNBMTQ0MCUyQyUyMmolMjIlM0ExMjcxJTJDJTIyZSUyMiUzQTI1NjAlMkMlMjJsJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ3d3cudHVuYW1hZ3Vyby5kZXYlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQS01NDAlMkMlMjJxJTIyJTNBJTVCJTVEJTdE"></script>
+<script nonce="9a2b9d9a-6393-489d-81c9-2bcd95c416ba">try { (function(w,d){!function(b$,ca,cb,cc){b$[cb]=b$[cb]||{};b$[cb].executed=[];b$.zaraz={deferred:[],listeners:[]};b$.zaraz.q=[];b$.zaraz._f=function(cd){return async function(){var ce=Array.prototype.slice.call(arguments);b$.zaraz.q.push({m:cd,a:ce})}};for(const cf of["track","set","debug"])b$.zaraz[cf]=b$.zaraz._f(cf);b$.zaraz.init=()=>{var cg=ca.getElementsByTagName(cc)[0],ch=ca.createElement(cc),ci=ca.getElementsByTagName("title")[0];ci&&(b$[cb].t=ca.getElementsByTagName("title")[0].text);b$[cb].x=Math.random();b$[cb].w=b$.screen.width;b$[cb].h=b$.screen.height;b$[cb].j=b$.innerHeight;b$[cb].e=b$.innerWidth;b$[cb].l=b$.location.href;b$[cb].r=ca.referrer;b$[cb].k=b$.screen.colorDepth;b$[cb].n=ca.characterSet;b$[cb].o=(new Date).getTimezoneOffset();if(b$.dataLayer)for(const cm of Object.entries(Object.entries(dataLayer).reduce(((cn,co)=>({...cn[1],...co[1]})),{})))zaraz.set(cm[0],cm[1],{scope:"page"});b$[cb].q=[];for(;b$.zaraz.q.length;){const cp=b$.zaraz.q.shift();b$[cb].q.push(cp)}ch.defer=!0;for(const cq of[localStorage,sessionStorage])Object.keys(cq||{}).filter((cs=>cs.startsWith("_zaraz_"))).forEach((cr=>{try{b$[cb]["z_"+cr.slice(7)]=JSON.parse(cq.getItem(cr))}catch{b$[cb]["z_"+cr.slice(7)]=cq.getItem(cr)}}));ch.referrerPolicy="origin";ch.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(b$[cb])));cg.parentNode.insertBefore(ch,cg)};["complete","interactive"].includes(ca.readyState)?zaraz.init():b$.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document) } catch (err) {
+      console.error('Failed to run Cloudflare Zaraz: ', err)
+      fetch('/cdn-cgi/zaraz/t', {
+        credentials: 'include',
+        keepalive: true,
+        method: 'GET',
+      })
+    };</script>
+```
+
+この状態でアクセスしてみたところ次のようにCloudflareからもGoogle Analyticsからも問題なくアクセスを認識できているようです
+
+![Cloudflareでの記録](src/assets/images/use-cloudflare-zaraz-for-google-analytics/cloudflare-ga4-log.png)
+
+![Google Analyticsでの記録](src/assets/images/use-cloudflare-zaraz-for-google-analytics/ga4-analytics-example.png)
+
+また、Google Analyticsのスクリプトを読み込まなくなっており若干ですがパフォーマンスの向上が期待できます
+
+- Zaraz前
+![Zaraz導入前](src/assets/images/use-cloudflare-zaraz-for-google-analytics/request-map-before-zaraz.png)
+- Zaraz後
+![Zaraz導入後](src/assets/images/use-cloudflare-zaraz-for-google-analytics/request-map-after-zaraz.png)
+
+## 終わりに
+
+この後追加で同意画面を加える作業をしましたが、はじめに貼ったリンクの通り作業をしただけなので割愛します
