@@ -4,7 +4,7 @@ import type { AstroPluginOptions } from "./AstroPluginOption.type";
 
 /** @type {import('unified').Plugin<[Options]>} */
 export function rehypeReadingTime(
-  options: AstroPluginOptions = { property: "minutesRead" }
+  options: AstroPluginOptions = { property: "minutesRead" },
 ):
   | void
   | import("unified").Transformer<import("hast").Root, import("hast").Root> {

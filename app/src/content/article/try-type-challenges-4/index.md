@@ -32,14 +32,12 @@ type N<T extends number, R extends any[] = []> = R["length"] extends T
   ? R
   : N<T, [...R, never]>;
 
-type Minus<A1 extends number, A2 extends number> = N<A1> extends [
-  ...N<A2>,
-  ...infer R
-]
-  ? R["length"]
-  : `-${N<A1>["length"]}` extends `${infer M extends number}` //Excessive stack depth comparing types '"length"' and 'keyof N<A1, []>'
-  ? M
-  : 0;
+type Minus<A1 extends number, A2 extends number> =
+  N<A1> extends [...N<A2>, ...infer R]
+    ? R["length"]
+    : `-${N<A1>["length"]}` extends `${infer M extends number}` //Excessive stack depth comparing types '"length"' and 'keyof N<A1, []>'
+      ? M
+      : 0;
 
 type MinusOne<T extends number> = Minus<T, 1>;
 
@@ -302,8 +300,8 @@ Given a tuple type T that only contains string type, and a type U, build an obje
 type TupleToNestedObject<T extends string[], U, V = U> = T extends []
   ? V
   : T extends [...infer L extends string[], infer R extends string]
-  ? TupleToNestedObject<L, U, { [P in R]: V }>
-  : never;
+    ? TupleToNestedObject<L, U, { [P in R]: V }>
+    : never;
 ```
 
 とりあえず再帰を使いそうなので、T が空になったときに再帰を終わるようにしておきます。
@@ -319,8 +317,8 @@ T の右端のものが深くネストされていくので、なんとなく右
 type TupleToNestedObject<T extends string[], U, V = U> = T extends []
   ? U
   : T extends [...infer L, infer R]
-  ? TupleToNestedObject<L, U, { [P in R]: V }> // Type 'R' is not assignable to type 'string | number | symbol'
-  : never;
+    ? TupleToNestedObject<L, U, { [P in R]: V }> // Type 'R' is not assignable to type 'string | number | symbol'
+    : never;
 ```
 
 最後にエラーがでないように L と R に制約をつけてあげます。
@@ -329,8 +327,8 @@ type TupleToNestedObject<T extends string[], U, V = U> = T extends []
 type TupleToNestedObject<T extends string[], U, V = U> = T extends []
   ? U
   : T extends [...infer L extends string[], infer R extends string]
-  ? TupleToNestedObject<L, U, { [P in R]: V }>
-  : never;
+    ? TupleToNestedObject<L, U, { [P in R]: V }>
+    : never;
 ```
 
 ## Reverse
@@ -345,8 +343,8 @@ Implement the type version of Array.reverse
 type Reverse<T extends any[], V extends any[] = []> = T extends []
   ? V
   : T extends [...infer L, infer R]
-  ? Reverse<L, [...V, R]>
-  : never;
+    ? Reverse<L, [...V, R]>
+    : never;
 ```
 
 上でやったように右端から処理していけば解けると思います。ここまで書いてから思いましたが下のようにすれば条件分岐が少なくなるので、
@@ -355,7 +353,7 @@ type Reverse<T extends any[], V extends any[] = []> = T extends []
 ```typescript
 type Reverse<T extends any[], V extends any[] = []> = T extends [
   ...infer L,
-  infer R
+  infer R,
 ]
   ? Reverse<L, [...V, R]>
   : V;
@@ -374,7 +372,7 @@ Type FlipArguments\<T> requires function type T and returns a new function type 
 ```typescript
 type Reverse<T extends any[], V extends any[] = []> = T extends [
   ...infer L,
-  infer R
+  infer R,
 ]
   ? Reverse<L, [...V, R]>
   : V;
@@ -400,7 +398,7 @@ Recursively flatten array up to depth times.
 type FlattenDepth<
   T extends any[],
   D extends number = 1,
-  M extends never[] = []
+  M extends never[] = [],
 > = T extends [infer L, ...infer R]
   ? L extends any[]
     ? M["length"] extends D
@@ -444,14 +442,14 @@ Implement BEM\<B, E, M> which generate string union from these three parameters.
 type BEM<
   B extends string,
   E extends string[],
-  M extends string[]
+  M extends string[],
 > = E["length"] extends 0
   ? M["length"] extends 0
     ? `${B}`
     : `${B}--${M[number]}`
   : M["length"] extends 0
-  ? `${B}__${E[number]}`
-  : `${B}__${E[number]}--${M[number]}`;
+    ? `${B}__${E[number]}`
+    : `${B}__${E[number]}--${M[number]}`;
 ```
 
 非常にかっこ悪いですが、愚直に E,M が空かそうでないかで分岐させました。もっときれいな書き方を私に教えてください(懇願)。

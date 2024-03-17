@@ -90,7 +90,7 @@ import { truncate, type Options } from "hast-util-truncate";
 
 /** @type {import('unified').Plugin<[Options]>} */
 export function rehypeExcerptContent(
-  options: Options = { ellipsis: "…" }
+  options: Options = { ellipsis: "…" },
 ):
   | void
   | import("unified").Transformer<import("hast").Root, import("hast").Root> {

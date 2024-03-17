@@ -6,7 +6,7 @@ import path from "path";
 
 export async function generateOgp(title: string) {
   const font = await fs.readFile(
-    path.resolve(process.cwd(), "src/server/ogp", "./NotoSansJP-Regular.ttf")
+    path.resolve(process.cwd(), "src/server/ogp", "./NotoSansJP-Regular.ttf"),
   );
   const svg = await satori(Ogp({ title }), {
     // Ogpの推奨サイズが1200x630らしい。要調査

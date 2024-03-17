@@ -169,8 +169,9 @@ spec:
 上2つのマニフェストをapplyする
 
 ```bash
-kubectl apply -f test-pvc.yaml -f test-pod.yaml 
+kubectl apply -f test-pvc.yaml -f test-pod.yaml
 ```
+
 ```bash
 kubectl get pod
 NAME              READY   STATUS    RESTARTS   AGE
@@ -186,16 +187,17 @@ kubectl exec -it csirbd-demo-pod -- echo "Hello World" > /var/lib/www/html/index
 Podを消して再度起動し、先ほど書き込んだ内容が保持されていることを確認する
 
 ```bash
-kubectl delete -f test-pod.yaml 
-kubectl apply -f test-pod.yaml 
-kubectl exec -it csirbd-demo-pod -- cat /var/lib/www/html/index.html 
+kubectl delete -f test-pod.yaml
+kubectl apply -f test-pod.yaml
+kubectl exec -it csirbd-demo-pod -- cat /var/lib/www/html/index.html
 ```
 
 作成したリソースを削除する
 
 ```bash
-kubectl delete -f test-pvc.yaml -f test-pod.yaml 
+kubectl delete -f test-pvc.yaml -f test-pod.yaml
 ```
 
 ## 終わりに
+
 以上でRookを使ってProxmox上のCephを利用できるようになっているはずだ。kubernetesを組む場合のデータの永続化の手段として使われることが多い（気がする）[local-path-provisioner](https://github.com/rancher/local-path-provisioner)や、[nfs-provisioner](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner)と比較して耐障害性が必要な場合、~~や分散ストレージの言葉のカッコよさに惹かれて、~~ 利用するのが良いと思う。

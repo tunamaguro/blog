@@ -298,11 +298,12 @@ For example: if we have Promise\<ExampleType> how to get ExampleType?
 ※もっときれいな書き方があると思います。
 
 ```typescript
-type MyAwaited<T extends PromiseLike<any>> = T extends PromiseLike<infer R>
-  ? R extends PromiseLike<any>
-    ? MyAwaited<R>
-    : R
-  : never;
+type MyAwaited<T extends PromiseLike<any>> =
+  T extends PromiseLike<infer R>
+    ? R extends PromiseLike<any>
+      ? MyAwaited<R>
+      : R
+    : never;
 ```
 
 Promse\<T>の T を返す問題です。この問題は infer を知っていれば解くことができます。

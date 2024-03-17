@@ -166,7 +166,7 @@ type Expected1 = {
         "hi",
         {
           readonly m: readonly ["hey"];
-        }
+        },
       ];
       // ここまで
     };
@@ -216,7 +216,7 @@ For example
 type Chainable<V = {}> = {
   option<T extends string, U extends any>(
     key: T extends keyof V ? never : T,
-    value: U
+    value: U,
   ): Chainable<{ [P in T]: U } & Omit<V, T>>;
   get(): V;
 };
@@ -239,7 +239,7 @@ type Chainable = {
 type Chainable<V = {}> = {
   option<T extends string, U extends any>(
     key: T,
-    value: U
+    value: U,
   ): Chainable<{ [P in T]: U } & V>;
   get(): V;
 };
@@ -255,7 +255,7 @@ type Chainable<V = {}> = {
 type Chainable<V = {}> = {
   option<T extends string, U extends any>(
     key: T,
-    value: U
+    value: U,
   ): Chainable<{ [P in T]: U } & Omit<V, T>>;
   get(): V;
 };
@@ -268,7 +268,7 @@ type Chainable<V = {}> = {
 type Chainable<V = {}> = {
   option<T extends string, U extends any>(
     key: T extends keyof V ? never : T,
-    value: U
+    value: U,
   ): Chainable<{ [P in T]: U } & Omit<V, T>>;
   get(): V;
 };
@@ -326,7 +326,7 @@ Type the function PromiseAll that accepts an array of PromiseLike objects, the r
 
 ```typescript
 declare function PromiseAll<T extends any[]>(
-  values: readonly [...T]
+  values: readonly [...T],
 ): Promise<{
   [P in keyof T]: Awaited<T[P]>;
 }>;
@@ -342,7 +342,7 @@ declare function PromiseAll<T extends any[]>(values: [...T]): Promise<T>;
 
 ```typescript
 declare function PromiseAll<T extends any[]>(
-  values: readonly [...T]
+  values: readonly [...T],
 ): Promise<T>;
 ```
 
@@ -353,7 +353,7 @@ extends Promise\<infer R>...としてもいいですが、面倒なので Utilit
 
 ```typescript
 declare function PromiseAll<T extends any[]>(
-  values: readonly [...T]
+  values: readonly [...T],
 ): Promise<{
   [P in keyof T]: Awaited<T[P]>;
 }>;
@@ -507,12 +507,12 @@ Implement Replace\<S, From, To> which replace the string From with To once in th
 type Replace<
   S extends string,
   From extends string,
-  To extends string
+  To extends string,
 > = From extends ""
   ? S
   : S extends `${infer L}${From}${infer R}`
-  ? `${L}${To}${R}`
-  : S;
+    ? `${L}${To}${R}`
+    : S;
 ```
 
 とりあえず型を書くと下のようになるでしょうか。
@@ -521,7 +521,7 @@ type Replace<
 type Replace<
   S extends string,
   From extends string,
-  To extends string
+  To extends string,
 > = S extends `${infer L}${From}${infer R}` ? `${L}${To}${R}` : S;
 ```
 
@@ -531,7 +531,7 @@ type Replace<
 type Replace<
   S extends string,
   From extends string,
-  To extends string
+  To extends string,
 > = S extends `${infer L}${From}${infer R}` ? `${L}${To}${R}` : S;
 
 type A = Replace<"foobarbar", "", "foo">; // "ffoooobarbar"
@@ -544,12 +544,12 @@ type A = Replace<"foobarbar", "", "foo">; // "ffoooobarbar"
 type Replace<
   S extends string,
   From extends string,
-  To extends string
+  To extends string,
 > = From extends ""
   ? S
   : S extends `${infer L}${From}${infer R}`
-  ? `${L}${To}${R}`
-  : S;
+    ? `${L}${To}${R}`
+    : S;
 ```
 
 条件分岐の方法が三項演算子のような extends しかないために、非常に見にくいですね。
@@ -566,12 +566,12 @@ Implement ReplaceAll\<S, From, To> which replace the all the substring From with
 type ReplaceAll<
   S extends string,
   From extends string,
-  To extends string
+  To extends string,
 > = From extends ""
   ? S
   : S extends `${infer L}${From}${infer R}`
-  ? `${L}${To}${ReplaceAll<R, From, To>}`
-  : S;
+    ? `${L}${To}${ReplaceAll<R, From, To>}`
+    : S;
 ```
 
 先程の Replace をすべての文字列で行います。  
@@ -583,20 +583,17 @@ infer を使った場合最短の文字列が返ってきます(要出典)。し
 type Replace<
   S extends string,
   From extends string,
-  To extends string
+  To extends string,
 > = From extends ""
   ? S
   : S extends `${infer L}${From}${infer R}`
-  ? `${L}${To}${R}`
-  : S;
+    ? `${L}${To}${R}`
+    : S;
 
-type ReplaceAll<
-  S extends string,
-  From extends string,
-  To extends string
-> = S extends Replace<S, From, To>
-  ? S
-  : ReplaceAll<Replace<S, From, To>, From, To>;
+type ReplaceAll<S extends string, From extends string, To extends string> =
+  S extends Replace<S, From, To>
+    ? S
+    : ReplaceAll<Replace<S, From, To>, From, To>;
 
 type A = ReplaceAll<"foobarfoobar", "ob", "b">; // "fbarfbar"
 ```
@@ -632,8 +629,8 @@ Implement permutation type that transforms union types into the array that inclu
 type Permutation<T, U = T> = [U] extends [never]
   ? []
   : T extends never
-  ? []
-  : [T, ...Permutation<Exclude<U, T>>];
+    ? []
+    : [T, ...Permutation<Exclude<U, T>>];
 ```
 
 ひとまず、ユニオン型を配列にします。そのために Conditional Types を利用します。
@@ -670,8 +667,8 @@ type A = Permutation<"A" | "B" | "C">; // never
 type Permutation<T, U = T> = U extends never
   ? []
   : [T] extends [never]
-  ? []
-  : [U, Permutation<Exclude<T, U>>];
+    ? []
+    : [U, Permutation<Exclude<T, U>>];
 
 type A = Permutation<"A" | "B" | "C">; // ["A", ["B", ["C", never]] | ["C", ["B", never]]] | ["B", ["A", ["C", never]] | ["C", ["A", never]]] | ["C", ["A", ["B", never]] | ["B", ["A", never]]]
 ```
@@ -682,8 +679,8 @@ type A = Permutation<"A" | "B" | "C">; // ["A", ["B", ["C", never]] | ["C", ["B"
 type Permutation<T, U = T> = [U] extends [never]
   ? []
   : T extends never
-  ? []
-  : [T, ...Permutation<Exclude<U, T>>];
+    ? []
+    : [T, ...Permutation<Exclude<U, T>>];
 
 type A = Permutation<"A" | "B" | "C">; // ["A", "B", "C"] | ["A", "C", "B"] | ["B", "A", "C"] | ["B", "C", "A"] | ["C", "A", "B"] | ["C", "B", "A"]
 ```
@@ -702,8 +699,8 @@ Compute the length of a string literal, which behaves like String#length.
 type LengthOfString<S extends string, T extends any[] = []> = S extends ""
   ? T["length"]
   : S extends `${infer L}${infer R}`
-  ? LengthOfString<R, [...T, L]>
-  : never;
+    ? LengthOfString<R, [...T, L]>
+    : never;
 ```
 
 文字数を型として取得する問題です。  
@@ -821,8 +818,8 @@ type Merge<F, S> = {
   [P in keyof F | keyof S]: P extends keyof S
     ? S[P]
     : P extends keyof F
-    ? F[P]
-    : never;
+      ? F[P]
+      : never;
 };
 ```
 

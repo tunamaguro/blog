@@ -5,7 +5,7 @@ const categories = ["blog", "tech"] as const;
 // 2. Define your collection(s)
 const ArticleCollection = defineCollection({
   schema: z.object({
-    draft:z.boolean().default(false),
+    draft: z.boolean().default(false),
     title: z.string(),
     category: z.enum(categories),
     createdAt: z.string(),

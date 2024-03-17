@@ -26,7 +26,7 @@ module.exports = {
             gridTemplateColumns: `repeat(auto-fill, minmax(${value}, 1fr))`,
           }),
         },
-        { values: theme("spacing") }
+        { values: theme("spacing") },
       );
     }),
   ],
