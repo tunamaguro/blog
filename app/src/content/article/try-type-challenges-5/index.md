@@ -90,7 +90,7 @@ type Fibonacci<
   T extends number,
   Arg1 extends any[] = [],
   Arg2 extends any[] = [any],
-  Memo extends any[] = []
+  Memo extends any[] = [],
 > = Memo["length"] extends T
   ? Arg1["length"]
   : Fibonacci<T, Arg2, [...Arg1, ...Arg2], [...Memo, any]>;
@@ -113,7 +113,7 @@ type Fibonacci<
   T extends number,
   Arg1 extends any[] = [],
   Arg2 extends any[] = [any],
-  Memo extends any[] = []
+  Memo extends any[] = [],
 > = Memo["length"] extends T
   ? Arg1["length"]
   : Fibonacci<T, Arg2, [...Arg1, ...Arg2], [...Memo, any]>;
@@ -134,12 +134,12 @@ Implement type `AllCombinations<S>` that return all combinations of strings whic
 type Replace<
   S extends string,
   From extends string,
-  To extends string
+  To extends string,
 > = From extends ""
   ? S
   : S extends `${infer L}${From}${infer R}`
-  ? `${L}${To}${R}`
-  : S;
+    ? `${L}${To}${R}`
+    : S;
 
 type StrToUnion<T extends string, V = never> = T extends `${infer L}${infer R}`
   ? StrToUnion<R, V | L>
@@ -148,12 +148,12 @@ type StrToUnion<T extends string, V = never> = T extends `${infer L}${infer R}`
 type AllCombinations<
   S extends string,
   V extends string = "",
-  U extends string = StrToUnion<S>
+  U extends string = StrToUnion<S>,
 > = S extends ""
   ? S
   : U extends never
-  ? never
-  : V | `${V}${U}` | AllCombinations<Replace<S, U, "">, `${V}${U}`>;
+    ? never
+    : V | `${V}${U}` | AllCombinations<Replace<S, U, "">, `${V}${U}`>;
 ```
 
 なんとなく書いていたらすごい長い型になりました。ざっくりとした処理の流れとしては、
@@ -183,8 +183,8 @@ type N<T extends number, V extends never[] = []> = V["length"] extends T
 type GreaterThan<T extends number, U extends number> = T extends U
   ? false // T === U
   : N<T> extends [...never[], ...N<U>]
-  ? true
-  : false;
+    ? true
+    : false;
 ```
 
 `N<T>`が`N<U>`より要素を持っているかどうかを検査して判定できました。ただし、`T === U`の際の処理を加える必要があります。
@@ -202,7 +202,7 @@ In This Challenge, You should implement a type `Zip<T, U>`, T and U must be `Tup
 ```typescript
 type Zip<T extends any[], U extends any[], V extends any[] = []> = [
   T,
-  U
+  U,
 ] extends [[infer L1, ...infer R1], [infer L2, ...infer R2]]
   ? Zip<R1, R2, [...V, [L1, L2]]>
   : V;
@@ -221,7 +221,7 @@ Implement a type `IsTuple`, which takes an input type `T` and returns whether `T
 ```typescript
 type TupleUnion<T extends readonly any[], V = never> = T extends readonly [
   infer L,
-  ...infer R
+  ...infer R,
 ]
   ? TupleUnion<R, V | L>
   : V;
@@ -229,12 +229,12 @@ type TupleUnion<T extends readonly any[], V = never> = T extends readonly [
 type IsTuple<T> = [T] extends [never]
   ? false
   : T extends []
-  ? true
-  : T extends readonly any[]
-  ? [TupleUnion<T>] extends [never]
-    ? false
-    : true
-  : false;
+    ? true
+    : T extends readonly any[]
+      ? [TupleUnion<T>] extends [never]
+        ? false
+        : true
+      : false;
 ```
 
 とりあえず書けたのですがその場しのぎ的な条件分岐が多いので、うまく書けたとはとてもじゃないですが思えません。
@@ -255,14 +255,14 @@ type Chunk<
   T extends any[],
   N extends number,
   Item extends any[] = [],
-  V extends any[] = []
+  V extends any[] = [],
 > = T extends [infer L, ...infer R]
   ? Item["length"] extends N
     ? Chunk<R, N, [L], [...V, Item]>
     : Chunk<R, N, [...Item, L], V>
   : [Item, V] extends [[], []]
-  ? []
-  : [...V, Item];
+    ? []
+    : [...V, Item];
 ```
 
 `chunk`の動作のイメージは[ここ](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_chunk)を参考にして作りました。
@@ -290,13 +290,13 @@ type Fill<
   N,
   Start extends number = 0,
   End extends number = T["length"],
-  V extends any[] = []
+  V extends any[] = [],
 > = T extends [infer L, ...infer R]
   ? V["length"] extends End
     ? Fill<R, N, 0, End, [...V, L]>
     : V["length"] extends Start
-    ? Fill<R, N, Plus1<Start>, End, [...V, N]>
-    : Fill<R, N, Start, End, [...V, L]>
+      ? Fill<R, N, Plus1<Start>, End, [...V, N]>
+      : Fill<R, N, Start, End, [...V, L]>
   : V;
 ```
 
@@ -341,15 +341,15 @@ Implement the type version of Lodash.without, `Without<T, U>` takes an Array `T`
 ```typescript
 type Without<T extends any[], U, V extends any[] = []> = T extends [
   infer L,
-  ...infer R
+  ...infer R,
 ]
   ? U extends any[]
     ? L extends U[number]
       ? Without<R, U, [...V]>
       : Without<R, U, [...V, L]>
     : L extends U
-    ? Without<R, U, [...V]>
-    : Without<R, U, [...V, L]>
+      ? Without<R, U, [...V]>
+      : Without<R, U, [...V, L]>
   : V;
 ```
 
@@ -389,15 +389,14 @@ Implement the type version of `Array.indexOf`, `indexOf<T, U>` takes an Array `T
 
 ```typescript
 // type-challengesにコピペするときはコメントアウトしてください
-type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y
-  ? 1
-  : 2
-  ? true
-  : false;
+type Equal<X, Y> =
+  (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2
+    ? true
+    : false;
 
 type IndexOf<T extends any[], U, V extends any[] = []> = T extends [
   infer L,
-  ...infer R
+  ...infer R,
 ]
   ? Equal<L, U> extends true
     ? V["length"]
@@ -422,7 +421,7 @@ Implement the type version of `Array.join`, `Join<T, U>` takes an Array `T`, str
 type Join<
   T extends any[],
   U extends string | number,
-  V extends string = ""
+  V extends string = "",
 > = T extends [infer L extends string, ...infer R extends string[]]
   ? Join<R, U, V extends "" ? `${L}` : `${V}${U}${L}`>
   : V;

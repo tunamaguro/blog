@@ -28,8 +28,8 @@ type Diff<O, O1> = {
     | Exclude<keyof O1, keyof O>]: P extends keyof O
     ? O[P]
     : P extends keyof O1
-    ? O1[P]
-    : never;
+      ? O1[P]
+      : never;
 };
 ```
 
@@ -162,10 +162,10 @@ Implement a type IsUnion, which takes an input type T and returns whether T reso
 type IsUnion<T, U = T> = [T] extends [never]
   ? false
   : T extends never
-  ? never
-  : U[] extends T[]
-  ? false
-  : true;
+    ? never
+    : U[] extends T[]
+      ? false
+      : true;
 ```
 
 T がユニオン型かどうか判定する問題です。上で少しでてきた Distributive Conditional Types を活用します。  
@@ -183,8 +183,8 @@ type A = IsUnion<string | number>; // string[] | number[]
 type IsUnion<T, U = T> = T extends never
   ? never
   : U[] extends T[]
-  ? false
-  : true;
+    ? false
+    : true;
 
 type A = IsUnion<string | number>;
 // = (string | number)[] extends string[] ? false : true
@@ -201,10 +201,10 @@ type B = IsUnion<never>; // never
 type IsUnion<T, U = T> = [T] extends [never]
   ? false // T=never
   : T extends never
-  ? never
-  : U[] extends T[]
-  ? false // T = Not Union
-  : true; // T = Union
+    ? never
+    : U[] extends T[]
+      ? false // T = Not Union
+      : true; // T = Union
 ```
 
 ## ReplaceKeys
@@ -259,10 +259,10 @@ type RemoveIndexSignature<T> = {
   [P in keyof T as string extends P
     ? never
     : number extends P
-    ? never
-    : symbol extends P
-    ? never
-    : P]: T[P];
+      ? never
+      : symbol extends P
+        ? never
+        : P]: T[P];
 };
 ```
 
@@ -346,10 +346,10 @@ type RemoveIndexSignature<T> = {
   [P in keyof T]: string extends P
     ? never
     : number extends P
-    ? never
-    : symbol extends P
-    ? never
-    : T[P];
+      ? never
+      : symbol extends P
+        ? never
+        : T[P];
 };
 
 type B = RemoveIndexSignature<Bar>;
@@ -374,10 +374,10 @@ type RemoveIndexSignature<T> = {
   [P in keyof T as string extends P
     ? never
     : number extends P
-    ? never
-    : symbol extends P
-    ? never
-    : P]: T[P];
+      ? never
+      : symbol extends P
+        ? never
+        : P]: T[P];
 };
 ```
 
@@ -405,7 +405,7 @@ type ParsePercentage<A extends string> = A extends `${string}%` ? "%" : "";
 type PercentageParser<
   A extends string,
   S extends string = ParseSign<A>,
-  P extends string = ParsePercentage<A>
+  P extends string = ParsePercentage<A>,
 > = A extends `${S}${infer N}${P}` ? [S, N, P] : never;
 ```
 
@@ -433,7 +433,7 @@ type ParsePercentage<A extends string> = A extends `${string}%` ? "%" : "";
 type PercentageParser<
   A extends string,
   S extends string = ParseSign<A>,
-  P extends string = ParsePercentage<A>
+  P extends string = ParsePercentage<A>,
 > = A extends `${S}${infer N}${P}` ? [S, N, P] : never;
 
 type A = PercentageParser<"+100%">;
@@ -451,14 +451,14 @@ Drop a specified char from a string.
 type DropChar<
   S extends string,
   C extends string,
-  V extends string = ""
+  V extends string = "",
 > = S extends ""
   ? V
   : S extends `${infer L}${infer R}`
-  ? L extends C
-    ? DropChar<R, C, V>
-    : DropChar<R, C, `${V}${L}`>
-  : never;
+    ? L extends C
+      ? DropChar<R, C, V>
+      : DropChar<R, C, `${V}${L}`>
+    : never;
 ```
 
 本当は C が 1 文字かどうかの検証を入れるべきだと思いますが、Drop **Char** なので見なかったことにします。

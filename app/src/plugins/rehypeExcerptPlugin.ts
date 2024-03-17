@@ -6,7 +6,7 @@ type Options = TruncateOptions & AstroPluginOptions;
 
 /** @type {import('unified').Plugin<[Options]>} */
 export function rehypeExcerptContent(
-  options: Options = { property: "excerpt", ellipsis: "…" }
+  options: Options = { property: "excerpt", ellipsis: "…" },
 ):
   | void
   | import("unified").Transformer<import("hast").Root, import("hast").Root> {

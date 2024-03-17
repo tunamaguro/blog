@@ -38,7 +38,7 @@ node03     Ready    <none>          3d15h   v1.28.3
 
 ## 全体構成
 
-![構成図](src/assets/images/personal-misskey-server-on-home-kubernetes/system-configuration.svg)
+![構成図](src/assets/images/personal-misskey-server-on-home-kubernetes/system-configuration.drawio.png)
 
 全体構成は上のようになっています。かなりあるあるな構成だと思いますが、サービスを外部に公開するのに`Cloudflare Tunnel`、
 DB の構築に`CloudNativePG`を利用しています。それ以外はすべて Deployment として作成しました。

@@ -24,17 +24,16 @@ Implement the type version of `Array.lastIndexOf`, `LastIndexOf<T, U>` takes an 
 
 ```typescript
 // type-challengesにコピペするときはコメントアウトしてください
-type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y
-  ? 1
-  : 2
-  ? true
-  : false;
+type Equal<X, Y> =
+  (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2
+    ? true
+    : false;
 
 type LastIndexOf<
   T extends any[],
   U,
   S extends any[] = [],
-  V extends number = -1
+  V extends number = -1,
 > = T extends [infer L, ...infer R]
   ? Equal<L, U> extends true
     ? LastIndexOf<R, U, [...S, L], S["length"]>
@@ -58,11 +57,10 @@ Implement the type version of `Lodash.uniq`, Unique takes an Array `T`, returns 
 
 ```typescript
 // type-challengesにコピペするときはコメントアウトしてください
-type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y
-  ? 1
-  : 2
-  ? true
-  : false;
+type Equal<X, Y> =
+  (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2
+    ? true
+    : false;
 
 type Includes<T extends readonly any[], U> = T extends [infer R, ...infer S]
   ? Equal<R, U> extends true
@@ -72,7 +70,7 @@ type Includes<T extends readonly any[], U> = T extends [infer R, ...infer S]
 
 type Unique<T extends any[], V extends any[] = []> = T extends [
   infer L,
-  ...infer R
+  ...infer R,
 ]
   ? Includes<V, L> extends true
     ? Unique<R, [...V]>
@@ -85,7 +83,7 @@ type Unique<T extends any[], V extends any[] = []> = T extends [
 ```typescript
 type Unique<T extends any[], V extends any[] = []> = T extends [
   infer L,
-  ...infer R
+  ...infer R,
 ]
   ? 1
   : V;
@@ -103,7 +101,7 @@ type Includes<T extends readonly any[], U> = T extends [infer R, ...infer S]
 
 type Unique<T extends any[], V extends any[] = []> = T extends [
   infer L,
-  ...infer R
+  ...infer R,
 ]
   ? Includes<V, L> extends true
     ? Unique<R, [...V]>
@@ -142,7 +140,7 @@ Construct a tuple with a given length.
 ```typescript
 type ConstructTuple<
   L extends number,
-  V extends unknown[] = []
+  V extends unknown[] = [],
 > = V["length"] extends L ? V : ConstructTuple<L, [...V, unknown]>;
 ```
 
@@ -159,14 +157,14 @@ Sometimes we want to limit the range of numbers...
 ```typescript
 type ConstructTuple<
   L extends number,
-  V extends unknown[] = []
+  V extends unknown[] = [],
 > = V["length"] extends L ? V : ConstructTuple<L, [...V, unknown]>;
 
 type NumberRange<
   L extends number,
   H extends number,
   V extends unknown[] = ConstructTuple<L>,
-  U = never
+  U = never,
 > = V["length"] extends H
   ? U | H
   : NumberRange<L, H, [...V, unknown], U | V["length"]>;
@@ -186,7 +184,7 @@ It's also useful for the prop types like video [controlsList](https://developer.
 type Combination<
   T extends string[],
   U extends string = T[number],
-  S extends string = U
+  S extends string = U,
 > = U extends string ? `${S}` | `${U} ${Combination<[], Exclude<S, U>>}` : "";
 ```
 
@@ -272,13 +270,13 @@ Given a string s, find the first non-repeating character in it and return its in
 ```typescript
 type FirstUniqueCharIndex<
   T extends string,
-  S extends string[] = []
+  S extends string[] = [],
 > = T extends `${infer L}${infer R}`
   ? L extends S[number]
     ? FirstUniqueCharIndex<R, [...S, L]>
     : R extends `${string}${L}${string}`
-    ? FirstUniqueCharIndex<R, [...S, L]>
-    : S["length"]
+      ? FirstUniqueCharIndex<R, [...S, L]>
+      : S["length"]
   : -1;
 ```
 
@@ -287,7 +285,7 @@ type FirstUniqueCharIndex<
 ```typescript
 type FirstUniqueCharIndex<
   T extends string,
-  S extends string[] = []
+  S extends string[] = [],
 > = T extends `${infer L}${infer R}` ? 1 : -1;
 ```
 
@@ -296,7 +294,7 @@ type FirstUniqueCharIndex<
 ```typescript
 type FirstUniqueCharIndex<
   T extends string,
-  S extends string[] = []
+  S extends string[] = [],
 > = T extends `${infer L}${infer R}`
   ? R extends `${string}${L}${string}`
     ? 1 // Lが繰り返しの場合の処理
@@ -310,7 +308,7 @@ type FirstUniqueCharIndex<
 ```typescript
 type FirstUniqueCharIndex<
   T extends string,
-  S extends string[] = []
+  S extends string[] = [],
 > = T extends `${infer L}${infer R}`
   ? R extends `${string}${L}${string}`
     ? FirstUniqueCharIndex<R, [...S, L]>
@@ -329,13 +327,13 @@ type A = FirstUniqueCharIndex<"aabb">;
 ```typescript
 type FirstUniqueCharIndex<
   T extends string,
-  S extends string[] = []
+  S extends string[] = [],
 > = T extends `${infer L}${infer R}`
   ? L extends S[number] // ここでSにLが含まれているか判定
     ? FirstUniqueCharIndex<R, [...S, L]>
     : R extends `${string}${L}${string}`
-    ? FirstUniqueCharIndex<R, [...S, L]>
-    : S["length"]
+      ? FirstUniqueCharIndex<R, [...S, L]>
+      : S["length"]
   : -1;
 ```
 
@@ -354,8 +352,8 @@ Get the middle element of the array by implementing a `GetMiddleElement` method,
 type GetMiddleElement<T extends unknown[]> = T["length"] extends 2
   ? T
   : T extends [infer _L, ...infer C, infer _R]
-  ? GetMiddleElement<C>
-  : T;
+    ? GetMiddleElement<C>
+    : T;
 ```
 
 とりあえず infer と再帰 を使って`T`の両端の要素を 1 つずつ取り除きます。1 つずつ取り除いていけば最終的には`T`の要素数は 1 か 2 になるだろうという思考です。
@@ -364,7 +362,7 @@ type GetMiddleElement<T extends unknown[]> = T["length"] extends 2
 type GetMiddleElement<T extends unknown[]> = T extends [
   infer _L,
   ...infer C,
-  infer _R
+  infer _R,
 ]
   ? C
   : T;
@@ -382,8 +380,8 @@ type B = GetMiddleElement<[1, 2, 3, 4, 5, 6]>;
 type GetMiddleElement<T extends unknown[]> = T["length"] extends 2
   ? T
   : T extends [infer _L, ...infer C, infer _R]
-  ? GetMiddleElement<C>
-  : T;
+    ? GetMiddleElement<C>
+    : T;
 
 type A = GetMiddleElement<[1, 2, 3, 4, 5]>;
 // type A = [3]
@@ -404,8 +402,8 @@ type Integer<T> = T extends number
   ? `${T}` extends `${number}.${number}`
     ? never
     : number extends T
-    ? never
-    : T
+      ? never
+      : T
   : never;
 ```
 
@@ -424,7 +422,7 @@ Convert a property of type literal (label type) to a primitive type.
 ```typescript
 type Convert<
   T,
-  P extends any[] = [string, number, boolean, unknown]
+  P extends any[] = [string, number, boolean, unknown],
 > = P extends [infer L, ...infer R] ? (T extends L ? L : Convert<T, R>) : never;
 
 type ToPrimitive<T> = {
@@ -443,7 +441,7 @@ type ToPrimitive<T> = {
 ```typescript
 type Convert<
   T,
-  P extends any[] = [string, number, boolean, unknown]
+  P extends any[] = [string, number, boolean, unknown],
 > = P extends [infer L, ...infer R] ? (T extends L ? L : Convert<T, R>) : never;
 
 type A = Convert<"aaaa">;
@@ -464,7 +462,7 @@ type D = Convert<() => any>;
 ```typescript
 type Convert<
   T,
-  P extends any[] = [string, number, boolean, unknown]
+  P extends any[] = [string, number, boolean, unknown],
 > = P extends [infer L, ...infer R] ? (T extends L ? L : Convert<T, R>) : never;
 
 type ToPrimitive<T> = {
@@ -487,8 +485,8 @@ type DeepMutable<T extends Record<any, any>> = {
   -readonly [P in keyof T]: T[P] extends (...args: any) => any
     ? T[P]
     : T[P] extends Record<any, any>
-    ? DeepMutable<T[P]>
-    : T[P];
+      ? DeepMutable<T[P]>
+      : T[P];
 };
 ```
 
@@ -505,11 +503,10 @@ Returns true if all elements of the list are equal to the second parameter passe
 
 ```typescript
 // type-challengesにコピペするときはコメントアウトしてください
-type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y
-  ? 1
-  : 2
-  ? true
-  : false;
+type Equal<X, Y> =
+  (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2
+    ? true
+    : false;
 
 type All<T extends any[], A extends any> = T extends [infer L, ...infer R]
   ? Equal<L, A> extends true
@@ -540,7 +537,7 @@ Implement the type `Filter<T, Predicate>` takes an Array `T`, primitive type or 
 ```typescript
 type Filter<T extends any[], P extends any, V extends any[] = []> = T extends [
   infer L,
-  ...infer R
+  ...infer R,
 ]
   ? L extends P
     ? Filter<R, P, [...V, L]>
