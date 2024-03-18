@@ -22,7 +22,7 @@ export const Header: FunctionComponent<Props> = ({ siteTitle }) => (
             <a href="/articles">Blog</a>
           </li>
           <li>
-            <a href="/articles/about">About</a>
+            <a href="/articles/about">利用規約</a>
           </li>
         </ul>
       </nav>

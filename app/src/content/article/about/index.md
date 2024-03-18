@@ -26,7 +26,7 @@ category: "blog"
 
 ## サイト運営者について
 
-tunamaguro が運営しています。ただコードを書くのが趣味の一般人です。もし、ご連絡されたい場合は Twitter の DM にお願いします。
+tunamaguro が運営しています。ただコードを書くのが趣味の一般人です。もし、ご連絡されたい場合は Twitter の DMもしくは、@tunamaguro@misskey.tunamaguro.devにお願いします。
 
 ## Google Analytics の利用について
 
