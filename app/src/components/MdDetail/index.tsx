@@ -5,12 +5,14 @@ import type { FC } from "react";
 import { Tag } from "@/components/Tag";
 import { Twemoji } from "../Twemoji";
 import { ArticleInfo, type ArticleInfoProps } from "./ArticleInfo";
+import { iconTransitionName, titleTransitionName } from "@/utils/slugfy"
 
 type MdDetailProps = {
   title: string;
   emoji?: string;
   createdAt: string;
   updatedAt?: string;
+  slug?: string
   metas?: ArticleInfoProps["info"];
   tags: string[];
   children: React.ReactNode;
@@ -23,13 +25,16 @@ export const MdDetail: FC<MdDetailProps> = ({
   children,
   createdAt,
   updatedAt,
+  slug = "",
   metas = [],
 }) => {
   return (
     <div className="container max-w-5xl mx-auto py-4">
       <div className="flex flex-col items-center gap-4 pb-4">
-        <Twemoji className="w-20 md:w-24" emoji={emoji || "ℹ️"} />
-        <h1 className="text-center break-words text-2xl md:text-4xl font-bold text-primary-content">
+        <figure style={{ viewTransitionName: iconTransitionName(slug) }}>
+          <Twemoji className="w-20 md:w-24" emoji={emoji || "ℹ️"} />
+        </figure>
+        <h1 className="text-center break-words text-2xl md:text-4xl font-bold text-primary-content" style={{ viewTransitionName: titleTransitionName(slug) }}>
           {title}
         </h1>
         <ArticleInfo
