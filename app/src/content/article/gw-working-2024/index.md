@@ -20,6 +20,7 @@ Rustに不慣れなのもあって時間がかかってしまいました。
 RustでCI/CDを使うのははじめてでしたがかなり便利だったので次回リポジトリを作る際は、pushするたびに`cargo fmt`や`cargo clippy`が自動で動くようにしたいです
 
 それ以外の感想としてはRustのトレイトの仕組みがかなり便利でした。利用している`libwebp`がCで書かれているので下のように確保したメモリを都度開放する関数を呼び出す必要がありました
+
 ```rust
 / Setup the input data
 WebPPicture pic;
