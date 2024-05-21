@@ -8,16 +8,20 @@ jobs:
         working-directory: app
     steps:
       - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-          cache: "npm"
-          cache-dependency-path: app/package-lock.json
-
-      - run: npm ci
+          node-version: 20
+          cache: "pnpm"
+          cache-dependency-path: app/pnpm-lock.yaml
+      - name: Install Dependency
+        run: pnpm install --frozen-lockfile
 
       - name: Astro Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Deploy Cloudflare Pages
         id: cloudflare_pages_deploy

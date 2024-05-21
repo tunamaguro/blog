@@ -6,6 +6,5 @@ export const slugfy = (s: string) =>
     .replaceAll(/\s+/g, "-") // 空白をハイフンに置換
     .replaceAll(/-+/g, "-"); // 連続したハイフンを削除
 
-
-export const iconTransitionName = (slug: string) => `${slug}-icon`
-export const titleTransitionName = (slug: string) => `${slug}-title`
+export const iconTransitionName = (slug: string) => `${slug}-icon`;
+export const titleTransitionName = (slug: string) => `${slug}-title`;
