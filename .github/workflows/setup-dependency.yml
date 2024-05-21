@@ -1,0 +1,26 @@
+name: Setup Node.js Dependency
+on: 
+  workflow_call:
+    inputs:
+      runs-on:
+        default: ubuntu-latest
+        required: false
+        type: string
+
+jobs:
+  setup: 
+    name: Setup Node.js
+    runs-on: ${{ inputs.runs-on }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+          cache-dependency-path: app/pnpm-lock.yaml
+      - name: Install Dependency
+        run: pnpm install --frozen-lockfile
