@@ -20,12 +20,6 @@ export const PostCard: FC<PostCardProps> = ({
 }) => {
   return (
     <article className="card bg-base-200 hover:shadow-xl">
-      <a
-        href={`/articles/${slug}`}
-        className="absolute inset-0"
-        tabIndex={-1}
-        aria-label="記事に移動"
-      ></a>
       <figure
         className=" pt-4 mx-auto"
         style={{ viewTransitionName: iconTransitionName(slug) }}
@@ -47,6 +41,12 @@ export const PostCard: FC<PostCardProps> = ({
           {title}
         </h2>
         <div className="text-right">作成日 : {createdAt}</div>
+        <a
+          href={`/articles/${slug}`}
+          className="absolute inset-0"
+          tabIndex={-1}
+          aria-label="記事に移動"
+        ></a>
       </div>
     </article>
   );
