@@ -18,12 +18,11 @@ const seoTitle = title ? title + " | " + siteMeta.title : siteMeta.title;
 <!doctype html>
 <html lang="ja">
   <head>
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
     <Seo title={seoTitle} description={description} ogpImage={ogpImage} />
   </head>
   <body>
     <Layout siteTitle={siteMeta.title} author={siteMeta.author}>
-      <PostSearch />
       <slot />
     </Layout>
   </body>
