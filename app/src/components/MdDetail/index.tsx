@@ -61,7 +61,7 @@ export const MdDetail: FC<MdDetailProps> = ({
         <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto">
           {children}
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };
