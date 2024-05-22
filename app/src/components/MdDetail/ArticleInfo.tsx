@@ -15,15 +15,15 @@ export const ArticleInfo = ({ info }: ArticleInfoProps) => {
     return null;
   }
   return (
-    <div className="flex justify-center gap-12">
+    <div className="flex flex-wrap justify-center text-sm md:text-base gap-x-8 gap-y-4">
       {info.map((v) => {
         if (v === null) {
           return null;
         }
         return (
           <div key={v.key} className="flex flex-col gap-2">
-            <div className="text-sm font-semibold">{v.name}</div>
-            <div className="text-accent-content">{v.value}</div>
+            <div className="font-semibold">{v.name}</div>
+            <div>{v.value}</div>
           </div>
         );
       })}
