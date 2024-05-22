@@ -5,16 +5,16 @@ type Props = {
 };
 
 export const Header: FunctionComponent<Props> = ({ siteTitle }) => (
-  <header className="bg-base-300 ">
+  <header className="bg-base-300">
     <div className="navbar mx-auto flex-col md:flex-row max-w-5xl">
       <div>
-        <a href="/" className="font-bold text-3xl md:text-3xl ">
+        <a href="/" className="font-bold text-3xl py-2 md:py-0">
           {siteTitle}
         </a>
       </div>
       <span className="flex-grow" />
       <nav className="flex-none">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-lg">
           <li>
             <a href="/">Home</a>
           </li>
