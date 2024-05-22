@@ -56,6 +56,9 @@ importers:
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       daisyui:
         specifier: ^2.50.1
         version: 2.52.0(autoprefixer@10.4.19(postcss@8.4.38))(postcss@8.4.38)

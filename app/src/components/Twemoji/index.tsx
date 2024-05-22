@@ -1,5 +1,7 @@
 import type { FC } from "react";
 import { parse } from "twemoji-parser";
+import { container } from "./styles.css"
+import { clsx } from 'clsx';
 
 type TwemojiProps = {
   emoji: string;
@@ -23,7 +25,7 @@ export const Twemoji: FC<TwemojiProps> = ({ emoji, className }) => {
   }
   return (
     <img
-      className={className}
+      className={clsx(container, className)}
       draggable="false"
       alt={twemojiPath.text}
       loading="lazy"
