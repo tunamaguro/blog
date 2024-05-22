@@ -15,12 +15,8 @@ type Props = {
 export const Hero: FunctionComponent<Props> = ({ author }) => (
   <div className="container mx-auto">
     <h1 className="text-2xl font-bold border-b-4 border-base-content py-4">
-      <span className="hidden md:inline">
-        {author}のブログへ
-      </span>
-      <span>
-        ようこそ👋
-      </span>
+      <span className="hidden md:inline">{author}のブログへ</span>
+      <span>ようこそ👋</span>
     </h1>
     <div className="flex py-4 gap-8">
       <div className="avatar">

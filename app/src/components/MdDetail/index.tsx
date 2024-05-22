@@ -30,7 +30,6 @@ export const MdDetail: FC<MdDetailProps> = ({
 }) => {
   return (
     <>
-
       <div className="flex flex-col items-center gap-4 pb-4">
         <figure style={{ viewTransitionName: iconTransitionName(slug) }}>
           <Twemoji className="w-20 md:w-24" emoji={emoji || "ℹ️"} />
@@ -62,6 +61,7 @@ export const MdDetail: FC<MdDetailProps> = ({
         <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto">
           {children}
         </div>
-      </div> </>
+      </div>{" "}
+    </>
   );
 };

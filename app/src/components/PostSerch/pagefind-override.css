@@ -1,5 +1,4 @@
 .pagefind-theme {
-    
   --pagefind-ui-scale: 1;
   --pagefind-ui-primary: hsl(var(--p) / var(--tw-bg-opacity));
   --pagefind-ui-text: hsl(var(--pc) / var(--tw-text-opacity));
