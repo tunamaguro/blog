@@ -20,7 +20,7 @@ export const SearchBar = ({ className, open_dialog_id }: Props) => {
     <div className="p-1">
       <button
         className={clsx(
-          "w-full rounded-md flex cursor-pointer hover:outline hover:font-bold items-center gap-x-4",
+          "w-60 rounded-md flex cursor-pointer hover:outline hover:font-bold items-center gap-x-4",
           className,
         )}
         onClick={() => {

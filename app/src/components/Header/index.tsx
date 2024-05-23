@@ -7,13 +7,10 @@ type Props = {
 
 export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
   <header className="bg-base-300">
-    <div className="navbar mx-auto flex-col md:flex-row max-w-5xl">
-      <div>
-        <a href="/" className="font-bold text-3xl py-2 md:py-0">
-          {siteTitle}
-        </a>
-      </div>
-      <span className="flex-grow" />
+    <div className="navbar mx-auto flex-col md:flex-row max-w-5xl justify-between">
+      <a href="/" className="font-bold text-3xl py-2 md:py-0">
+        {siteTitle}
+      </a>
       {children}
       <nav className="flex-none">
         <ul className="menu menu-horizontal px-1 text-lg">
