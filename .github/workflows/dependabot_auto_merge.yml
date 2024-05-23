@@ -1,19 +1,18 @@
 name: Dependabot auto-merge
 on: 
-  pull_request_target:
-  workflow_run:
-    workflows: [CI Test]
-    types:
-      - completed
+  pull_request:
 
 permissions:
   pull-requests: write
   contents: write
 
 jobs:
+  tests:
+    uses: ./.github/workflows/ci_test.yml
   dependabot:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]' && github.event.workflow_run.conclusion == 'success'
+    if: github.actor == 'dependabot[bot]'
+    needs: [tests]
     steps:
       - name: Dependabot metadata
         id: metadata

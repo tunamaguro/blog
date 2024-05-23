@@ -1,5 +1,8 @@
 name: CI Test
-on: [push]
+on: 
+  push:
+  workflow_call:
+
 jobs:
   can_build:
     runs-on: ubuntu-latest
