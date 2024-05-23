@@ -29,9 +29,9 @@ const seoTitle = title ? title + " | " + siteMeta.title : siteMeta.title;
           <SearchBar
             client:load
             open_dialog_id="search_dialog"
-            className="p-4 bg-base-100 pr-16 hidden md:flex"
+            className="p-4 bg-base-100 pr-16 invisible hidden md:visible md:flex"
           />
-          <SearchDialog dialog_id="search_dialog">
+          <SearchDialog dialog_id="search_dialog" className="invisible md:visible">
             <PostSearch />
           </SearchDialog>
         </div>
