@@ -1,0 +1,14 @@
+#search {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: oklch(var(--p));
+  --pagefind-ui-text: oklch(var(--bc));
+  --pagefind-ui-background: oklch(var(--b2));
+  --pagefind-ui-border: oklch(var(--b1));
+  --pagefind-ui-tag: oklch(var(--b1));
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, Arial,
+    sans-serif;
+}

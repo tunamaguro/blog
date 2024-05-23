@@ -47,22 +47,24 @@ const ogpImageUrl = new URL(`/ogp/${article.slug}.png`, Astro.url);
   description={contentDescription}
   ogpImage={ogpImageUrl.toString()}
 >
-  <MdDetail
-    title={title}
-    emoji={emoji}
-    createdAt={createdAt}
-    updatedAt={updatedAt}
-    tags={tags}
-    slug={article.slug}
-    metas={[
-      {
-        key: "readingTime",
-        name: "reading time",
-        value: frontmatter.minutesRead,
-      },
-    ]}
-  >
-    <Content />
-  </MdDetail>
-  <Giscus />
+  <div class="py-8">
+    <MdDetail
+      title={title}
+      emoji={emoji}
+      createdAt={createdAt}
+      updatedAt={updatedAt}
+      tags={tags}
+      slug={article.slug}
+      metas={[
+        {
+          key: "readingTime",
+          name: "reading time",
+          value: frontmatter.minutesRead,
+        },
+      ]}
+    >
+      <Content />
+    </MdDetail>
+    <Giscus />
+  </div>
 </BaseLayout>

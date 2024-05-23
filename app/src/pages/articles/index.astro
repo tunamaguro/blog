@@ -2,7 +2,6 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { PostList } from "@/components/PostList";
 import { PostListHeader } from "@/components/PostList/Header";
-import { faBook } from "@fortawesome/free-solid-svg-icons";
 import { getArticles } from "@/utils/getArticles";
 
 const articles = await getArticles();
@@ -17,6 +16,8 @@ const card_info = articles
 
 <BaseLayout>
   <PostList cards={card_info}>
-    <PostListHeader icon={faBook}>Blog</PostListHeader>
+    <PostListHeader>Blog</PostListHeader>
   </PostList>
 </BaseLayout>
+
+<script></script>

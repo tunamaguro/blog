@@ -1,8 +1,11 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import { Layout } from "@/components/Layout";
 import Seo from "@/components/Seo/index.astro";
 import { siteMeta } from "@/constants/siteMeta";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { SearchBar } from "@/components/SearchDialog/SearchBar";
+import { SearchDialog } from "@/components/SearchDialog/SearchDialog";
+import PostSearch from "@/components/PostSearch/index.astro";
 
 interface Props {
   title?: string;
@@ -17,12 +20,26 @@ const seoTitle = title ? title + " | " + siteMeta.title : siteMeta.title;
 <!doctype html>
 <html lang="ja">
   <head>
-    <ViewTransitions />
     <Seo title={seoTitle} description={description} ogpImage={ogpImage} />
   </head>
   <body>
-    <Layout siteTitle={siteMeta.title} author={siteMeta.author}>
-      <slot />
-    </Layout>
+    <div class="flex flex-col min-h-screen">
+      <Header siteTitle={siteMeta.title}>
+        <div>
+          <SearchBar
+            client:load
+            open_dialog_id="search_dialog"
+            className="p-4 bg-base-100 pr-16 invisible hidden md:visible md:flex"
+          />
+          <SearchDialog dialog_id="search_dialog" className="invisible md:visible">
+            <PostSearch />
+          </SearchDialog>
+        </div>
+      </Header>
+      <main class="flex-grow container max-w-5xl mx-auto px-4">
+        <slot />
+      </main>
+      <Footer author={siteMeta.author} />
+    </div>
   </body>
 </html>

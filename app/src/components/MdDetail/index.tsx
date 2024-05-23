@@ -29,13 +29,13 @@ export const MdDetail: FC<MdDetailProps> = ({
   metas = [],
 }) => {
   return (
-    <div className="container max-w-5xl mx-auto py-4">
-      <div className="flex flex-col items-center gap-4 pb-4">
+    <>
+      <div className="flex flex-col items-center gap-4 pb-4" data-pagefind-body >
         <figure style={{ viewTransitionName: iconTransitionName(slug) }}>
-          <Twemoji className="w-20 md:w-24" emoji={emoji || "ℹ️"} />
+          <Twemoji className="w-20 md:w-24" emoji={emoji || "ℹ️"} data-pagefind-meta="image[src], image_alt[alt]" />
         </figure>
         <h1
-          className="text-center break-words text-2xl md:text-4xl font-bold text-primary-content"
+          className="text-center break-words text-2xl md:text-3xl font-bold"
           style={{ viewTransitionName: titleTransitionName(slug) }}
         >
           {title}
@@ -62,6 +62,6 @@ export const MdDetail: FC<MdDetailProps> = ({
           {children}
         </div>
       </div>
-    </div>
+    </>
   );
 };
