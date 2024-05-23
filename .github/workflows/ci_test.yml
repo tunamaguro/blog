@@ -1,0 +1,23 @@
+name: CI Test
+on: [push]
+jobs:
+  can_build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+          cache-dependency-path: app/pnpm-lock.yaml
+      - name: Install Dependency
+        run: pnpm install --frozen-lockfile
+      - name: Astro Build
+        run: pnpm run build
