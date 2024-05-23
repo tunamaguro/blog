@@ -2,7 +2,7 @@ import type { FunctionComponent, ReactNode } from "react";
 
 type Props = {
   siteTitle: string;
-  children?: ReactNode
+  children?: ReactNode;
 };
 
 export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
