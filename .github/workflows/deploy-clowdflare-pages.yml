@@ -6,6 +6,7 @@ jobs:
     defaults:
       run:
         working-directory: app
+    if: github.actor == github.repository_owner
     steps:
       - uses: actions/checkout@v4
       - name: Install pnpm
