@@ -1,12 +1,9 @@
 import type { FunctionComponent } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitterSquare,
-  faSquareGithub,
-} from "@fortawesome/free-brands-svg-icons";
 import MaguroImage from "@/assets/maguro.png";
-import { MisskeyIcon } from "./MisskeyIcon";
+import { MisskeyIcon } from "@/components/Icons/MisskeyIcon";
+import { TwitterOutlineIcon } from "@/components/Icons/TwitterOutlineIcon";
+import { GithubOutlineIcon } from "@/components/Icons/GithubOutlineIcon";
 
 type Props = {
   author: string;
@@ -35,21 +32,23 @@ export const Hero: FunctionComponent<Props> = ({ author }) => (
           <a
             href="https://twitter.com/tsu7magu6"
             aria-label="tunamaguroのTwitter"
+            className="grid justify-center items-center h-8 w-8"
           >
-            <FontAwesomeIcon className="h-8 w-8" icon={faTwitterSquare} />
+            <TwitterOutlineIcon />
           </a>
           <a
             href="https://github.com/tunamaguro"
             aria-label="tunamaguroのGithubプロフィール"
+            className="grid justify-center items-center h-8 w-8"
           >
-            <FontAwesomeIcon className="h-8 w-8" icon={faSquareGithub} />
+            <GithubOutlineIcon />
           </a>
           <a
-            className="bg-base-content rounded-sm"
+            className="grid justify-center items-center h-8 w-8"
             href="https://misskey.tunamaguro.dev/@tunamaguro"
             aria-label="tunamaguroのMisskey"
           >
-            <MisskeyIcon className="h-8 w-8 p-1" />
+            <MisskeyIcon fill="currentColor" width={24} height={24} />
           </a>
         </div>
       </div>
