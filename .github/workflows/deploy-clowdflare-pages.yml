@@ -47,5 +47,3 @@ jobs:
               sha,
               target_url: "${{ steps.cloudflare_pages_deploy.outputs.url }}",
             });
-  call-tmp-workflow:
-    uses: ./.github/workflows/tmp-workflow.yml
