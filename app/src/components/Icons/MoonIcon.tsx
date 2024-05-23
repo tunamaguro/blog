@@ -18,7 +18,10 @@ export const SearchIcon = ({ className, ...ret }: Props) => {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={clsx("icon icon-tabler icons-tabler-outline icon-tabler-moon",className)}
+      className={clsx(
+        "icon icon-tabler icons-tabler-outline icon-tabler-moon",
+        className,
+      )}
       {...ret}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
