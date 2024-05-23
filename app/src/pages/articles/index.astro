@@ -19,9 +19,10 @@ const card_info = articles
 ---
 
 <BaseLayout>
-  <PostSearch />
   <SearchBar client:load open_dialog_id="search_dialog" />
-  <SearchDialog dialog_id="search_dialog" />
+  <SearchDialog dialog_id="search_dialog">
+    <PostSearch />
+  </SearchDialog>
   <PostList cards={card_info}>
     <PostListHeader icon={faBook}>Blog</PostListHeader>
   </PostList>
