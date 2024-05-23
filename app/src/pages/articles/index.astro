@@ -3,9 +3,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { PostList } from "@/components/PostList";
 import { PostListHeader } from "@/components/PostList/Header";
 import { getArticles } from "@/utils/getArticles";
-import PostSearch from "@/components/PostSearch/index.astro";
-import { SearchBar } from "@/components/SearchDialog/SearchBar";
-import { SearchDialog } from "@/components/SearchDialog/SearchDialog";
 
 const articles = await getArticles();
 
@@ -18,10 +15,6 @@ const card_info = articles
 ---
 
 <BaseLayout>
-  <SearchBar client:load open_dialog_id="search_dialog" />
-  <SearchDialog dialog_id="search_dialog">
-    <PostSearch />
-  </SearchDialog>
   <PostList cards={card_info}>
     <PostListHeader>Blog</PostListHeader>
   </PostList>

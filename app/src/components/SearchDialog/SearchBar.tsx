@@ -11,7 +11,6 @@ type Props = { open_dialog_id: string } & Pick<
 const openDialog = (dialog_id: string) => {
   const dialogElement: HTMLDialogElement | undefined =
     document.getElementById(dialog_id);
-  console.log(dialogElement);
   dialogElement?.showModal();
 };
 
