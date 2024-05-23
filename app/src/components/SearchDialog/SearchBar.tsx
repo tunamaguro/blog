@@ -20,17 +20,15 @@ export const SearchBar = ({ className, open_dialog_id }: Props) => {
     <div className="p-1">
       <button
         className={clsx(
-          "w-full text-lg bg-base-200 rounded-md flex cursor-pointer hover:outline hover:font-bold items-center",
+          "w-full rounded-md flex cursor-pointer hover:outline hover:font-bold items-center gap-x-4",
           className,
         )}
         onClick={() => {
           openDialog(open_dialog_id);
         }}
       >
-        <span className="py-6 px-4">
-          <SearchIcon />
-        </span>
-        <div className="grid items-center justify-center text-xl text-base-content focus:outline-none">
+        <SearchIcon />
+        <div className="grid items-center justify-center text-base-content focus:outline-none">
           <span>検索</span>
         </div>
       </button>

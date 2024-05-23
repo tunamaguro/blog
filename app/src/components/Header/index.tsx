@@ -1,10 +1,11 @@
-import type { FunctionComponent } from "react";
+import type { FunctionComponent, ReactNode } from "react";
 
 type Props = {
   siteTitle: string;
+  children?: ReactNode
 };
 
-export const Header: FunctionComponent<Props> = ({ siteTitle }) => (
+export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
   <header className="bg-base-300">
     <div className="navbar mx-auto flex-col md:flex-row max-w-5xl">
       <div>
@@ -13,6 +14,7 @@ export const Header: FunctionComponent<Props> = ({ siteTitle }) => (
         </a>
       </div>
       <span className="flex-grow" />
+      {children}
       <nav className="flex-none">
         <ul className="menu menu-horizontal px-1 text-lg">
           <li>
