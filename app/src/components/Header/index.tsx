@@ -1,5 +1,7 @@
 import type { FunctionComponent, ReactNode } from "react";
 
+import { routes } from "./routes";
+
 type Props = {
   siteTitle: string;
   children?: ReactNode;
@@ -14,15 +16,13 @@ export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
       {children}
       <nav className="flex-none">
         <ul className="menu menu-horizontal px-1 text-lg">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/articles">Blog</a>
-          </li>
-          <li>
-            <a href="/articles/about">利用規約</a>
-          </li>
+          {
+            routes.map((route) => (
+              <li>
+                <a href={route.href}>{route.text}</a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
     </div>
