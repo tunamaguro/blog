@@ -1,0 +1,231 @@
+---
+title: "BitDPの仕組みを考える"
+createdAt: "2024-05-26"
+emoji: "🧙"
+category: tech
+---
+
+## はじめに
+
+ABC354 E の解法でBitDPというものが紹介されていましたが、自分は詳しくなかったので調べたことを書きます。問題は以下
+
+https://atcoder.jp/contests/abc354/tasks/abc354_e
+
+## DP(動的計画法)について
+
+bitDPではないDPで解ける問題の例としてEducational DP Contest A Frog1があります
+
+https://atcoder.jp/contests/dp/tasks/dp_a
+
+これをグラフに直すと次のような形になり、この問題は要するにこのグラフの最短経路を求めろということになります
+
+![Frog1のグラフ](src/assets/images/thinking-bitdp/frog1-graph.png)
+
+解答例は次のような感じです
+
+https://atcoder.jp/contests/dp/submissions/53917444
+
+```rust
+fn main() {
+    input! {n:usize,h:[i32;n]}
+    let mut cost = vec![i32::MAX; n];
+    cost[0] = 0;
+    for i in 0..n {
+        let cur_cost = cost[i];
+        for j in (i + 1)..n.min(i + 3) {
+            let c = (h[i] - h[j]).abs();
+            cost[j] = cost[j].min(c + cur_cost)
+        }
+    }
+    println!("{}", cost.last().unwrap())
+}
+```
+
+この遷移を図にすると次のようになります。縦がその柱に到達できる最小のコストです
+
+![遷移図](src/assets/images/thinking-bitdp/frog1-move-graph.png)
+
+ここでは状態を`i番目の柱まで使って到達できる最小のコスト`という1つ前の状態から確定できるものにしたことで問題を簡単に解くことができました。
+いわゆるナップサック問題も同様で、`i番目のアイテムまでかつ重さwで可能な最大の価値`を状態にすることで遷移を簡単にして解くことができます
+
+## bitDP
+
+ここで解きたかったABC 354 Eに戻ります。ここまでの雰囲気で考えると場のカードを状態として遷移を考えれば良さそうです。ここで$S$を場のカードとして次のような入力が与えられた場合の遷移を考えます。状態は$S$で始まった場合の勝者です
+
+```bash
+3
+1 9
+2 5
+4 9
+```
+
+![カードが3枚の場合の遷移](src/assets/images/thinking-bitdp/abc354-e-move-sample.png)
+
+図を描くのが大変なので$N=3$にしましたが全体では$2^N$の状態があり、それが遷移していきます。この場合$S=\{0,1,2\}$の時Tが記録されているのでTakahashiが勝者であることがわかります。
+遷移はカードを取った後の状態での勝者が`Aoki`なら`Takahashi`、`Takahashi`なら`Aoki`というように遷移し、複数の遷移先がある場合 = カードの取り方がいくつかある場合は、`Takahashi`が勝てる状態に遷移することにします
+
+これはそのままコードに直すと次のような形になるでしょうか
+
+```rust
+fn main() {
+    input! {n:usize,cards:[(i32,i32);n]}
+    let mut is_takahashi_win = vec![vec![vec![false; 2]; 2]; 2];
+    for i in 0..2 {
+        for j in 0..2 {
+            for k in 0..2 {
+                let mut f = false;
+                for l in 0..n {
+                    for m in (l + 1)..n {
+                        let l_card = if l == 0 {
+                            i
+                        } else if l == 1 {
+                            j
+                        } else {
+                            k
+                        };
+                        let m_card = if m == 0 {
+                            i
+                        } else if m == 1 {
+                            j
+                        } else {
+                            k
+                        };
+
+                        if l_card == 1 && m_card == 1 {
+                            if (cards[l].0 == cards[m].0 || cards[l].1 == cards[m].1)
+                                && !is_takahashi_win[i][j][k]
+                            {
+                                f = true;
+                            }
+                        }
+                    }
+                }
+                is_takahashi_win[i][j][k] = f;
+            }
+        }
+    }
+    println!(
+        "{}",
+        if is_takahashi_win[1][1][1] {
+            "Takahashi"
+        } else {
+            "Aoki"
+        }
+    )
+}
+
+```
+
+とても見ずらいですが`i`,`j`,`k`が場にあるカードを、`l`,`m`がどのカードを取るかを示しています。これを実行してみると次のように正しく`Takahashi`を返してきます
+
+```bash
+cargo run
+   Compiling atcoder_rust v0.1.0 (/workspaces/atcoderRust)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.21s
+     Running `target/debug/atcoder_rust`
+3
+1 9
+2 5
+4 9
+Takahashi
+```
+
+他のケースもいくつか試してみます。まずペアが一枚もないケースでは当然`Aoki`を返します
+
+```bash
+cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/atcoder_rust`
+3
+1 2
+3 4
+5 6
+Aoki
+```
+
+表1ペア、裏1ペアのケースでは`Takahashi`を返してくれます
+
+```bash
+cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/atcoder_rust`
+3
+1 2
+3 2
+3 1
+Takahashi
+```
+
+ここまでで何となく正しそうであることがわかりましたが、これでABC354 Eを解くのには問題があります。先ほど`i`,`j`,`k`を場のカードの状態として定義しましたが、実際は$1 \leq N \leq 18$であるため、
+先ほどの方法をそのまま行おうとすると18個の変数が必要になります。プログラムは次のような形になるでしょう
+
+```rust
+    for i in 0..2 {
+        for j in 0..2 {
+            for k in 0..2 {
+                for l in 0..2{
+                    for m in 0..2{
+                        for o in 0..2{
+                            for p in 0..2{
+                                for q in 0..2{
+                                    for r in 0..2{
+                                        // まだまだ続く
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+```
+
+そこである数値の各bitを先ほど用意した変数に対応させ、使用する変数の数を減らします。
+具体的には`i` = 1, `j` = 0, `k` = 1という状態が10進数の5に対応することになります
+
+$$
+101_{(2)} = 5
+$$
+
+表記は異なりますが先ほどまでと同じことです。これでプログラムを書き直すと次のようになります。個人的に重要だと思った箇所はコメントを書きました
+
+```rust
+fn main() {
+    input! {n:usize,cards:[(i32,i32);n]}
+    let mut is_takahashi_win = vec![false; 1 << n];
+
+    for i in 0..(1 << n) {
+        let mut f = false;
+        for j in 0..n {
+            for k in (j + 1)..n {
+                if ((i >> j & 1) == 1) && ((i >> k & 1) == 1) { // i,jに対応したカードが場にあるか判定
+                    let mask = !((1 << j) | (1 << k)); // i,j以外が1のマスクを生成
+                    if (cards[j].0 == cards[k].0 || cards[j].1 == cards[k].1)
+                        && !is_takahashi_win[i & mask] // 場のカードにi,jを取り除くマスクをかける == 遷移後の状態を取得する
+                    {
+                        f = true
+                    }
+                }
+            }
+        }
+        is_takahashi_win[i] = f;
+    }
+
+    println!(
+        "{}",
+        if *is_takahashi_win.last().unwrap() {
+            "Takahashi"
+        } else {
+            "Aoki"
+        }
+    )
+}
+```
+
+> 提出結果: https://atcoder.jp/contests/abc354/submissions/53921848
+
+これで添え字の個数を減らしながら、同じ操作を行うことができました
+
+## まとめ
+
+bitDPはDPでの添え字の扱い方を工夫することで、大量の添え字(i,j,k,l...)を回避する仕組みだというのが現状の理解です。
+これもまだ工夫の余地があると考えていて、今回は2進数で集合を管理しましたが例えば3進数にすることで、それぞれが3つの状態を持つような集合も扱えると思っています。
+状態の個数が$X^N$程度の際はbitDPを考えてみたいです
