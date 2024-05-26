@@ -7,9 +7,18 @@ export type Props = {
   children?: ReactNode;
 } & DialogHTMLAttributes<HTMLDialogElement>;
 
-export const SearchDialog = ({ dialog_id, children, className, ...ret }: Props) => {
+export const SearchDialog = ({
+  dialog_id,
+  children,
+  className,
+  ...ret
+}: Props) => {
   return (
-    <dialog id={dialog_id} className={clsx("modal items-start", className)} {...ret}>
+    <dialog
+      id={dialog_id}
+      className={clsx("modal items-start", className)}
+      {...ret}
+    >
       <div className="modal-box mt-24 max-w-5xl min-h-64 mx-auto">
         {children}
       </div>

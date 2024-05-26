@@ -7,8 +7,6 @@ permissions:
   contents: write
 
 jobs:
-  tests:
-    uses: ./.github/workflows/ci_test.yml
   dependabot:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
