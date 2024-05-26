@@ -34,9 +34,9 @@ type SidebarProps = JSX.IntrinsicElements["div"];
 
 Drawer.SideBar = ({ className, children, ...rest }: SidebarProps) => {
   return (
-    <div className={clsx("drawer-side", className)} {...rest}>
+    <aside className={clsx("drawer-side", className)} {...rest}>
       {children}
-    </div>
+    </aside>
   );
 };
 

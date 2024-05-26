@@ -20,15 +20,25 @@ export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
         </div>
         <Drawer.SideBar className="z-50">
           <Drawer.Overlay />
-          <Drawer.Content>
-            <ul className="menu p-4 w-80">
-              <li>
-                <a>Sidebar Item 1</a>
-              </li>
-              <li>
-                <a>Sidebar Item 2</a>
-              </li>
-            </ul>
+          <Drawer.Content className="min-w-80 p-4">
+            <div className="flex flex-col border-opacity-50">
+              <div className="grid">
+                <a
+                  href="/"
+                  className="font-bold text-lg md:text-3xl py-2 md:py-0"
+                >
+                  {siteTitle}
+                </a>
+              </div>
+              <div className="divider m-0"></div>
+              <ul className="menu px-1 text-lg gap-4">
+                {routes.map((route) => (
+                  <li>
+                    <a href={route.href}>{route.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </Drawer.Content>
         </Drawer.SideBar>
       </Drawer>
