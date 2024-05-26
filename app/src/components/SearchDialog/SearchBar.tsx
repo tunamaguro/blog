@@ -35,9 +35,12 @@ export const SearchBar = ({ className, open_dialog_id }: Props) => {
 
 export const SearchButton = ({ className, open_dialog_id }: Props) => {
   return (
-    <button className={clsx("btn btn-square btn-ghost", className)} onClick={() => {
-      openDialog(open_dialog_id)
-    }}>
+    <button
+      className={clsx("btn btn-square btn-ghost", className)}
+      onClick={() => {
+        openDialog(open_dialog_id);
+      }}
+    >
       <SearchIcon />
     </button>
   );
