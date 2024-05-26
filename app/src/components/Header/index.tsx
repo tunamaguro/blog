@@ -11,7 +11,7 @@ type Props = {
 
 export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
   <header className="bg-base-300">
-    <div className="navbar mx-auto flex-row max-w-5xl justify-between">
+    <div className="navbar mx-auto flex-row max-w-5xl justify-between gap-x-4">
       <Drawer drawerId="sample" className="w-fit md:invisible md:hidden">
         <div className="flex-none">
           <Drawer.Toggle className="btn btn-square btn-ghost">
@@ -22,7 +22,7 @@ export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
           <Drawer.Overlay />
           <Drawer.Content className="min-w-80 p-4">
             <div className="flex flex-col border-opacity-50">
-              <div className="grid">
+              <div className="flex justify-between">
                 <a
                   href="/"
                   className="font-bold text-lg md:text-3xl py-2 md:py-0"
@@ -42,7 +42,7 @@ export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
           </Drawer.Content>
         </Drawer.SideBar>
       </Drawer>
-      <a href="/" className="font-bold text-lg md:text-3xl py-2 md:py-0">
+      <a href="/" className="font-bold text-lg md:text-2xl py-2 md:py-0">
         {siteTitle}
       </a>
       {children}

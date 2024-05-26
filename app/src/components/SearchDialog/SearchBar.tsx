@@ -16,21 +16,29 @@ const openDialog = (dialog_id: string) => {
 
 export const SearchBar = ({ className, open_dialog_id }: Props) => {
   return (
-    <div className="p-1">
-      <button
-        className={clsx(
-          "w-60 rounded-md flex cursor-pointer hover:outline hover:font-bold items-center gap-x-4",
-          className,
-        )}
-        onClick={() => {
-          openDialog(open_dialog_id);
-        }}
-      >
-        <SearchIcon />
-        <div className="grid items-center justify-center text-base-content focus:outline-none">
-          <span>検索</span>
-        </div>
-      </button>
-    </div>
+    <button
+      className={clsx(
+        "max-w-60 rounded-md flex cursor-pointer hover:outline hover:font-bold items-center gap-x-4",
+        className,
+      )}
+      onClick={() => {
+        openDialog(open_dialog_id);
+      }}
+    >
+      <SearchIcon />
+      <div className="grid items-center justify-center text-base-content focus:outline-none">
+        <span>検索</span>
+      </div>
+    </button>
+  );
+};
+
+export const SearchButton = ({ className, open_dialog_id }: Props) => {
+  return (
+    <button className={clsx("btn btn-square btn-ghost", className)} onClick={() => {
+      openDialog(open_dialog_id)
+    }}>
+      <SearchIcon />
+    </button>
   );
 };
