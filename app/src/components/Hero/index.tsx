@@ -16,35 +16,34 @@ export const Hero: FunctionComponent<Props> = ({ author }) => (
       <span>ようこそ👋</span>
     </h1>
     <div className="flex py-4 gap-8">
-      <div className="avatar">
-        <div className="w-30 h-auto md:w-40 p-3 rounded-full bg-base-200">
+      <div className="avatar items-center">
+        <div className="w-28 md:w-40 rounded-full bg-base-200 rotate-45 p-2 md:p-4">
           <img
             alt="tsunamaguro icon"
             src={MaguroImage.src}
-            className="transform rotate-45 md:translate-y-6 !h-24"
           />
         </div>
       </div>
       <div className="flex flex-col gap-2 justify-center">
         <div className="text-2xl font-bold">{author}</div>
         <div>コードを書かないと死にます</div>
-        <div className="flex flex-row gap-4 text-3xl">
+        <div className="flex flex-row gap-x-2 text-3xl">
           <a
             href="https://twitter.com/tsu7magu6"
             aria-label="tunamaguroのTwitter"
-            className="grid justify-center items-center h-8 w-8"
+            className="grid justify-center items-center btn btn-square btn-ghost"
           >
             <TwitterOutlineIcon />
           </a>
           <a
             href="https://github.com/tunamaguro"
             aria-label="tunamaguroのGithubプロフィール"
-            className="grid justify-center items-center h-8 w-8"
+            className="grid justify-center items-center btn btn-square btn-ghost"
           >
             <GithubOutlineIcon />
           </a>
           <a
-            className="grid justify-center items-center h-8 w-8"
+            className="grid justify-center items-center btn btn-square btn-ghost"
             href="https://misskey.tunamaguro.dev/@tunamaguro"
             aria-label="tunamaguroのMisskey"
           >
