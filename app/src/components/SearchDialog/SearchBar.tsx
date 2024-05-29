@@ -3,10 +3,8 @@ import type { ButtonHTMLAttributes } from "react";
 import { clsx } from "clsx";
 import { SearchIcon } from "../Icons/SearchIcon";
 
-type Props = { open_dialog_id: string } & Pick<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  "className"
->;
+type Props = { open_dialog_id: string } &
+  ButtonHTMLAttributes<HTMLButtonElement>
 
 const openDialog = (dialog_id: string) => {
   const dialogElement: HTMLDialogElement | undefined =
@@ -14,7 +12,7 @@ const openDialog = (dialog_id: string) => {
   dialogElement?.showModal();
 };
 
-export const SearchBar = ({ className, open_dialog_id }: Props) => {
+export const SearchBar = ({ className, open_dialog_id, ...rest }: Props) => {
   return (
     <button
       className={clsx(
@@ -24,6 +22,8 @@ export const SearchBar = ({ className, open_dialog_id }: Props) => {
       onClick={() => {
         openDialog(open_dialog_id);
       }}
+      aria-label="open search dialog"
+      {...rest}
     >
       <SearchIcon />
       <div className="grid items-center justify-center text-base-content focus:outline-none">
@@ -33,13 +33,15 @@ export const SearchBar = ({ className, open_dialog_id }: Props) => {
   );
 };
 
-export const SearchButton = ({ className, open_dialog_id }: Props) => {
+export const SearchButton = ({ className, open_dialog_id, ...rest }: Props) => {
   return (
     <button
       className={clsx("btn btn-square btn-ghost", className)}
       onClick={() => {
         openDialog(open_dialog_id);
       }}
+      aria-label="open search dialog"
+      {...rest}
     >
       <SearchIcon />
     </button>
