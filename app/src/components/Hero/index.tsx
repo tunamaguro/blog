@@ -1,6 +1,5 @@
 import type { FunctionComponent, ReactNode } from "react";
 
-import MaguroImage from "@/assets/maguro.png";
 import { MisskeyIcon } from "@/components/Icons/MisskeyIcon";
 import { TwitterOutlineIcon } from "@/components/Icons/TwitterOutlineIcon";
 import { GithubOutlineIcon } from "@/components/Icons/GithubOutlineIcon";
