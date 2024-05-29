@@ -4,6 +4,11 @@ import { Hero } from "@/components/Hero";
 import { PostList } from "@/components/PostList";
 import { PostListHeader } from "@/components/PostList/Header";
 import { getArticles } from "@/utils/getArticles";
+import { getImage } from "astro:assets";
+import MaguroImage from "@/assets/maguro.png";
+import { Picture } from "astro:assets";
+
+const optimizedMaguro = await getImage({ src: MaguroImage, format: "webp" });
 
 const articles = await getArticles();
 
@@ -18,7 +23,13 @@ const card_info = articles
 ---
 
 <BaseLayout>
-  <Hero author="tunamaguro" />
+  <Hero author="tunamaguro" >
+    <Picture
+      src={MaguroImage}
+      formats={["avif", "webp"]}
+      alt="tunamaguro icon"
+    />
+  </Hero>
   <PostList cards={card_info}>
     <PostListHeader>Blog</PostListHeader>
   </PostList>

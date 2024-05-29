@@ -1,4 +1,4 @@
-import type { FunctionComponent } from "react";
+import type { FunctionComponent, ReactNode } from "react";
 
 import MaguroImage from "@/assets/maguro.png";
 import { MisskeyIcon } from "@/components/Icons/MisskeyIcon";
@@ -7,9 +7,10 @@ import { GithubOutlineIcon } from "@/components/Icons/GithubOutlineIcon";
 
 type Props = {
   author: string;
+  children?: ReactNode
 };
 
-export const Hero: FunctionComponent<Props> = ({ author }) => (
+export const Hero: FunctionComponent<Props> = ({ author, children }) => (
   <div className="container mx-auto">
     <h1 className="text-2xl font-bold border-b-4 border-base-content py-4">
       <span className="hidden md:inline">{author}のブログへ</span>
@@ -18,10 +19,7 @@ export const Hero: FunctionComponent<Props> = ({ author }) => (
     <div className="flex py-4 gap-8">
       <div className="avatar items-center">
         <div className="w-28 md:w-40 rounded-full bg-base-200 rotate-45 p-2 md:p-4">
-          <img
-            alt="tsunamaguro icon"
-            src={MaguroImage.src}
-          />
+          {children}
         </div>
       </div>
       <div className="flex flex-col gap-2 justify-center">
