@@ -53,13 +53,13 @@ export const MdDetail: FC<MdDetailProps> = ({
             ...metas,
           ]}
         />
-        <div className="grid grid-flow-col gap-4">
+        <ul className="grid grid-flow-col gap-4">
           {tags.map((tag) => (
             <Tag key={tag} tag={tag}>
               {tag}
             </Tag>
           ))}
-        </div>
+        </ul>
       </div>
       <div className="bg-base-200 p-8 rounded-3xl">
         <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto">
