@@ -12,7 +12,7 @@ type Props = {
 export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
   <header className="bg-base-300">
     <div className="navbar mx-auto flex-row max-w-5xl justify-between gap-x-4">
-      <Drawer drawerId="sample" className="w-fit md:invisible md:hidden">
+      <Drawer drawerId="sideMenu" className="w-fit md:invisible md:hidden">
         <div className="flex-none">
           <Drawer.Toggle className="btn btn-square btn-ghost">
             <MenuIcon />
