@@ -1,12 +1,10 @@
 import type { FunctionComponent, ReactNode } from "react";
 
-import { MisskeyIcon } from "@/components/Icons/MisskeyIcon";
-import { TwitterOutlineIcon } from "@/components/Icons/TwitterOutlineIcon";
-import { GithubOutlineIcon } from "@/components/Icons/GithubOutlineIcon";
+import { SocialIcons } from "./SocialIcons";
 
 type Props = {
   author: string;
-  children?: ReactNode
+  children?: ReactNode;
 };
 
 export const Hero: FunctionComponent<Props> = ({ author, children }) => (
@@ -25,27 +23,7 @@ export const Hero: FunctionComponent<Props> = ({ author, children }) => (
         <div className="text-2xl font-bold">{author}</div>
         <div>コードを書かないと死にます</div>
         <div className="flex flex-row gap-x-2 text-3xl">
-          <a
-            href="https://twitter.com/tsu7magu6"
-            aria-label="tunamaguroのTwitter"
-            className="grid justify-center items-center btn btn-square btn-ghost"
-          >
-            <TwitterOutlineIcon />
-          </a>
-          <a
-            href="https://github.com/tunamaguro"
-            aria-label="tunamaguroのGithubプロフィール"
-            className="grid justify-center items-center btn btn-square btn-ghost"
-          >
-            <GithubOutlineIcon />
-          </a>
-          <a
-            className="grid justify-center items-center btn btn-square btn-ghost"
-            href="https://misskey.tunamaguro.dev/@tunamaguro"
-            aria-label="tunamaguroのMisskey"
-          >
-            <MisskeyIcon fill="currentColor" width={24} height={24} />
-          </a>
+          <SocialIcons className="h-9 w-9 md:h-12 md:w-12 p-0" />
         </div>
       </div>
     </div>
