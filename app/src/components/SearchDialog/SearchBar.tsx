@@ -3,8 +3,9 @@ import type { ButtonHTMLAttributes } from "react";
 import { clsx } from "clsx";
 import { SearchIcon } from "../Icons/SearchIcon";
 
-type Props = { open_dialog_id: string } &
-  ButtonHTMLAttributes<HTMLButtonElement>
+type Props = {
+  open_dialog_id: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const openDialog = (dialog_id: string) => {
   const dialogElement: HTMLDialogElement | undefined =
