@@ -1,0 +1,57 @@
+---
+import type { GetStaticPaths } from "astro";
+import { slugfy } from "@/utils/slugfy";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const articles = await getArticles();
+
+  const allTags = Array.from(
+    new Set(
+      articles.flatMap((article) =>
+        article.data.tags.map((tag) => tag.toLowerCase())
+      )
+    )
+  );
+
+  const pageable = allTags.flatMap((tag) => {
+    const filteredArticles = articles.filter((article) =>
+      article.data.tags.some((article_tag) => article_tag.toLowerCase() === tag)
+    );
+    return paginate(filteredArticles, {
+      pageSize: 10,
+      params: { tag: slugfy(tag) },
+    });
+  });
+
+  return pageable;
+}) satisfies GetStaticPaths;
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { PostList } from "@/components/PostList";
+import { PostListHeader } from "@/components/PostList/Header";
+import { getArticles } from "@/utils/getArticles";
+import { Pagination } from "@/components/Pagination";
+
+const { page } = Astro.props;
+const params = Astro.params;
+
+const posts = page.data.map((article) => ({
+  ...article.data,
+  slug: article.slug,
+}));
+---
+
+<BaseLayout>
+  <PostList cards={posts}>
+    <PostListHeader>
+      {params.tag}
+    </PostListHeader>
+  </PostList>
+  <div class="py-8 grid justify-center">
+    <Pagination
+      count={page.lastPage}
+      currentPage={page.currentPage}
+      moveTo={new URL(`/tags/${[params.tag]}/`, Astro.url)}
+    />
+  </div>
+</BaseLayout>
