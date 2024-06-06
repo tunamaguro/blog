@@ -21,7 +21,7 @@ export const Hero: FunctionComponent<Props> = ({ author, children }) => (
       </div>
       <div className="flex flex-col gap-2 justify-center">
         <div className="text-2xl font-bold">{author}</div>
-        <div>コードを書かないと死にます</div>
+        <div>プログラムを書く魚類です</div>
         <div className="flex flex-row gap-x-2">
           <SocialIcons className="p-0 grid items-center justify-center h-9 w-9 md:h-12 md:w-12" />
         </div>

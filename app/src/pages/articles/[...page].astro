@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { PostList } from "@/components/PostList";
+import { PostListHeader } from "@/components/PostList/Header";
+import { getArticles } from "@/utils/getArticles";
+import { Pagination } from "@/components/Pagination";
+import type {
+  GetStaticPaths,
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+} from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const articles = await getArticles();
+  const pageable = paginate(articles, { pageSize: 10 });
+  console.log(pageable);
+  return pageable;
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props;
+
+const card_info = page.data.map((article) => ({
+  ...article.data,
+  slug: article.slug,
+}));
+---
+
+<BaseLayout>
+  <PostList cards={card_info}>
+    <PostListHeader>Blog</PostListHeader>
+  </PostList>
+  <div class="py-8 grid justify-center">
+    <Pagination
+      count={page.lastPage}
+      currentPage={page.currentPage}
+      moveTo={new URL("/articles", Astro.url)}
+    />
+  </div>
+</BaseLayout>
