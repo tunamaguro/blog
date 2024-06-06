@@ -16,7 +16,6 @@ import rehypeKatex from "rehype-katex";
 // rehype
 import { rehypeExcerptContent } from "./src/plugins/rehypeExcerptPlugin";
 import { rehypeReadingTime } from "./src/plugins/rehypeReadingTime";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { fromHtmlIsomorphic } from "hast-util-from-html-isomorphic";
@@ -35,7 +34,6 @@ export default defineConfig({
       rehypeKatex,
       rehypeExcerptContent,
       rehypeReadingTime,
-      rehypeAccessibleEmojis,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
