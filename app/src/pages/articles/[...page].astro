@@ -12,7 +12,6 @@ import type {
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = await getArticles();
   const pageable = paginate(articles, { pageSize: 10 });
-  console.log(pageable);
   return pageable;
 }) satisfies GetStaticPaths;
 

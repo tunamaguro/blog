@@ -1,5 +1,6 @@
 import "katex/dist/katex.min.css";
 import "./expressive_code.css";
+import "./anchor_link.css"
 
 import type { FC } from "react";
 import { Tag } from "@/components/Tag";
@@ -29,7 +30,7 @@ export const MdDetail: FC<MdDetailProps> = ({
   metas = [],
 }) => {
   return (
-    <>
+    <article>
       <div className="flex flex-col items-center gap-4 pb-4" data-pagefind-body>
         <figure style={{ viewTransitionName: iconTransitionName(slug) }}>
           <Twemoji
@@ -62,10 +63,10 @@ export const MdDetail: FC<MdDetailProps> = ({
         </ul>
       </div>
       <div className="bg-base-200 p-8 rounded-3xl">
-        <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto">
+        <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto prose-headings:flex prose-headings:items-center prose-headings:gap-x-2">
           {children}
         </div>
       </div>
-    </>
+    </article>
   );
 };
