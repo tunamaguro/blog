@@ -1,0 +1,18 @@
+---
+import { PostListHeader } from "@/components/PostList/Header";
+import { Tag } from "@/components/Tag";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getArticles } from "@/utils/getArticles";
+
+const articles = await getArticles();
+const allTags = Array.from(
+  new Set(articles.flatMap((article) => article.data.tags.map((tag) => tag)))
+);
+---
+
+<BaseLayout>
+  <PostListHeader> All tags </PostListHeader>
+  <ul class="py-4 flex flex-wrap gap-4">
+    {allTags.map((tag) => <Tag tag={tag}>{tag}</Tag>)}
+  </ul>
+</BaseLayout>
