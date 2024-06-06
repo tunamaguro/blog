@@ -1,7 +1,7 @@
 ---
 title: "このサイトについて"
 createdAt: "2022-12-26"
-updatedAt: "2023-05-15"
+updatedAt: "2024-06-06"
 emoji: "ℹ️"
 category: "blog"
 ---
@@ -26,7 +26,7 @@ category: "blog"
 
 ## サイト運営者について
 
-tunamaguro が運営しています。ただコードを書くのが趣味の一般人です。もし、ご連絡されたい場合は Twitter の DMもしくは、@tunamaguro@misskey.tunamaguro.devにお願いします。
+tunamaguro が運営しています。ただコードを書くのが趣味の一般人です。もし、お問い合わせ事項等ありましたらTwitterのDMもしくは、[Misskeyアカウント](https://misskey.tunamaguro.dev/@tunamaguro)にご連絡ください。
 
 ## Google Analytics の利用について
 
