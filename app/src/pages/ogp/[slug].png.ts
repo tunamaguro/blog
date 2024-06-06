@@ -15,7 +15,7 @@ export const getStaticPaths = async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-export const GET: APIRoute<Props> = (async ({ props, site }) => {
+export const GET: APIRoute<Props> = async ({ props, site }) => {
   const title = props.data.title;
   const png = await generateOgp(title);
   return new Response(png, {
@@ -24,4 +24,4 @@ export const GET: APIRoute<Props> = (async ({ props, site }) => {
       "Content-Type": "image/png",
     },
   });
-});
+};
