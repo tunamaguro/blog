@@ -29,7 +29,7 @@ export const MdDetail: FC<MdDetailProps> = ({
   metas = [],
 }) => {
   return (
-    <>
+    <article>
       <div className="flex flex-col items-center gap-4 pb-4" data-pagefind-body>
         <figure style={{ viewTransitionName: iconTransitionName(slug) }}>
           <Twemoji
@@ -66,6 +66,6 @@ export const MdDetail: FC<MdDetailProps> = ({
           {children}
         </div>
       </div>
-    </>
+    </article>
   );
 };
