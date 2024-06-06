@@ -24,7 +24,6 @@
     "reading-time": "^1.5.0",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
-    "remove-markdown": "^0.5.0",
     "satori": "^0.10.13",
     "sharp": "^0.33.4",
     "twemoji-parser": "^14.0.0"
@@ -39,12 +38,12 @@
     "@tailwindcss/typography": "^0.5.13",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
-    "@types/remove-markdown": "^0.3.4",
     "@types/twemoji-parser": "^13.1.4",
     "daisyui": "^4.12.2",
     "pagefind": "^1.1.0",
     "prettier": "^3.3.1",
     "prettier-plugin-astro": "^0.14.0",
+    "rehype-accessible-emojis": "^0.3.2",
     "sass": "^1.77.4",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
