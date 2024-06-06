@@ -19,7 +19,7 @@ export const PostCard: FC<PostCardProps> = ({
   slug,
 }) => {
   return (
-    <article className="card bg-base-200 hover:shadow-xl">
+    <article className="card bg-base-200  shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg">
       <figure
         className=" pt-4 mx-auto"
         style={{ viewTransitionName: iconTransitionName(slug) }}
