@@ -442,3 +442,5 @@ kube-vip3   Ready      control-plane   8m26s   v1.30.2
 
 Static Podを使わずにDaemonSetを使ったHAクラスタ構築ができました。個人的にkube-vipで気に入っているのはHAにするのにほかのアプリケーション(keepalivedやhaproxy)が不要な点です。
 すべてがkubernetes上で完結しているのでとてもシンプルだと思います。
+
+今回はARPモードでkube-vipを動かしましたが、BGPを使ったモードもあるようです。ちょうどBGPを扱えるルータがあるので、時間があるときにこちらも試してみたいと思います
