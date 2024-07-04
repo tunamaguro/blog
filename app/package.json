@@ -24,7 +24,7 @@
     "reading-time": "^1.5.0",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
-    "satori": "^0.10.13",
+    "satori": "^0.10.14",
     "sharp": "^0.33.4",
     "twemoji-parser": "^14.0.0"
   },
