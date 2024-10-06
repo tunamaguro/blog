@@ -8,8 +8,8 @@ type Props = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const openDialog = (dialog_id: string) => {
-  const dialogElement: HTMLDialogElement | undefined =
-    document.getElementById(dialog_id);
+  const dialogElement =
+    document.getElementById(dialog_id) as HTMLDialogElement | undefined;
   dialogElement?.showModal();
 };
 

@@ -33,7 +33,7 @@ export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
               <div className="divider m-0"></div>
               <ul className="menu px-1 text-lg gap-4">
                 {routes.map((route) => (
-                  <li>
+                  <li key={route.href}>
                     <a href={route.href}>{route.text}</a>
                   </li>
                 ))}
@@ -49,7 +49,7 @@ export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
       <nav className="invisible hidden md:visible md:block">
         <ul className="menu menu-horizontal px-1 text-lg">
           {routes.map((route) => (
-            <li>
+            <li key={route.href}>
               <a href={route.href}>{route.text}</a>
             </li>
           ))}

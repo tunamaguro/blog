@@ -22,7 +22,7 @@ export const Pagination = ({ count, currentPage, moveTo }: Props) => {
         const relatePath = (isFirstPage ? "" : page).toString();
         const href = new URL(`${moveTo.pathname}/${relatePath}`, moveTo);
         return (
-          <li>
+          <li key={href.toString()}>
             <a href={href.toString()}>
               <button
                 className={clsx(

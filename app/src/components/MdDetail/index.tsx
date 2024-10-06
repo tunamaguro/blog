@@ -1,6 +1,6 @@
 import "katex/dist/katex.min.css";
 import "./expressive_code.css";
-import "./anchor_link.css"
+import "./anchor_link.css";
 
 import type { FC } from "react";
 import { Tag } from "@/components/Tag";

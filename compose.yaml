@@ -1,9 +1,7 @@
-version: '3.7'
 services:
   blog:
     build: 
       context: .
       dockerfile: Dockerfile
-    container_name: gatsby
     volumes:
       - .:/workspace:cached

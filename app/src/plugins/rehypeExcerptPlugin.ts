@@ -10,7 +10,7 @@ export function rehypeExcerptContent(
 ):
   | void
   | import("unified").Transformer<import("hast").Root, import("hast").Root> {
-  return function (tree, { data }) {
+  return function (tree: any, { data }: any) {
     const truncatedTree = truncate(tree, { ellipsis: "…", ...options });
     const excerpt = toString(truncatedTree).replaceAll(/\s/g, " ");
     // @ts-ignore See https://docs.astro.build/en/guides/markdown-content/#modifying-frontmatter-programmatically

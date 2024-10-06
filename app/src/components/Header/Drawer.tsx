@@ -1,4 +1,3 @@
-import type { FunctionComponent, ReactNode } from "react";
 import { useContext, createContext } from "react";
 import { clsx } from "clsx";
 
