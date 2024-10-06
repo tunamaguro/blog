@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { GithubOutlineIcon } from "../Icons/GithubOutlineIcon";
-import { MisskeyIcon } from "../Icons/MisskeyIcon";
 import { RssIcon } from "../Icons/RssIcon";
 import { TwitterOutlineIcon } from "../Icons/TwitterOutlineIcon";
 
@@ -29,15 +28,8 @@ export const SocialIcons = ({ className, height = 24, width = 24 }: Props) => {
       </a>
       <a
         className={clsx("btn btn-ghost ", className)}
-        href="https://misskey.tunamaguro.dev/@tunamaguro"
-        aria-label="tunamaguroのMisskey"
-      >
-        <MisskeyIcon fill="currentColor" width={width} height={height} />
-      </a>
-      <a
-        className={clsx("btn btn-ghost ", className)}
         href="/rss.xml"
-        aria-label="tunamaguroのMisskey"
+        aria-label="RSS"
       >
         <RssIcon width={width} height={height} />
       </a>
