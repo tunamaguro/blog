@@ -1,7 +1,7 @@
 import type { APIContext } from "astro";
 import type { RSSFeedItem } from "@astrojs/rss";
 import rss from "@astrojs/rss";
-import { z } from "astro:content";
+import { z, render } from "astro:content";
 
 import { siteMeta } from "@/constants/siteMeta";
 import { getArticles } from "@/utils/getArticles";
@@ -15,14 +15,14 @@ export async function GET(context: APIContext) {
       excerpt: z.string(),
       minutesRead: z.string(),
     });
-    const { remarkPluginFrontmatter } = await article.render();
+    const { remarkPluginFrontmatter } = await render(article);
     const frontmatter = frontmatterSchema.parse(remarkPluginFrontmatter);
     const contentDescription = maybeDescription ?? frontmatter.excerpt;
     return {
       title: article.data.title,
       pubDate: new Date(article.data.updatedAt ?? article.data.createdAt),
       description: contentDescription,
-      link: `/articles/${article.slug}/`,
+      link: `/articles/${article.id}/`,
     };
   });
   const feeditems: RSSFeedItem[] = await Promise.all(feeditems_promise);
