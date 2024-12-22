@@ -65,6 +65,6 @@ const ogpImageUrl = new URL(`/ogp/${article.id}.png`, Astro.url);
     >
       <Content />
     </MdDetail>
-    <Giscus />
+    <Giscus client:visible />
   </div>
 </BaseLayout>
