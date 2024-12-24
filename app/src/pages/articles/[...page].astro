@@ -5,17 +5,17 @@ import { PostListHeader } from "@/components/PostList/Header";
 import { getArticles } from "@/utils/getArticles";
 import { Pagination } from "@/components/Pagination";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { PAGE_SIZE } from "@/constants/siteMeta";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = await getArticles();
-  const pageable = paginate(articles, { pageSize: 10 });
+  const pageable = paginate(articles, { pageSize: PAGE_SIZE });
   return pageable;
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props;
-
 
 const card_info = page.data.map((article) => ({
   ...article.data,
