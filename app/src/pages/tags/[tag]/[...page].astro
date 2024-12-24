@@ -18,7 +18,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       article.data.tags.some((article_tag) => article_tag.toLowerCase() === tag)
     );
     return paginate(filteredArticles, {
-      pageSize: 10,
+      pageSize: PAGE_SIZE,
       params: { tag: slugfy(tag) },
     });
   });
@@ -31,6 +31,7 @@ import { PostList } from "@/components/PostList";
 import { PostListHeader } from "@/components/PostList/Header";
 import { getArticles } from "@/utils/getArticles";
 import { Pagination } from "@/components/Pagination";
+import { PAGE_SIZE } from "@/constants/siteMeta";
 
 const { page } = Astro.props;
 const params = Astro.params;

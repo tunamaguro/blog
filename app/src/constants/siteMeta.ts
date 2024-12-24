@@ -3,3 +3,5 @@ export const siteMeta = {
   author: "tunamaguro",
   description: "tunamaguro's website",
 } as const;
+
+export const PAGE_SIZE = 20

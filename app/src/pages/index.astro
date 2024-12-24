@@ -9,7 +9,7 @@ import { Picture } from "astro:assets";
 
 const articles = await getArticles();
 
-const showNum = 6;
+const showNum = 10;
 const card_info = articles
   .map((article) => ({
     ...article.data,
