@@ -1,6 +1,7 @@
 ---
 title: "ActivityPubに入門してみた"
 createdAt: "2024-12-22"
+updatedAt: "2024-12-24"
 emoji: "🐧"
 category: tech
 tags:
@@ -13,6 +14,10 @@ tags:
 
 [以前Activity Pubの初歩の初歩として簡単なチュートリアル](/articles/try-activitypub-introduction)をやっていました。
 今回はその発展として、きちんとユーザのフォローなどをDBに記録するだけの簡単なサーバを書いたので、記録を残します。
+
+リポジトリは以下にあります
+
+https://github.com/tunamaguro/apub-lite
 
 ## 作ったモノの機能
 
