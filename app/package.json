@@ -37,7 +37,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/react": "^19.0.2",
+    "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
     "@types/twemoji-parser": "^13.1.4",
     "daisyui": "^4.12.23",
