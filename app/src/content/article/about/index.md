@@ -4,6 +4,7 @@ createdAt: "2022-12-26"
 updatedAt: "2024-06-06"
 emoji: "ℹ️"
 category: "blog"
+description: "当サイトの利用規約および免責事項です"
 ---
 
 ## 利用規約および免責事項

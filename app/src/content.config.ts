@@ -3,7 +3,7 @@ import { glob } from "astro/loaders";
 
 const categories = ["blog", "tech"] as const;
 
-const articleSchema = z
+export const articleSchema = z
   .object({
     draft: z.boolean().default(false),
     title: z.string(),

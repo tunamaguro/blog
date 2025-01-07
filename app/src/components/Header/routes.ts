@@ -13,7 +13,7 @@ export const routes: Route[] = [
     text: "Tags",
   },
   {
-    href: "/articles/about",
+    href: "/about",
     text: "利用規約",
   },
 ];
