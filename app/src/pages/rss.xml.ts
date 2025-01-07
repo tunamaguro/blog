@@ -22,7 +22,7 @@ export async function GET(context: APIContext) {
       title: article.data.title,
       pubDate: new Date(article.data.updatedAt ?? article.data.createdAt),
       description: contentDescription,
-      link: `/articles/${article.id}/`,
+      link: `/articles/${article.data.slug}/`,
     };
   });
   const feeditems: RSSFeedItem[] = await Promise.all(feeditems_promise);

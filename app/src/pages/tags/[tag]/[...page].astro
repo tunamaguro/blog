@@ -37,7 +37,7 @@ const params = Astro.params;
 
 const posts = page.data.map((article) => ({
   ...article.data,
-  slug: article.id,
+  slug: article.data.slug,
 }));
 ---
 
