@@ -1,6 +1,5 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { slugfy } from "@/utils/slugfy";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = await getArticles();
@@ -8,18 +7,18 @@ export const getStaticPaths = (async ({ paginate }) => {
   const allTags = Array.from(
     new Set(
       articles.flatMap((article) =>
-        article.data.tags.map((tag) => tag.toLowerCase())
+        article.data.tags.map((tag) => tag)
       )
     )
   );
 
   const pageable = allTags.flatMap((tag) => {
     const filteredArticles = articles.filter((article) =>
-      article.data.tags.some((article_tag) => article_tag.toLowerCase() === tag)
+      article.data.tags.some((article_tag) => article_tag == tag)
     );
     return paginate(filteredArticles, {
       pageSize: PAGE_SIZE,
-      params: { tag: slugfy(tag) },
+      params: { tag: tag },
     });
   });
 

@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { MdDetail } from "@/components/MdDetail";
+import Giscus from "@/components/Giscus/index.astro";
+import { articleSchema } from "src/content.config.ts";
+import * as post from "../content/article/about/index.md";
+
+const { title, createdAt, updatedAt, emoji, slug, description, tags } =
+  articleSchema.parse(post.frontmatter);
+
+const ogpImageUrl = new URL(`/ogp/${slug}.png`, Astro.url);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogpImage={ogpImageUrl.toString()}
+>
+  <div class="py-8">
+    <MdDetail
+      title={title}
+      emoji={emoji}
+      createdAt={createdAt}
+      updatedAt={updatedAt}
+      tags={tags}
+      slug={"about"}
+      metas={[]}
+    >
+      <post.Content />
+    </MdDetail>
+    <Giscus />
+  </div>
+</BaseLayout>

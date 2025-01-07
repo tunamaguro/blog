@@ -6,9 +6,8 @@ type Props = { article: CollectionEntry<"article"> };
 
 export const getStaticPaths = async () => {
   const articles = await getArticles();
-
   return articles.map((article) => ({
-    params: { slug: article.id },
+    params: { slug: article.data.slug },
     props: {
       article,
     },
@@ -32,6 +31,7 @@ const {
   updatedAt,
   emoji,
   tags,
+  slug,
   description: maybeDescription,
 } = article.data;
 
@@ -39,7 +39,7 @@ const { Content, remarkPluginFrontmatter } = await render(article);
 const frontmatter = frontmatterSchema.parse(remarkPluginFrontmatter);
 
 const contentDescription = maybeDescription ?? frontmatter.excerpt;
-const ogpImageUrl = new URL(`/ogp/${article.id}.png`, Astro.url);
+const ogpImageUrl = new URL(`/ogp/${slug}.png`, Astro.url);
 ---
 
 <BaseLayout
@@ -54,7 +54,7 @@ const ogpImageUrl = new URL(`/ogp/${article.id}.png`, Astro.url);
       createdAt={createdAt}
       updatedAt={updatedAt}
       tags={tags}
-      slug={article.id}
+      slug={slug}
       metas={[
         {
           key: "readingTime",

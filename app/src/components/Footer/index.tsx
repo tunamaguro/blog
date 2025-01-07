@@ -14,7 +14,7 @@ export const Footer: FunctionComponent<Props> = ({ author }) => (
       <a href="/articles" className="link link-hover">
         Blog
       </a>
-      <a href="/articles/about" className="link link-hover">
+      <a href="/about" className="link link-hover">
         利用規約
       </a>
     </div>
