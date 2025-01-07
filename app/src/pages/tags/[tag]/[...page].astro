@@ -16,7 +16,6 @@ export const getStaticPaths = (async ({ paginate }) => {
     const filteredArticles = articles.filter((article) =>
       article.data.tags.some((article_tag) => article_tag == tag)
     );
-    console.info(tag);
     return paginate(filteredArticles, {
       pageSize: PAGE_SIZE,
       params: { tag: tag },
