@@ -13,7 +13,7 @@ const showNum = 10;
 const card_info = articles
   .map((article) => ({
     ...article.data,
-    slug: article.id,
+    slug: article.data.slug,
   }))
   .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
   .slice(0, showNum);
