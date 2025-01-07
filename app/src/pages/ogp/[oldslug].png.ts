@@ -6,7 +6,7 @@ export const getStaticPaths = async () => {
   const articles = await getArticles();
 
   return articles.map((article) => ({
-    params: { slug: article.data.slug },
+    params: { oldslug: article.id },
     props: {
       data: article.data,
     },
