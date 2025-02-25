@@ -469,25 +469,71 @@ impl<'de> Deserialize<'de> for char {
 
 > https://github.com/serde-rs/serde/blob/v1.0.218/serde/src/de/impls.rs#L548-L586
 
-これはただの`char`なのでまったく嬉しさがわかりませんが、次の`tuple_struct`をデシリアライズする例を考えます。
-`CharVisitor`を組み合わせるだけで、新しい構造体も作ることができます
+これはただの`char`なのでまったく嬉しさがわかりませんが、次のような構造体をデシリアライズする例を考えます。
 
 ```rust
-struct S(char, char);
+struct Color{
+    r: u8,
+    g: u8,
+    b: u8
+}
+```
 
-impl <'de> Deserialize<'de> for S {
+この構造体はカラーコードのrgbを`u8`で持ちますが、`#32cd32`のような文字列からデシリアライズしたい場合、実装は次のようになるでしょう
+
+```rust
+struct ColorVisitor;
+
+impl<'de> serde::de::Visitor<'de> for ColorVisitor {
+    type Value = Color;
+
+    fn expecting(&self, formatter: &mut core::fmt::Formatter) -> core::fmt::Result {
+        formatter.write_str("expect color code")
+    }
+
+    fn visit_str<E>(self, v: &str) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        if v.len() != 7 {
+            return Err(Error::custom("expect str len == 7"));
+        }
+        if "#" != &v[..1] {
+            return Err(Error::custom("expect #"));
+        };
+
+        let r: u8 =
+            u8::from_str_radix(&v[1..3], 16).map_err(|_| Error::custom("cannot parse as u8"))?;
+        let g: u8 =
+            u8::from_str_radix(&v[3..5], 16).map_err(|_| Error::custom("cannot parse as u8"))?;
+        let b: u8 =
+            u8::from_str_radix(&v[5..7], 16).map_err(|_| Error::custom("cannot parse as u8"))?;
+
+        Ok(Color { r, g, b })
+    }
+
+    fn visit_borrowed_str<E>(self, v: &'de str) -> Result<Self::Value, E>
+    where
+        E: Error,
+    {
+        self.visit_str(v)
+    }
+}
+
+impl<'de> serde::Deserialize<'de> for Color {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
-        D: Deserializer<'de>,
+        D: serde::Deserializer<'de>,
     {
-        let ele1 = deserializer.deserialize_char(CharVisitor)?;
-        let ele2 = deserializer.deserialize_char(CharVisitor)?;
-        Ok(Self(ele1,ele2))
+        deserializer.deserialize_str(ColorVisitor)
     }
 }
 ```
 
-また`newtype_struct`も対応した`Visitor`があれば、それも流用して別の構造体にも使えることになります
+ここで重要なのは`serde::Deserialize`では`serde::Deserializer`の詳細を知らないにもかかわらず問題なく実装できている点です。
+これは`Visitor`によって`serde::Deserialize`が`Deserializer`から渡される値をどのように構築するかの知識が切り離されているため、このように書くことができます。
+
+他には`newtype_struct`も対応した`Visitor`があれば、それも流用して別の構造体にも使えることになります
 
 ```rust
 struct NewType(bool);
