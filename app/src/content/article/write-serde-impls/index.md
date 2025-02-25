@@ -1,6 +1,7 @@
 ---
 title: "serdeに入門した"
 createdAt: "2025-02-24"
+updatedAt: "2025-02-25"
 emoji: "🏜️"
 category: "tech"
 tags:
