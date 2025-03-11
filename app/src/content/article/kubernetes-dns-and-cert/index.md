@@ -10,7 +10,7 @@ tags:
 
 ## はじめに
 
-以前 kubespray を使ってお家 kubernetes を作成しました（[前回の記事](/articles/create-home-kubernates-with-kubespray)）。
+以前 kubespray を使ってお家 kubernetes を作成しました（[前回の記事](/articles/20230626-お家kubernetesをkubesprayで構築してみた)）。
 その後遊んでいたのですが、`kubectl port-forward`を使って通信している現状を変え、
 通常のサーバのように`hogohoge.your.domain`でアクセスできないかな~といろいろ試していた所、うまくいったのでその記録を残しておきたいと思います。
 

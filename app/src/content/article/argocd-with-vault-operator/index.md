@@ -9,7 +9,7 @@ tags:
 
 ## はじめに
 
-[Misskey インスタンスを立てたのですが](/articles/personal-misskey-server-on-home-kubernetes)ときどき kubernetes を破壊してしまうことがあり、そのたびに手動で`kubectl apply`や`helm install`などを実行して再インストールしていました。
+[Misskey インスタンスを立てたのですが](/articles/20231107-お家kubernetesにMisskeyを立てる)ときどき kubernetes を破壊してしまうことがあり、そのたびに手動で`kubectl apply`や`helm install`などを実行して再インストールしていました。
 これがかなり手間だったのですが最近[ArgoCD](https://argo-cd.readthedocs.io/en/stable/)の存在を知り、これを使うことで面倒を減らせると思いチュートリアルをやっていました。
 最終的な構成は、ArgoCD + Vault + Vault Secrets Operator です。
 

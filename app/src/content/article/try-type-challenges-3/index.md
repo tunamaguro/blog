@@ -11,7 +11,7 @@ Typescript の練習として type-challenges をやった備忘録です。
 
 [type-challenges のリポジトリ](https://github.com/type-challenges/type-challenges)
 
-[前回](/articles/try-type-challenges-2/)の続きをやっていきます。
+[前回](/articles/20230107-type-challenges%20をやってみる(medium編その1))の続きをやっていきます。
 
 ## Diff
 

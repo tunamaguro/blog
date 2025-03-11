@@ -9,7 +9,7 @@ tags:
 
 ## はじめに
 
-[前回の記事](/articles/argocd-with-vault-operator)で気になっていた Vault の`auto-unseal`と`auto-join`について、実際に試してみた記録です。今回試してみたリポジトリはこちら
+[前回の記事](/articles/20240107-ArgoCDとHashicorp%20Vaultに入門してみる)で気になっていた Vault の`auto-unseal`と`auto-join`について、実際に試してみた記録です。今回試してみたリポジトリはこちら
 
 https://github.com/tunamaguro/try-vault-heal-join
 
