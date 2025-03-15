@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const Footer: FunctionComponent<Props> = ({ author }) => (
-  <footer className="footer footer-center py-10 bg-neutral text-neutral-content text-base">
+  <footer className="flex flex-col items-center gap-y-10 py-10 bg-neutral text-neutral-content text-base">
     <div className="grid grid-flow-col gap-4">
       <a href="/" className="link link-hover">
         Home
