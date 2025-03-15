@@ -1,3 +1,11 @@
-.anchor_link {
-  @apply opacity-0 hover:opacity-100 duration-75;
+h2,
+h3,
+h4,
+h5 {
+  .anchor_link {
+    @apply opacity-0 duration-75;
+  }
+  &:hover .anchor_link {
+    @apply opacity-100;
+  }
 }
