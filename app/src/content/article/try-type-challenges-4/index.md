@@ -11,7 +11,7 @@ Typescript の練習として type-challenges をやった備忘録です。
 
 [type-challenges のリポジトリ](https://github.com/type-challenges/type-challenges)
 
-[前回](/articles/try-type-challenges-3/)の続きをやっていきます。
+[前回](/articles/20230112-type-challenges%20をやってみる(medium編その3))の続きをやっていきます。
 
 ## MinusOne
 

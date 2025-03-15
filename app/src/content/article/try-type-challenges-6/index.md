@@ -11,7 +11,7 @@ Typescript の練習として type-challenges をやった備忘録です。
 
 [type-challenges のリポジトリ](https://github.com/type-challenges/type-challenges)
 
-[前回](/articles/try-type-challenges-5/)に引き続いてやっていきます。
+[前回](/articles/20230116-type-challenges%20をやってみる(medium編その4))に引き続いてやっていきます。
 残り 14 問、なんとかこれで解き終えて最終回にしたいです。
 
 ## LastIndexOf

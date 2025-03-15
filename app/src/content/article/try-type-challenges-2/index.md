@@ -11,7 +11,7 @@ Typescript の練習として type-challenges をやった備忘録です。
 
 [type-challenges のリポジトリ](https://github.com/type-challenges/type-challenges)
 
-[前回](/articles/try-type-challenges-1/)は easy を解きましたが、今回は medium をやっていきます。
+[前回](/articles/20230106-type-challenges%20をやってみる(easy編))は easy を解きましたが、今回は medium をやっていきます。
 
 ## Get Return Type
 
@@ -51,7 +51,7 @@ type MyOmit<T extends object, K extends keyof T> = {
 ```
 
 Omit は K のプロパティを T から取り除く型です。組み込み型である Exclude を使えば、容易に書くことができます。  
-ちなみに Exclude は与えられた U に割り当てられる型を T から取り除く型です。詳細については[前回](/articles/try-type-challenges-1/)を参照してください。
+ちなみに Exclude は与えられた U に割り当てられる型を T から取り除く型です。詳細については[前回](/articles/20230106-type-challenges%20をやってみる(easy編))を参照してください。
 
 ```typescript
 type Exclude<T, U> = T extends U ? never : T;

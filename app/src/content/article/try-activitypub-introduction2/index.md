@@ -12,7 +12,7 @@ tags:
 
 これは[Fediverse Advent Calendar 2024](https://adventar.org/calendars/10242)の22日目の記事です
 
-[以前Activity Pubの初歩の初歩として簡単なチュートリアル](/articles/try-activitypub-introduction)をやっていました。
+[以前Activity Pubの初歩の初歩として簡単なチュートリアル](/articles/20241006-ActivityPubの初歩の初歩をやってみた)をやっていました。
 今回はその発展として、きちんとユーザのフォローなどをDBに記録するだけの簡単なサーバを書いたので、記録を残します。
 
 リポジトリは以下にあります

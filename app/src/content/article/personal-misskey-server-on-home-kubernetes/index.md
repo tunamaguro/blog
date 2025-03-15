@@ -10,7 +10,7 @@ tags:
 
 ## はじめに
 
-せっかく[お家 kubernetes を作ったので](/articles/move-home-kubernetes-to-proxmox)実際に何かを動かしたいですよね。
+せっかく[お家 kubernetes を作ったので](/articles/20230708-お家KubernetesをProxmoxで作り直した)実際に何かを動かしたいですよね。
 そこで、n 番煎じな記事ですがおひとり様 Misskey を立てたので実際に行った内容について自分用のメモとして記録を残します。
 
 ## 成果物
@@ -34,7 +34,7 @@ node02     Ready    <none>          3d15h   v1.28.3
 node03     Ready    <none>          3d15h   v1.28.3
 ```
 
-詳細については[前回の記事](/articles/move-home-kubernetes-to-proxmox)を参照してください
+詳細については[前回の記事](/articles/20230708-お家KubernetesをProxmoxで作り直した)を参照してください
 
 ## 全体構成
 

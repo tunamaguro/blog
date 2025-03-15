@@ -25,7 +25,7 @@ postgresqlのレプリケーションを非同期から同期で行われるよ�
 
 ## 概要
 
-[ここで](/articles/personal-misskey-server-on-home-kubernetes)書いたような設定でMisskeyをしばらく運用していました。ある時MisskeyのDBでレプリケーションを有効にした後、次のようなエラーが起きるようになりました
+[ここで](/articles/20231107-お家kubernetesにMisskeyを立てる)書いたような設定でMisskeyをしばらく運用していました。ある時MisskeyのDBでレプリケーションを有効にした後、次のようなエラーが起きるようになりました
 
 ![アップロード失敗](src/assets/images/fix-misskey-drive-upload-fail/upload-fail.png)
 
