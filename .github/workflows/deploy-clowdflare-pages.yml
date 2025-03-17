@@ -1,5 +1,10 @@
 name: Deploy Clowdflare Pages
 on: [push]
+
+permissions: 
+  contents: read
+  deployments: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -8,12 +13,12 @@ jobs:
         working-directory: app
     if: github.actor == github.repository_owner
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
         with:
           version: 9
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
           node-version: 20
           cache: "pnpm"
@@ -26,25 +31,9 @@ jobs:
 
       - name: Deploy Cloudflare Pages
         id: cloudflare_pages_deploy
-        uses: cloudflare/pages-action@1
+        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ID }}
-          projectName: blog
-          directory: app/dist
+          command: pages deploy app/dist --project-name=blog
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Add publish URL as commit status
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const sha = context.payload.pull_request?.head.sha ?? context.sha;
-            await github.rest.repos.createCommitStatus({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              context: 'Cloudflare Pages',
-              description: 'Cloudflare Pages deployment',
-              state: 'success',
-              sha,
-              target_url: "${{ steps.cloudflare_pages_deploy.outputs.url }}",
-            });
