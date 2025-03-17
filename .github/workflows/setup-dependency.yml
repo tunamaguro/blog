@@ -1,5 +1,5 @@
 name: Setup Node.js Dependency
-on: 
+on:
   workflow_call:
     inputs:
       runs-on:
@@ -7,8 +7,11 @@ on:
         required: false
         type: string
 
+permissions:
+  contents: read
+
 jobs:
-  setup: 
+  setup:
     name: Setup Node.js
     runs-on: ${{ inputs.runs-on }}
     steps:
