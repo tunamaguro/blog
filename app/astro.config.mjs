@@ -26,6 +26,9 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 import expressiveCode from "astro-expressive-code";
 
+// https://vanilla-extract.style/documentation/integrations/astro/
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -65,4 +68,7 @@ export default defineConfig({
     robotsTxt(),
   ],
   site: "https://www.tunamaguro.dev/",
+  vite: {
+    plugins: [vanillaExtractPlugin()],
+  },
 });
