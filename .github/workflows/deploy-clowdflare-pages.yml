@@ -1,5 +1,10 @@
 name: Deploy Clowdflare Pages
 on: [push]
+
+permissions: 
+  contents: read
+  statuses: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
