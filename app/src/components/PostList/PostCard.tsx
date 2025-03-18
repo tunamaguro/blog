@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import { Twemoji } from "@/components/Twemoji";
 import { Tag } from "@/components/Tag";
-import { iconTransitionName, titleTransitionName } from "@/utils/slugfy";
 
 type PostCardProps = {
   title: string;
@@ -22,7 +21,6 @@ export const PostCard: FC<PostCardProps> = ({
     <article className="card bg-base-200  shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg">
       <figure
         className=" pt-4 mx-auto"
-        style={{ viewTransitionName: iconTransitionName(slug) }}
       >
         <Twemoji className="w-16 h-16 md:w-24 md:h-24" emoji={emoji || "😺"} />
       </figure>
@@ -36,7 +34,6 @@ export const PostCard: FC<PostCardProps> = ({
         </ul>
         <h2
           className="card-title"
-          style={{ viewTransitionName: titleTransitionName(slug) }}
         >
           {title}
         </h2>

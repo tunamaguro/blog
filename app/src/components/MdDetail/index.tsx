@@ -6,7 +6,6 @@ import type { FC } from "react";
 import { Tag } from "@/components/Tag";
 import { Twemoji } from "../Twemoji";
 import { ArticleInfo, type ArticleInfoProps } from "./ArticleInfo";
-import { iconTransitionName, titleTransitionName } from "@/utils/slugfy";
 
 type MdDetailProps = {
   title: string;
@@ -32,7 +31,7 @@ export const MdDetail: FC<MdDetailProps> = ({
   return (
     <article>
       <div className="flex flex-col items-center gap-4 pb-4" data-pagefind-body>
-        <figure style={{ viewTransitionName: iconTransitionName(slug) }}>
+        <figure>
           <Twemoji
             className="w-20 md:w-24"
             emoji={emoji || "ℹ️"}
@@ -41,7 +40,6 @@ export const MdDetail: FC<MdDetailProps> = ({
         </figure>
         <h1
           className="text-center break-words text-2xl md:text-3xl font-bold"
-          style={{ viewTransitionName: titleTransitionName(slug) }}
         >
           {title}
         </h1>
@@ -67,6 +65,6 @@ export const MdDetail: FC<MdDetailProps> = ({
           {children}
         </div>
       </div>
-    </article>
+    </article >
   );
 };
