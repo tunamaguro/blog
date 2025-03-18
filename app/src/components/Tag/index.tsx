@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
-import { slugfy } from "@/utils/slugfy";
+import { clsx } from "clsx";
+import { tag as tagClass } from "./style.css";
 
 type TagProps = { tag: string; children: ReactNode };
 
 export const Tag = ({ tag, children }: TagProps) => {
   return (
-    <li className="badge badge-outline hover:bg-primary hover:text-primary-content whitespace-nowrap">
-      <a href={`/tags/${slugfy(tag)}`}>{children}</a>
+    <li className={clsx(tagClass, "badge badge-outline whitespace-nowrap")}>
+      <a href={`/tags/${tag}`}>{children}</a>
     </li>
   );
 };

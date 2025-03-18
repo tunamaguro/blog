@@ -1,4 +1,8 @@
 ---
+import clsx from "clsx";
+
+import { darkTheme } from "@/styles/theme.css";
+import { sprinkles } from "@/styles/sprinkles.css";
 import Seo from "@/components/Seo/index.astro";
 import { siteMeta } from "@/constants/siteMeta";
 import { Header } from "@/components/Header";
@@ -20,12 +24,21 @@ const dialog_id = "search_dialog";
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang="ja" class={darkTheme}>
   <head>
     <Seo title={seoTitle} description={description} ogpImage={ogpImage} />
   </head>
   <body>
-    <div class="flex flex-col min-h-screen">
+    <div
+      class={clsx(
+        sprinkles({
+          backgroundColor: "neutral",
+          color: "baseContent",
+          borderColor: "baseContent",
+        }),
+        "flex flex-col min-h-screen"
+      )}
+    >
       <Header siteTitle={siteMeta.title}>
         <SearchButton
           client:visible
@@ -35,7 +48,10 @@ const dialog_id = "search_dialog";
         <SearchBar
           client:visible
           open_dialog_id={dialog_id}
-          className="p-4 bg-base-100 pr-16 hidden invisible md:flex md:visible flex-grow"
+          className={clsx(
+            sprinkles({ backgroundColor: "base200" }),
+            "p-4 pr-16 hidden invisible md:flex md:visible flex-grow"
+          )}
         />
         <SearchDialog dialog_id={dialog_id} className="">
           <PostSearch />

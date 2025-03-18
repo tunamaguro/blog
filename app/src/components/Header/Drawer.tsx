@@ -1,5 +1,6 @@
-import { useContext, createContext } from "react";
+import { useContext, createContext, type JSX } from "react";
 import { clsx } from "clsx";
+import { sprinkles } from "@/styles/sprinkles.css";
 
 const DrawerContext = createContext("drawer-context");
 
@@ -59,7 +60,14 @@ type ContentProps = JSX.IntrinsicElements["div"];
 
 Drawer.Content = ({ className, children, ...rest }: ContentProps) => {
   return (
-    <div className={clsx("min-h-full bg-base-200", className)} {...rest}>
+    <div
+      className={clsx(
+        sprinkles({ backgroundColor: "base300" }),
+        "min-h-full",
+        className,
+      )}
+      {...rest}
+    >
       {children}
     </div>
   );
