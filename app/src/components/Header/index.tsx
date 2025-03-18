@@ -1,5 +1,6 @@
 import type { FunctionComponent, ReactNode } from "react";
-
+import { clsx } from "clsx";
+import { sprinkles } from "@/styles/sprinkles.css";
 import { routes } from "./routes";
 import { MenuIcon } from "@/components/Icons/MenuIcon";
 import { Drawer } from "./Drawer";
@@ -10,7 +11,7 @@ type Props = {
 };
 
 export const Header: FunctionComponent<Props> = ({ siteTitle, children }) => (
-  <header className="bg-base-300">
+  <header className={sprinkles({ backgroundColor: "base300" })}>
     <div className="navbar mx-auto flex-row max-w-5xl justify-between gap-x-4">
       <Drawer drawerId="sideMenu" className="w-fit md:invisible md:hidden">
         <div className="flex-none">

@@ -1,7 +1,8 @@
 import type { FC } from "react";
 import { Twemoji } from "@/components/Twemoji";
 import { Tag } from "@/components/Tag";
-
+import { clsx } from "clsx";
+import { sprinkles } from "@/styles/sprinkles.css";
 type PostCardProps = {
   title: string;
   emoji?: string;
@@ -18,7 +19,7 @@ export const PostCard: FC<PostCardProps> = ({
   slug,
 }) => {
   return (
-    <article className="card bg-base-200  shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg">
+    <article className={clsx(sprinkles({ backgroundColor: "base200" }), "card shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg")}>
       <figure className=" pt-4 mx-auto">
         <Twemoji className="w-16 h-16 md:w-24 md:h-24" emoji={emoji || "😺"} />
       </figure>

@@ -1,12 +1,13 @@
 import type { FunctionComponent } from "react";
 import AstroDarkLogo from "@/assets/astro_dark.svg";
-
+import { clsx } from "clsx";
+import { sprinkles } from "@/styles/sprinkles.css";
 type Props = {
   author: string;
 };
 
 export const Footer: FunctionComponent<Props> = ({ author }) => (
-  <footer className="flex flex-col items-center gap-y-10 py-10 bg-neutral text-neutral-content text-base">
+  <footer className={clsx(sprinkles({ backgroundColor: "neutral", color: "neutralContent" }), "flex flex-col items-center gap-y-10 py-10 text-base")}>
     <div className="grid grid-flow-col gap-4">
       <a href="/" className="link link-hover">
         Home

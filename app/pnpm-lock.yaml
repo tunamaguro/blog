@@ -96,6 +96,9 @@ importers:
       '@types/twemoji-parser':
         specifier: ^13.1.4
         version: 13.1.4
+      '@vanilla-extract/sprinkles':
+        specifier: ^1.6.3
+        version: 1.6.3(@vanilla-extract/css@1.17.1)
       '@vanilla-extract/vite-plugin':
         specifier: ^5.0.1
         version: 5.0.1(jiti@2.4.2)(sass@1.85.1)(vite@6.2.1(jiti@2.4.2)(sass@1.85.1)(yaml@2.7.0))(yaml@2.7.0)
@@ -1085,6 +1088,11 @@ packages:
 
   '@vanilla-extract/private@1.0.6':
     resolution: {integrity: sha512-ytsG/JLweEjw7DBuZ/0JCN4WAQgM9erfSTdS1NQY778hFQSZ6cfCDEZZ0sgVm4k54uNz6ImKB33AYvSR//fjxw==}
+
+  '@vanilla-extract/sprinkles@1.6.3':
+    resolution: {integrity: sha512-oCHlQeYOBIJIA2yWy2GnY5wE2A7hGHDyJplJo4lb+KEIBcJWRnDJDg8ywDwQS5VfWJrBBO3drzYZPFpWQjAMiQ==}
+    peerDependencies:
+      '@vanilla-extract/css': ^1.0.0
 
   '@vanilla-extract/vite-plugin@5.0.1':
     resolution: {integrity: sha512-65IhqaNEAv/KjO1jJ52hSXiKUJqeFPlyY/hpRT71Y6bFoasHhzOcZKIQ/ze4fQovjjDL4US565rEiIn1I2qhFA==}
@@ -4163,6 +4171,10 @@ snapshots:
       - supports-color
 
   '@vanilla-extract/private@1.0.6': {}
+
+  '@vanilla-extract/sprinkles@1.6.3(@vanilla-extract/css@1.17.1)':
+    dependencies:
+      '@vanilla-extract/css': 1.17.1
 
   '@vanilla-extract/vite-plugin@5.0.1(jiti@2.4.2)(sass@1.85.1)(vite@6.2.1(jiti@2.4.2)(sass@1.85.1)(yaml@2.7.0))(yaml@2.7.0)':
     dependencies:

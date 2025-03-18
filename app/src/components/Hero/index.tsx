@@ -1,5 +1,6 @@
 import type { FunctionComponent, ReactNode } from "react";
-
+import { clsx } from "clsx";
+import { sprinkles } from "@/styles/sprinkles.css";
 import { SocialIcons } from "./SocialIcons";
 
 type Props = {
@@ -9,13 +10,13 @@ type Props = {
 
 export const Hero: FunctionComponent<Props> = ({ author, children }) => (
   <div className="container mx-auto">
-    <h1 className="text-2xl font-bold border-b-4 border-base-content py-4">
+    <h1 className={clsx(sprinkles({ borderColor: "baseContent" }), "text-2xl font-bold border-b-4 py-4")}>
       <span className="hidden md:inline">{author}のブログへ</span>
       <span>ようこそ👋</span>
     </h1>
     <div className="flex py-4 gap-8">
       <div className="avatar items-center">
-        <div className="w-28 md:w-40 rounded-full bg-base-200 rotate-45 p-2 md:p-4">
+        <div className={clsx(sprinkles({ backgroundColor: "base200" }), "w-28 md:w-40 rounded-full rotate-45 p-2 md:p-4")}>
           {children}
         </div>
       </div>
