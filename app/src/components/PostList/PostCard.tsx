@@ -19,7 +19,7 @@ export const PostCard: FC<PostCardProps> = ({
   slug,
 }) => {
   return (
-    <article className={clsx(sprinkles({ backgroundColor: "base200" }), "card shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg")}>
+    <article className={clsx(sprinkles({ backgroundColor: "base300" }), "card shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg")}>
       <figure className=" pt-4 mx-auto">
         <Twemoji className="w-16 h-16 md:w-24 md:h-24" emoji={emoji || "😺"} />
       </figure>

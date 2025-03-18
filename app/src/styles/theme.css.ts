@@ -22,7 +22,7 @@ export const colors = createThemeContract({
 
 export const darkTheme = createTheme(colors, {
     color: {
-        primary: "oklch(76.29% 0.0477 194.49)",
+        primary: "oklch(59.44% 0.0772 254.03)",
         primaryContent: "oklch(97.807% .029 256.847)"
     },
     surface: {

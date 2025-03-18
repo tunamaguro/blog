@@ -31,7 +31,7 @@ export const MdDetail: FC<MdDetailProps> = ({
 }) => {
   return (
     <article>
-      <div className="flex flex-col items-center gap-4 pb-4" data-pagefind-body>
+      <div className="flex flex-col items-center gap-4 py-8" data-pagefind-body>
         <figure>
           <Twemoji
             className="w-20 md:w-24"
@@ -59,7 +59,7 @@ export const MdDetail: FC<MdDetailProps> = ({
           ))}
         </ul>
       </div>
-      <div className={clsx(sprinkles({ backgroundColor: "base200" }), "p-8 rounded-3xl")}>
+      <div className={clsx(sprinkles({ backgroundColor: "base300" }), "p-8 rounded-3xl")}>
         <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto [&:not(th)]:prose-headings:flex [&:not(th)]:prose-headings:items-center [&:not(th)]:prose-headings:gap-x-2">
           {children}
         </div>
