@@ -29,7 +29,12 @@ export const SearchBar = ({ className, open_dialog_id, ...rest }: Props) => {
       {...rest}
     >
       <SearchIcon />
-      <div className={clsx(sprinkles({ color: "baseContent" }), "grid items-center justify-center focus:outline-none")}>
+      <div
+        className={clsx(
+          sprinkles({ color: "baseContent" }),
+          "grid items-center justify-center focus:outline-none",
+        )}
+      >
         <span>検索</span>
       </div>
     </button>

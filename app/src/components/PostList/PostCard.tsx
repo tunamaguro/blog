@@ -19,7 +19,12 @@ export const PostCard: FC<PostCardProps> = ({
   slug,
 }) => {
   return (
-    <article className={clsx(sprinkles({ backgroundColor: "base300" }), "card shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg")}>
+    <article
+      className={clsx(
+        sprinkles({ backgroundColor: "base300" }),
+        "card shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg",
+      )}
+    >
       <figure className=" pt-4 mx-auto">
         <Twemoji className="w-16 h-16 md:w-24 md:h-24" emoji={emoji || "😺"} />
       </figure>
@@ -31,7 +36,7 @@ export const PostCard: FC<PostCardProps> = ({
             </Tag>
           ))}
         </ul>
-        <a href={`/articles/${slug}`}      >
+        <a href={`/articles/${slug}`}>
           <h2 className="card-title">{title}</h2>
         </a>
         <div className="text-right">作成日 : {createdAt}</div>

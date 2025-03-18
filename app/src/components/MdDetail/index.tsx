@@ -59,7 +59,12 @@ export const MdDetail: FC<MdDetailProps> = ({
           ))}
         </ul>
       </div>
-      <div className={clsx(sprinkles({ backgroundColor: "base300" }), "p-8 rounded-3xl")}>
+      <div
+        className={clsx(
+          sprinkles({ backgroundColor: "base300" }),
+          "p-8 rounded-3xl",
+        )}
+      >
         <div className="prose max-w-none break-words prose-img:mx-auto prose-video:mx-auto [&:not(th)]:prose-headings:flex [&:not(th)]:prose-headings:items-center [&:not(th)]:prose-headings:gap-x-2">
           {children}
         </div>

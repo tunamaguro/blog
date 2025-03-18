@@ -60,7 +60,14 @@ type ContentProps = JSX.IntrinsicElements["div"];
 
 Drawer.Content = ({ className, children, ...rest }: ContentProps) => {
   return (
-    <div className={clsx(sprinkles({ backgroundColor: "base300" }), "min-h-full", className)} {...rest}>
+    <div
+      className={clsx(
+        sprinkles({ backgroundColor: "base300" }),
+        "min-h-full",
+        className,
+      )}
+      {...rest}
+    >
       {children}
     </div>
   );

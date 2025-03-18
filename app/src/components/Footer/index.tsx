@@ -7,7 +7,12 @@ type Props = {
 };
 
 export const Footer: FunctionComponent<Props> = ({ author }) => (
-  <footer className={clsx(sprinkles({ backgroundColor: "base200", color: "baseContent" }), "flex flex-col items-center gap-y-10 py-10 text-base")}>
+  <footer
+    className={clsx(
+      sprinkles({ backgroundColor: "base200", color: "baseContent" }),
+      "flex flex-col items-center gap-y-10 py-10 text-base",
+    )}
+  >
     <div className="grid grid-flow-col gap-4">
       <a href="/" className="link link-hover">
         Home

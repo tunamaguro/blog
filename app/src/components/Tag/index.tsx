@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { clsx } from "clsx";
-import { tag as tagClass } from "./style.css"
+import { tag as tagClass } from "./style.css";
 
 type TagProps = { tag: string; children: ReactNode };
 
