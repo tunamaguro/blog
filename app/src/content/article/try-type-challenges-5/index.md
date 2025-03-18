@@ -11,7 +11,7 @@ Typescript の練習として type-challenges をやった備忘録です。
 
 [type-challenges のリポジトリ](https://github.com/type-challenges/type-challenges)
 
-[前回](/articles/20230112-type-challenges%20をやってみる(medium編その3))に引き続いてやっていきます。
+[前回](</articles/20230112-type-challenges%20をやってみる(medium編その3)>)に引き続いてやっていきます。
 
 medium だけでもう 4 記事目ですが、終わるのは 6 か 7 記事目になりそうです(残り 29 問)。
 

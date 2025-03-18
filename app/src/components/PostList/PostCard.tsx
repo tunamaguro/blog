@@ -19,9 +19,7 @@ export const PostCard: FC<PostCardProps> = ({
 }) => {
   return (
     <article className="card bg-base-200  shadow-accent duration-150 hover:-translate-y-1 hover:drop-shadow-lg">
-      <figure
-        className=" pt-4 mx-auto"
-      >
+      <figure className=" pt-4 mx-auto">
         <Twemoji className="w-16 h-16 md:w-24 md:h-24" emoji={emoji || "😺"} />
       </figure>
       <div className="card-body">
@@ -32,11 +30,7 @@ export const PostCard: FC<PostCardProps> = ({
             </Tag>
           ))}
         </ul>
-        <h2
-          className="card-title"
-        >
-          {title}
-        </h2>
+        <h2 className="card-title">{title}</h2>
         <div className="text-right">作成日 : {createdAt}</div>
         <a
           href={`/articles/${slug}`}

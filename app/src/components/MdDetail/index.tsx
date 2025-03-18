@@ -38,9 +38,7 @@ export const MdDetail: FC<MdDetailProps> = ({
             data-pagefind-meta="image[src], image_alt[alt]"
           />
         </figure>
-        <h1
-          className="text-center break-words text-2xl md:text-3xl font-bold"
-        >
+        <h1 className="text-center break-words text-2xl md:text-3xl font-bold">
           {title}
         </h1>
         <ArticleInfo
@@ -65,6 +63,6 @@ export const MdDetail: FC<MdDetailProps> = ({
           {children}
         </div>
       </div>
-    </article >
+    </article>
   );
 };
