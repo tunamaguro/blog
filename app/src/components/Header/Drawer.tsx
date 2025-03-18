@@ -1,4 +1,4 @@
-import { useContext, createContext } from "react";
+import { useContext, createContext, type JSX } from "react";
 import { clsx } from "clsx";
 
 const DrawerContext = createContext("drawer-context");
