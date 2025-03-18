@@ -31,13 +31,15 @@ export const PostCard: FC<PostCardProps> = ({
             </Tag>
           ))}
         </ul>
-        <h2 className="card-title">{title}</h2>
+        <a href={`/articles/${slug}`}      >
+          <h2 className="card-title">{title}</h2>
+        </a>
         <div className="text-right">作成日 : {createdAt}</div>
         <a
           href={`/articles/${slug}`}
           className="absolute inset-0"
-          tabIndex={-1}
           aria-label="記事に移動"
+          tabIndex={-1}
         ></a>
       </div>
     </article>
