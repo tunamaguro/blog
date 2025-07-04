@@ -21,7 +21,7 @@
     "clsx": "^2.1.1",
     "hast-util-to-string": "^3.0.1",
     "hast-util-truncate": "^2.0.0",
-    "katex": "^0.16.21",
+    "katex": "^0.16.22",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "reading-time": "^1.5.0",
