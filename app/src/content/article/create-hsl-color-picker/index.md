@@ -37,7 +37,6 @@ tags:
 ## 使用技術
 
 - 画面描画
-
   - [React](https://react.dev/)
   - [Three.js](https://threejs.org/)
     - `React`を使いたかったのでラッパーである[react-three/fiber](https://github.com/pmndrs/react-three-fiber)を介して使用しています
