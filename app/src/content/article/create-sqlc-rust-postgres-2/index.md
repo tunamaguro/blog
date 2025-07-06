@@ -14,7 +14,6 @@ tags:
 
 https://github.com/tunamaguro/sqlc-gen-rust
 
-
 ## 特徴
 
 ### 4つのPostgresql系クレートに対応
