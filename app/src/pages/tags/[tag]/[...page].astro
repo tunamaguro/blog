@@ -1,15 +1,17 @@
 ---
 import type { GetStaticPaths } from "astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { PostList } from "@/components/PostList";
+import { PostListHeader } from "@/components/PostList/Header";
+import { getArticles, articleToPath } from "@/utils/getArticles";
+import { Pagination } from "@/components/Pagination";
+import { PAGE_SIZE } from "@/constants/siteMeta";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = await getArticles();
 
   const allTags = Array.from(
-    new Set(
-      articles.flatMap((article) =>
-        article.data.tags.map((tag) => tag)
-      )
-    )
+    new Set(articles.flatMap((article) => article.data.tags.map((tag) => tag)))
   );
 
   const pageable = allTags.flatMap((tag) => {
@@ -25,19 +27,12 @@ export const getStaticPaths = (async ({ paginate }) => {
   return pageable;
 }) satisfies GetStaticPaths;
 
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { PostList } from "@/components/PostList";
-import { PostListHeader } from "@/components/PostList/Header";
-import { getArticles } from "@/utils/getArticles";
-import { Pagination } from "@/components/Pagination";
-import { PAGE_SIZE } from "@/constants/siteMeta";
-
 const { page } = Astro.props;
 const params = Astro.params;
 
 const posts = page.data.map((article) => ({
   ...article.data,
-  slug: article.data.slug,
+  slug: articleToPath(article),
 }));
 ---
 

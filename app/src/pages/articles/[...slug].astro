@@ -1,13 +1,13 @@
 ---
 import { render, type CollectionEntry } from "astro:content";
-import { getArticles } from "@/utils/getArticles";
+import { getArticles, articleToPath } from "@/utils/getArticles";
 
 type Props = { article: CollectionEntry<"article"> };
 
 export const getStaticPaths = async () => {
   const articles = await getArticles();
   return articles.map((article) => ({
-    params: { slug: article.data.slug },
+    params: { slug: articleToPath(article) },
     props: {
       article,
     },
@@ -24,6 +24,7 @@ const frontmatterSchema = z.object({
   minutesRead: z.string(),
 });
 
+const { slug } = Astro.params;
 const { article } = Astro.props;
 const {
   title,
@@ -31,7 +32,6 @@ const {
   updatedAt,
   emoji,
   tags,
-  slug,
   description: maybeDescription,
 } = article.data;
 

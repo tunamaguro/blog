@@ -1,0 +1,23 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { getArticles,articleToPath } from "@/utils/getArticles";
+
+type Props = { article: CollectionEntry<"article"> };
+
+export const getStaticPaths = async () => {
+  const articles = await getArticles();
+
+  return articles.map((article) => ({
+    params: { oldslug2: article.data.slug },
+    props: {
+      article,
+    },
+  }));
+};
+
+const { article } = Astro.props;
+const slug = articleToPath(article);
+
+// `getStaticPaths`は自動でURLエンコードするが、ここはしてくれないので手動でやる
+return Astro.redirect(`/articles/${slug}`);
+---
