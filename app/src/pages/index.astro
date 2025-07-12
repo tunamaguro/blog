@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Hero } from "@/components/Hero";
 import { PostList } from "@/components/PostList";
 import { PostListHeader } from "@/components/PostList/Header";
-import { getArticles } from "@/utils/getArticles";
+import { getArticles, articleToPath } from "@/utils/getArticles";
 import MaguroImage from "@/assets/maguro.png";
 import { Picture } from "astro:assets";
 
@@ -13,14 +13,14 @@ const showNum = 10;
 const card_info = articles
   .map((article) => ({
     ...article.data,
-    slug: article.data.slug,
+    slug: articleToPath(article),
   }))
   .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
   .slice(0, showNum);
 ---
 
 <BaseLayout>
-  <Hero author="tunamaguro" >
+  <Hero author="tunamaguro">
     <Picture
       src={MaguroImage}
       formats={["avif", "webp"]}
