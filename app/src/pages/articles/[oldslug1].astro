@@ -1,14 +1,17 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { getArticles,articleToPath } from "@/utils/getArticles";
+import { getArticles, articleToPath } from "@/utils/getArticles";
 
 type Props = { article: CollectionEntry<"article"> };
 
 export const getStaticPaths = async () => {
   const articles = await getArticles();
+  const lastComponent = (s: string) => {
+    return s.split("/").at(-1);
+  };
 
   return articles.map((article) => ({
-    params: { oldslug: article.data.slug },
+    params: { oldslug1: lastComponent(article.id) },
     props: {
       article,
     },
