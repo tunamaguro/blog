@@ -7,7 +7,6 @@ export const getArticles = () => {
   );
 };
 
-
 const lastComponent = (s: string) => {
   return s.split("/").at(-1);
 };
@@ -20,4 +19,4 @@ export const articleToPath = (article: CollectionEntry<"article">): string => {
   const parts = lastComponent(article.id);
 
   return `${y}/${m}/${parts}`;
-}
+};
