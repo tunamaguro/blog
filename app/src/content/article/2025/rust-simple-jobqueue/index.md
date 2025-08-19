@@ -3,6 +3,10 @@ title: "Rustでジョブキューを実装した"
 createdAt: "2025-08-15"
 emoji: "🧵"
 category: tech
+tags:
+- Rust
+- SQLx
+- Postgres
 ---
 
 ## はじめに
