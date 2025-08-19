@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+    themes: dark --default;
+}
+
+@theme {
+  --font-sans: "Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,Arial,sans-serif;
+}
+
+@utility grid-cols-auto-fill-80 {
+  grid-template-columns: repeat(auto-fill, minmax(calc(var(--spacing) * 80), 1fr));
+}
