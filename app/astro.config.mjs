@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 import react from "@astrojs/react";
@@ -62,13 +62,12 @@ export default defineConfig({
       themes: ["one-dark-pro"],
     }),
     mdx(),
-    tailwind(),
     react(),
     sitemap(),
     robotsTxt(),
   ],
   site: "https://www.tunamaguro.dev/",
   vite: {
-    plugins: [vanillaExtractPlugin()],
+    plugins: [tailwindcss(), vanillaExtractPlugin()],
   },
 });

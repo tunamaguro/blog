@@ -1,3 +1,5 @@
+@reference "../../styles/global.css";
+
 .expressive-code {
   @apply py-2;
 }

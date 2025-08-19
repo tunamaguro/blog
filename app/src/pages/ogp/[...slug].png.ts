@@ -18,7 +18,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 export const GET: APIRoute<Props> = async ({ props }) => {
   const title = props.data.title;
   const png = await generateOgp(title);
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     status: 200,
     headers: {
       "Content-Type": "image/png",
