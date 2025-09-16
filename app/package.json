@@ -28,7 +28,7 @@
     "reading-time": "^1.5.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
-    "satori": "^0.18.2",
+    "satori": "^0.18.3",
     "sharp": "^0.34.3",
     "twemoji-parser": "^14.0.0"
   },
@@ -45,7 +45,7 @@
     "@types/twemoji-parser": "^13.1.4",
     "@vanilla-extract/sprinkles": "^1.6.5",
     "@vanilla-extract/vite-plugin": "^5.1.1",
-    "daisyui": "^5.1.10",
+    "daisyui": "^5.1.12",
     "hast-util-from-html-isomorphic": "^2.0.0",
     "pagefind": "^1.4.0",
     "prettier": "^3.6.2",
