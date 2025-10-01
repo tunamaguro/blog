@@ -18,7 +18,7 @@ jobs:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
       - name: Enable auto-merge for Dependabot PRs
         if: |
-          steps.metadata.outputs.package-ecosystem == 'npm-and-yarn' &&
+          steps.metadata.outputs.package-ecosystem == 'npm_and_yarn' &&
           steps.metadata.outputs.dependency-group == 'minor-and-patch'
         run: |
           gh pr edit "$PR_URL" -t "(auto merged) $PR_TITLE"
