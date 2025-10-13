@@ -39,8 +39,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       katex:
-        specifier: ^0.16.23
-        version: 0.16.23
+        specifier: ^0.16.25
+        version: 0.16.25
       react:
         specifier: ^19.2.0
         version: 19.2.0
@@ -74,7 +74,7 @@ importers:
         version: 2.1.4
       '@astrojs/react':
         specifier: ^4.4.0
-        version: 4.4.0(@types/node@24.7.1)(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(lightningcss@1.30.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.2)(yaml@2.8.1)
+        version: 4.4.0(@types/node@24.7.1)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(lightningcss@1.30.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.2)(yaml@2.8.1)
       '@astrojs/rss':
         specifier: ^4.0.12
         version: 4.0.12
@@ -91,8 +91,8 @@ importers:
         specifier: ^19.2.2
         version: 19.2.2
       '@types/react-dom':
-        specifier: ^19.2.1
-        version: 19.2.1(@types/react@19.2.2)
+        specifier: ^19.2.2
+        version: 19.2.2(@types/react@19.2.2)
       '@types/twemoji-parser':
         specifier: ^13.1.4
         version: 13.1.4
@@ -103,8 +103,8 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass@1.93.2)(vite@7.1.9(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass@1.93.2)(yaml@2.8.1))(yaml@2.8.1)
       daisyui:
-        specifier: ^5.1.31
-        version: 5.1.31
+        specifier: ^5.2.3
+        version: 5.2.3
       hast-util-from-html-isomorphic:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1096,8 +1096,8 @@ packages:
   '@types/node@24.7.1':
     resolution: {integrity: sha512-CmyhGZanP88uuC5GpWU9q+fI61j2SkhO3UGMUdfYRE6Bcy0ccyzn1Rqj9YAB/ZY4kOXmNf0ocah5GtphmLMP6Q==}
 
-  '@types/react-dom@19.2.1':
-    resolution: {integrity: sha512-/EEvYBdT3BflCWvTMO7YkYBHVE9Ci6XdqZciZANQgKpaiDRGOLIlRo91jbTNRQjgPFWVaRxcYc0luVNFitz57A==}
+  '@types/react-dom@19.2.2':
+    resolution: {integrity: sha512-9KQPoO6mZCi7jcIStSnlOWn2nEF3mNmyr3rIAsGnAbQKYbRLyqmeSc39EVgtxXVia+LMT8j3knZLAZAh+xLmrw==}
     peerDependencies:
       '@types/react': ^19.2.0
 
@@ -1418,8 +1418,8 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
-  daisyui@5.1.31:
-    resolution: {integrity: sha512-p1zRMQ/eEfx1gpExFlyI62NksJ+UxyNC3kH4gYSK0JuL3qFXeo9R5lgkrIvos0V4ukaN+vMKMxGz7Gy6xg1hNg==}
+  daisyui@5.2.3:
+    resolution: {integrity: sha512-sldBQUIFCsSPoF4LvoHhIi9GnvBX/3aZD9NoTOvpTSX8sDjO484wQx7yEvRyREMpn4rZMvQSKKskHAHdM8+B4Q==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -1827,8 +1827,8 @@ packages:
   jsonc-parser@3.3.1:
     resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
 
-  katex@0.16.23:
-    resolution: {integrity: sha512-7VlC1hsEEolL9xNO05v9VjrvWZePkCVBJqj8ruICxYjZfHaHbaU53AlP+PODyFIXEnaEIEWi3wJy7FPZ95JAVg==}
+  katex@0.16.25:
+    resolution: {integrity: sha512-woHRUZ/iF23GBP1dkDQMh1QBad9dmr8/PAwNA54VrSOVYgI12MAcE14TqnDdQOdzyEonGzMepYnqBMYdsoAr8Q==}
     hasBin: true
 
   kleur@3.0.3:
@@ -3133,10 +3133,10 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/react@4.4.0(@types/node@24.7.1)(@types/react-dom@19.2.1(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(lightningcss@1.30.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.2)(yaml@2.8.1)':
+  '@astrojs/react@4.4.0(@types/node@24.7.1)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(lightningcss@1.30.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.2)(yaml@2.8.1)':
     dependencies:
       '@types/react': 19.2.2
-      '@types/react-dom': 19.2.1(@types/react@19.2.2)
+      '@types/react-dom': 19.2.2(@types/react@19.2.2)
       '@vitejs/plugin-react': 4.7.0(vite@6.3.6(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass@1.93.2)(yaml@2.8.1))
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -3984,7 +3984,7 @@ snapshots:
     dependencies:
       undici-types: 7.14.0
 
-  '@types/react-dom@19.2.1(@types/react@19.2.2)':
+  '@types/react-dom@19.2.2(@types/react@19.2.2)':
     dependencies:
       '@types/react': 19.2.2
 
@@ -4441,7 +4441,7 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  daisyui@5.1.31: {}
+  daisyui@5.2.3: {}
 
   debug@4.4.3:
     dependencies:
@@ -4943,7 +4943,7 @@ snapshots:
 
   jsonc-parser@3.3.1: {}
 
-  katex@0.16.23:
+  katex@0.16.25:
     dependencies:
       commander: 8.3.0
 
@@ -5299,7 +5299,7 @@ snapshots:
     dependencies:
       '@types/katex': 0.16.7
       devlop: 1.1.0
-      katex: 0.16.23
+      katex: 0.16.25
       micromark-factory-space: 2.0.1
       micromark-util-character: 2.1.1
       micromark-util-symbol: 2.0.1
@@ -5755,7 +5755,7 @@ snapshots:
       '@types/katex': 0.16.7
       hast-util-from-html-isomorphic: 2.0.0
       hast-util-to-text: 4.0.2
-      katex: 0.16.23
+      katex: 0.16.25
       unist-util-visit-parents: 6.0.1
       vfile: 6.0.3
 
