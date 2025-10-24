@@ -45,7 +45,7 @@
     "@types/twemoji-parser": "^13.1.4",
     "@vanilla-extract/sprinkles": "^1.6.5",
     "@vanilla-extract/vite-plugin": "^5.1.1",
-    "daisyui": "^5.3.8",
+    "daisyui": "^5.3.9",
     "hast-util-from-html-isomorphic": "^2.0.0",
     "pagefind": "^1.4.0",
     "prettier": "^3.6.2",
