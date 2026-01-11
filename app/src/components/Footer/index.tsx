@@ -24,7 +24,7 @@ export const Footer: FunctionComponent<Props> = ({ author }) => (
         利用規約
       </a>
     </div>
-    <div>Copyright © 2024 {author}</div>
+    <div>Copyright © {new Date().getFullYear()} {author}</div>
     <div className="flex items-center">
       Build with
       <a
