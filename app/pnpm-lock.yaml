@@ -21,11 +21,11 @@ importers:
         specifier: ^1.20.1
         version: 1.20.1
       astro:
-        specifier: ^6.4.7
-        version: 6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)
+        specifier: ^6.4.8
+        version: 6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)
       astro-expressive-code:
         specifier: ^0.43.1
-        version: 0.43.1(astro@6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3))
+        version: 0.43.1(astro@6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3))
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -68,7 +68,7 @@ importers:
     devDependencies:
       '@astrojs/mdx':
         specifier: ^4.3.14
-        version: 4.3.14(astro@6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3))
+        version: 4.3.14(astro@6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3))
       '@astrojs/partytown':
         specifier: ^2.1.7
         version: 2.1.7
@@ -1865,8 +1865,8 @@ packages:
   astro-robots-txt@1.0.0:
     resolution: {integrity: sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==}
 
-  astro@6.4.7:
-    resolution: {integrity: sha512-5vsXx0H52u23Jpshs9tM81D03Tb3Oh2Vt2Zo0bpqjXN+njkAWjFyGjTfmWJLAcrCQd9Q+iWB1eqfhR1sZJEaUA==}
+  astro@6.4.8:
+    resolution: {integrity: sha512-KK5lX90uU9EeVaTjINyj3sy9/NFXVa59aowaqbWBDDKLXZh4rr7GwIaCFYVetE22MJtsCNFerQXn0vlCLmpP/Q==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3762,12 +3762,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.14(astro@6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3))':
+  '@astrojs/mdx@4.3.14(astro@6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.11
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)
+      astro: 6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -5276,9 +5276,9 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-expressive-code@0.43.1(astro@6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)):
+  astro-expressive-code@0.43.1(astro@6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)):
     dependencies:
-      astro: 6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)
+      astro: 6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3)
       rehype-expressive-code: 0.43.1
 
   astro-robots-txt@1.0.0:
@@ -5286,7 +5286,7 @@ snapshots:
       valid-filename: 4.0.0
       zod: 3.25.76
 
-  astro@6.4.7(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3):
+  astro@6.4.8(@types/node@25.5.0)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(sass@1.101.0)(yaml@2.8.3):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.10.0
