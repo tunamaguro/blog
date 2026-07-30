@@ -103,8 +103,8 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.102.0)(vite@8.1.5(@types/node@26.1.2)(esbuild@0.28.1)(jiti@2.7.0)(sass@1.102.0)(yaml@2.9.0))(yaml@2.9.0)
       daisyui:
-        specifier: ^5.7.7
-        version: 5.7.7
+        specifier: ^5.7.8
+        version: 5.7.8
       hast-util-from-html-isomorphic:
         specifier: ^2.0.0
         version: 2.0.0
@@ -2306,8 +2306,8 @@ packages:
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
-  daisyui@5.7.7:
-    resolution: {integrity: sha512-k3fza99NburOj18SGqMmvMOoIP4iSKkw4PbaE8gCxNOvwoNdEg4HlKgNJjsh+00RijMVKNgOTNqw42FfOT5Ukw==}
+  daisyui@5.7.8:
+    resolution: {integrity: sha512-/r3QoXteCOSlbvUM7bfOTIkc3rq6WskDRKgdTIF7M3ufdnY8gXsAo/CfRUNM2La21Kpnr34PGyU3uDFJ6sGJog==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -6036,7 +6036,7 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  daisyui@5.7.7: {}
+  daisyui@5.7.8: {}
 
   debug@4.4.3:
     dependencies:
