@@ -39,8 +39,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       katex:
-        specifier: ^0.18.3
-        version: 0.18.3
+        specifier: ^0.18.4
+        version: 0.18.4
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -2742,8 +2742,8 @@ packages:
     resolution: {integrity: sha512-Eeo8Ys1doU1z+x8AZsPpQu+p/QcZBI5PeOo7QGQdy2x2m0MU/hYagBbGOmXwr5KVbEfVuWv9LpnQWeehogurjg==}
     hasBin: true
 
-  katex@0.18.3:
-    resolution: {integrity: sha512-6kbPr8KiYZpRfNNIw+8Td33njnFzK/ELcw6bI9FzIHysYPatAUdepQimfCX1vG2VCD/5Lv+Gu6P5YA58k8HHmw==}
+  katex@0.18.4:
+    resolution: {integrity: sha512-IMPntbRLOU+eu88XDiFKqQ8Akhr9Tv7jDMXqPhjG9SI1JMA4DIgXk4x9k4skJz2NZJXBRbC+2pYBLj9olqcZow==}
     hasBin: true
 
   kleur@4.1.5:
@@ -6614,7 +6614,7 @@ snapshots:
     dependencies:
       commander: 8.3.0
 
-  katex@0.18.3:
+  katex@0.18.4:
     dependencies:
       commander: 8.3.0
 
